@@ -12,6 +12,7 @@
 		208F84D21FAA558E00FF2D98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 208F84D01FAA558E00FF2D98 /* Main.storyboard */; };
 		208F84D41FAA558E00FF2D98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 208F84D31FAA558E00FF2D98 /* Assets.xcassets */; };
 		208F84D71FAA558E00FF2D98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 208F84D51FAA558E00FF2D98 /* LaunchScreen.storyboard */; };
+		20BDBADF1FAA9FAE002C1D71 /* Services+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BDBADE1FAA9FAE002C1D71 /* Services+Extension.swift */; };
 		F3A43EBA213CD6F255631210 /* Pods_Plaid_framework_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E357CB0EE251A0D9F53758A3 /* Pods_Plaid_framework_test.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		208F84D31FAA558E00FF2D98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		208F84D61FAA558E00FF2D98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		208F84D81FAA558E00FF2D98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20BDBADE1FAA9FAE002C1D71 /* Services+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services+Extension.swift"; sourceTree = "<group>"; };
 		3B2430414056CEF7389CB347 /* Pods-Plaid framework test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plaid framework test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Plaid framework test/Pods-Plaid framework test.debug.xcconfig"; sourceTree = "<group>"; };
 		B3E06D1B35AC3500EE40E336 /* Pods-Plaid framework test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Plaid framework test.release.xcconfig"; path = "Pods/Target Support Files/Pods-Plaid framework test/Pods-Plaid framework test.release.xcconfig"; sourceTree = "<group>"; };
 		E357CB0EE251A0D9F53758A3 /* Pods_Plaid_framework_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Plaid_framework_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +69,7 @@
 				208F84D31FAA558E00FF2D98 /* Assets.xcassets */,
 				208F84D51FAA558E00FF2D98 /* LaunchScreen.storyboard */,
 				208F84D81FAA558E00FF2D98 /* Info.plist */,
+				20BDBADE1FAA9FAE002C1D71 /* Services+Extension.swift */,
 			);
 			path = "Plaid framework test";
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				208F84CF1FAA558E00FF2D98 /* ViewController.swift in Sources */,
+				20BDBADF1FAA9FAE002C1D71 /* Services+Extension.swift in Sources */,
 				208F84CD1FAA558E00FF2D98 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

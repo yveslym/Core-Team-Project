@@ -14,8 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    /// function to configure the plaid api Kit when program launch
-    /// to minimize the api loading time
+    /// function to configure the plaid api linkKit when program launch
+    /// to minimize the api loading time, on running time
     /// the configuration manual parameter
     func configurePlaidLinkKit(){
         let linkConfiguration = PLKConfiguration(key: "a26bacd40a288d215735a0cfcb1508", env: .sandbox, product: .auth)
