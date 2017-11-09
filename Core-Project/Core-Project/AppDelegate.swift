@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Plaid framework test
+//  Core-Project
 //
-//  Created by Yveslym on 11/1/17.
+//  Created by Yveslym on 11/8/17.
 //  Copyright © 2017 Yveslym. All rights reserved.
 //
 
@@ -13,6 +13,7 @@ import LinkKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
     
     /// function to configure the plaid api linkKit when program launch
     /// to reduce the api loading time, on running time
@@ -34,9 +35,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
         self.configurePlaidLinkKit()
+        
         return true
     }
 

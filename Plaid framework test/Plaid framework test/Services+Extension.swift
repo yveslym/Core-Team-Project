@@ -10,19 +10,29 @@ import Foundation
 import LinkKit
 
 
-extension ViewController : PLKPlaidLinkViewDelegate{
+extension LoginViewController : PLKPlaidLinkViewDelegate{
     
-    // Helper method to present an alert view when login success
+    
+    
+    
     func handleSuccessWithToken(publicToken: String, metadata: [String : AnyObject]?) {
-        //presentAlertViewWithTitle("Success", message: "token: \(publicToken)\nmetadata: \(metadata)") (swift 2 method)
         
         let alert = UIAlertController(title: "Success", message: "token: \(publicToken)\nmetadata: \(metadata!)", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: metadata!, options: .sortedKeys)
+            let model = try JSONDecoder().decode(Model.self, from: jsonData)
+            print(model.status)
+        }
+        catch{}
+        
+//        let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "home")
+//        self.present(homeVC, animated: true, completion: nil)
     }
     // Helper method to present an alert view when faillure to login, with apropiete message
     func handleError(error: NSError, metadata: [String : AnyObject]?) {
-        //presentAlertViewWithTitle("Failure", message: "error: \(error.localizedDescription)\nmetadata: \(metadata)")  (swift 2 method)
         
         let alert = UIAlertController(title: "Failure", message:  "error: \(error.localizedDescription)\nmetadata: \(metadata!)", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
@@ -31,7 +41,6 @@ extension ViewController : PLKPlaidLinkViewDelegate{
     
      // Helper method to present an alert view when exiting
     func handleExitWithMetadata(metadata: [String : AnyObject]?) {
-        //presentAlertViewWithTitle("Exit", message: "metadata: \(metadata)") (swift 2 method)
         
         let alert = UIAlertController(title: "Exit", message:  "metadata: \(metadata!)", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
@@ -39,11 +48,13 @@ extension ViewController : PLKPlaidLinkViewDelegate{
     }
     
     
+    //==> Mark This function was modify by Yves to return the success status when login
     func linkViewController(_ linkViewController: PLKPlaidLinkViewController, didSucceedWithPublicToken publicToken: String, metadata: [String : Any]?) {
         dismiss(animated: true) {
             // Handle success, e.g. by storing publicToken with your service
             NSLog("Successfully linked account!\npublicToken: \(publicToken)\nmetadata: \(metadata ?? [:])")
             self.handleSuccessWithToken(publicToken: publicToken, metadata: metadata! as [String : AnyObject])
+           
         }
     }
     
@@ -63,3 +74,32 @@ extension ViewController : PLKPlaidLinkViewDelegate{
     
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 1 -1 :single call
+//       Single house - single adress
+//       monogamy
+//       username - password
+
+// 1 - many     restaurant- menu
+//              fruit and tree
+
+// many - many: student - teacher
+//              friendship
+
+
+
