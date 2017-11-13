@@ -30,8 +30,8 @@ class LoginViewController: UIViewController {
     }
     func presentPlaidLink(){
         
-//        let linkConfiguration = PLKConfiguration(key: "a26bacd40a288d215735a0cfcb1508", env: .development, product: .identity)
-        let conf = PLKConfiguration(key: "a26bacd40a288d215735a0cfcb1508", env: .sandbox, product: .auth, selectAccount: true, longtailAuth: false, apiVersion: .PLKAPILatest)
+        let conf = PLKConfiguration(key: "a26bacd40a288d215735a0cfcb1508", env: .development, product: .auth, selectAccount: true, longtailAuth: false, apiVersion: .PLKAPILatest)
+        
         
         //linkConfiguration.clientName = "Link Demo"
         conf.clientName = "Yveslym App Bitch"

@@ -13,6 +13,7 @@ enum Route{
     case identity
     case income
     case balance
+    case exchangeToken
 
     /// function to return the path of data we want to fetch
     func accessPoint() -> String{
@@ -27,6 +28,8 @@ enum Route{
             return ("/income/get")
         case .balance:
             return ("/balance/get")
+        case .exchangeToken:
+            return ("/item/public_token/exchange")
         }
     }
     
@@ -40,7 +43,7 @@ enum Route{
      
      The method return a json serialise data
  */
-    func jsonBody(bank: BankAccount? = nil ,client_id: String?, secret: String? = nil,access_token: String? = nil, startDate: Date? = nil, endDate: Date? = nil)-> Data?{
+    func jsonBody(bank: BankAccount? = nil ,client_id: String?, secret: String? = nil,access_token: String? = nil, startDate: Date? = nil, endDate: Date? = nil, public_token: String? = nil)-> Data?{
         
         switch (self) {
         
@@ -86,6 +89,11 @@ enum Route{
                                             "option":accountId]
             return try! JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
             
+        case .exchangeToken:
+            let body : [String: String] = ["client_id":client_id!,
+                                           "secret":secret!,
+                                           "public_token":public_token!]
+            return try! JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
         }
     }
     
