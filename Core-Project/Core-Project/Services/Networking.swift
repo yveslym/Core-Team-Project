@@ -1,4 +1,4 @@
-//
+  //
 //  Networking.swift
 //  Core-Project
 //
@@ -10,7 +10,7 @@ import Foundation
 
 class Networking{
     
-    static func network(bank: BankAccount? = nil, route: Route, apiHost: ApiHost,clientId: String,secret: String, date:[Date]? = nil, public_token: String? = nil,completion:@escaping(Data?)->Void){
+    static func network(bank: BankAccount? = nil, route: Route, apiHost: ApiHost,clientId: String,secret: String, date:[String]? = nil, public_token: String? = nil,completion:@escaping(Data?)->Void){
         
     // get the url by combing the base url and access point
         let baseURL = apiHost.baseLink()
@@ -24,7 +24,7 @@ class Networking{
         switch (route) {
         
         case .transactions:
-            request.httpBody = route.jsonBody(client_id: clientId, secret: secret, access_token: bank?.access_token, startDate: date?[0], endDate: date?[1])
+            request.httpBody = route.jsonBody(client_id: clientId, secret: secret, access_token: bank?.itemAccess?.access_token, startDate: date?[0], endDate: date?[1])
         case .auth:
             request.httpBody = route.jsonBody(client_id: clientId, secret: secret, access_token: bank?.access_token)
         case .identity:

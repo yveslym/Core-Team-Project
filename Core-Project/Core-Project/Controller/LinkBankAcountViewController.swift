@@ -8,10 +8,12 @@
 
 import UIKit
 import LinkKit
+import KeychainSwift
 
 
 /// view controller made only to call the plaid link Bank account UI
 class LinkBankAcountViewController: UIViewController, PLKPlaidLinkViewDelegate {
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +31,7 @@ class LinkBankAcountViewController: UIViewController, PLKPlaidLinkViewDelegate {
     /// function to set-up and present Plaid UI
     func presentPlaidLink(){
         
-        let linkConfiguration = PLKConfiguration(key: "a26bacd40a288d215735a0cfcb1508", env: .development, product: .connect, selectAccount: true, longtailAuth: false, apiVersion: .PLKAPILatest)
+        let linkConfiguration = PLKConfiguration(key: KeyChainData.publicKey(), env: .development, product:.connect, selectAccount: true, longtailAuth: false, apiVersion: .PLKAPILatest)
         
         
         linkConfiguration.clientName = "Core Project"
@@ -47,44 +49,41 @@ class LinkBankAcountViewController: UIViewController, PLKPlaidLinkViewDelegate {
 
 extension LinkBankAcountViewController{
     
-    
+
     func linkViewController(_ linkViewController: PLKPlaidLinkViewController, didSucceedWithPublicToken publicToken: String, metadata: [String : Any]?) {
         
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: metadata!, options: .sortedKeys)
             var bankAccount = try JSONDecoder().decode(BankAccount.self, from: jsonData)
-            bankAccount.access_token = publicToken
             
-            print(bankAccount)
-            
-            Networking.network(route: .exchangeToken, apiHost: .development, clientId: "59f67b2ebdc6a40e54b2fffc", secret: "adaaa3eaf89ada326158673d2595b2", public_token:publicToken, completion: { (data) in
-                let jsondata = try! JSONSerialization.jsonObject(with: data!) as? [String: Any]
-                print(jsondata)
+            Networking.network(route: .exchangeToken, apiHost: .development, clientId: KeyChainData.clientId(), secret: KeyChainData.secret(), public_token:publicToken, completion: { (data) in
                 
-                Networking.network(bank: bankAccount, route: .auth, apiHost: .sandbox, clientId: "59f67b2ebdc6a40e54b2fffc", secret: "adaaa3eaf89ada326158673d2595b2", completion: { (data) in
-                    do{
-                        let json = try! JSONSerialization.jsonObject(with: data!) as? [String: Any]
-                        print(json!)
-                        print("something")
-                    }catch{}
-                    
-                })
+                let itemAccess = try! JSONDecoder().decode(ItemAccess.self, from: data!)
+                bankAccount.itemAccess = itemAccess
+                print(bankAccount)
                 
-                DispatchQueue.main.sync {
-                    self.performSegue(withIdentifier: "home", sender: self)
+                
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyy-MM-dd"
+                let date = Date()
+                let yesterday = Calendar.current.date(byAdding: .day, value: -30, to: date)
+                
+                let day1 = formatter.string(from: date)
+                let day2 = formatter.string(from: yesterday!)
+                let days : [String]? = [day2,day1]
+                
+                DispatchQueue.global().sync {
+                    Networking.network(bank: bankAccount, route: .transactions, apiHost: .development, clientId: KeyChainData.clientId(), secret: KeyChainData.secret(), date: days, completion: { (date) in
+                        let jsondata = try! JSONSerialization.jsonObject(with: data!)
+                        print(jsondata)
+                    })
                 }
             })
         }
-        catch{}
-        
-        //        let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "home") as! HomeViewController
-        //        present(homeVC, animated: true, completion: nil)
-        //
-        
-    }
+catch{}
+}
     
     func linkViewController(_ linkViewController: PLKPlaidLinkViewController, didExitWithError error: Error?, metadata: [String : Any]?) {
-        
         
         let alert = UIAlertController(title: "Failure", message:  "error: \(error!.localizedDescription)\nmetadata: \(metadata!)", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))

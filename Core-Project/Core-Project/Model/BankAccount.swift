@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import KeychainSwift
 struct BankAccount: Codable{
     
     var link_session_id: String?
@@ -16,6 +17,8 @@ struct BankAccount: Codable{
     var institution_name: String?
     var access_token: String?
     var accounts: [Account]?
+    var itemAccess: ItemAccess? = nil
+    
     enum BankAccountKey: String, CodingKey{
         case institution, accounts, status, request_id, link_session_id
         enum instutionKey: String, CodingKey{
@@ -27,11 +30,6 @@ struct BankAccount: Codable{
             case name
         }
     }
-}
-
-struct Account: Codable{
-    var account_id: String?
-    var account_name: String?
 }
 
 extension BankAccount{
@@ -46,9 +44,33 @@ extension BankAccount{
        let instutitionContenair = try BankContenair.nestedContainer(keyedBy: BankAccountKey.instutionKey.self, forKey: .institution)
         self.institution_id = try instutitionContenair.decodeIfPresent(String.self, forKey: .institution_id)
         self.institution_name = try instutitionContenair.decodeIfPresent(String.self, forKey: .name)
-        
         self.accounts = try BankContenair.decodeIfPresent([Account].self, forKey: .accounts) ?? nil
     }
 }
+/// ItemAccess is a struct that contain the item_id, and access tokken
+/// which is neccessaire to retrieve data from Api
+struct ItemAccess: Codable {
+    var item_id: String?
+    var access_token: String?
+}
+
+/// struct that hold an account id and name
+/// a single instutition can have multiple accounts
+struct Account: Codable{
+    var id: String?
+    var name: String?
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
