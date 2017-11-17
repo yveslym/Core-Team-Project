@@ -68,14 +68,13 @@ extension LinkBankAcountViewController{
                 let date = Date()
                 let yesterday = Calendar.current.date(byAdding: .day, value: -30, to: date)
                 
-                let day1 = formatter.string(from: date)
-                let day2 = formatter.string(from: yesterday!)
-                let days : [String]? = [day2,day1]
+               
+                let days : [Date]? = [yesterday!,date]
                 
                 DispatchQueue.global().sync {
-                    Networking.network(bank: bankAccount, route: .transactions, apiHost: .development, clientId: KeyChainData.clientId(), secret: KeyChainData.secret(), date: days, completion: { (date) in
-                        let jsondata = try! JSONSerialization.jsonObject(with: data!)
-                        print(jsondata)
+                    Networking.network(bank: bankAccount, route: .transactions, apiHost: .development, clientId: KeyChainData.clientId(), secret: KeyChainData.secret(), date: days, completion: { (data) in
+                        let json = try! JSONSerialization.jsonObject(with: data!)
+                        print(json)
                     })
                 }
             })

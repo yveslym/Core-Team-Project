@@ -43,18 +43,24 @@ enum Route{
      
      The method return a json serialise data
  */
-    func jsonBody(bank: BankAccount? = nil ,client_id: String?, secret: String? = nil,access_token: String? = nil, startDate: String? = nil, endDate: String? = nil, public_token: String? = nil)-> Data?{
+    func jsonBody(bank: BankAccount? = nil ,client_id: String?, secret: String? = nil,access_token: String? = nil, startDate: Date? = nil, endDate: Date? = nil, public_token: String? = nil)-> Data?{
         
         switch (self) {
         
         case .transactions:
+            
+            // formated the date to the requiered format
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let start = formatter.string(from: startDate!)
+            let end = formatter.string(from: endDate!)
+            
             let option: [String: Int]? = ["count":250]
-//                                         "offset":100]
-            let body : [String: Any?] = ["client_id":client_id,
+            let body : [String: Any?] = [   "client_id":client_id,
                                             "secret":secret,
                                             "access_token":access_token,
-                                            "start_date": startDate,
-                                            "end_date":endDate,
+                                            "start_date": start,
+                                            "end_date":end,
                                             "options":option]
             
             return try! JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)

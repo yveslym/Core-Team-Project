@@ -10,7 +10,7 @@ import Foundation
 
 class Networking{
     
-    static func network(bank: BankAccount? = nil, route: Route, apiHost: ApiHost,clientId: String,secret: String, date:[String]? = nil, public_token: String? = nil,completion:@escaping(Data?)->Void){
+    static func network(bank: BankAccount? = nil, route: Route, apiHost: ApiHost,clientId: String,secret: String, date:[Date]? = nil, public_token: String? = nil,completion:@escaping(Data?)->Void){
         
     // get the url by combing the base url and access point
         let baseURL = apiHost.baseLink()
