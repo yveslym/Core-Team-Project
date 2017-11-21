@@ -58,6 +58,8 @@ extension LinkBankAcountViewController{
             
             Networking.network(route: .exchangeToken, apiHost: .development, clientId: KeyChainData.clientId(), secret: KeyChainData.secret(), public_token:publicToken, completion: { (data) in
                 
+                
+                
                 let itemAccess = try! JSONDecoder().decode(ItemAccess.self, from: data!)
                 bankAccount.itemAccess = itemAccess
                 print(bankAccount)
