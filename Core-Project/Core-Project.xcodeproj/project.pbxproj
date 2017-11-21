@@ -13,6 +13,7 @@
 		20BC432A1FB41C2700CBFFA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20BC43281FB41C2700CBFFA1 /* Main.storyboard */; };
 		20BC432C1FB41C2700CBFFA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20BC432B1FB41C2700CBFFA1 /* Assets.xcassets */; };
 		20BC432F1FB41C2700CBFFA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20BC432D1FB41C2700CBFFA1 /* LaunchScreen.storyboard */; };
+		20CF67FD1FC3CCF500F3EAF6 /* Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CF67FC1FC3CCF500F3EAF6 /* Transactions.swift */; };
 		20D3D5C11FB41D7000587569 /* LinkBankAcountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D3D5C01FB41D7000587569 /* LinkBankAcountViewController.swift */; };
 		20D3D5C31FB421BD00587569 /* BankAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D3D5C21FB421BD00587569 /* BankAccount.swift */; };
 		20D3D5C51FB43C4A00587569 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D3D5C41FB43C4A00587569 /* HomeViewController.swift */; };
@@ -32,6 +33,7 @@
 		20BC432B1FB41C2700CBFFA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20BC432E1FB41C2700CBFFA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		20BC43301FB41C2700CBFFA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20CF67FC1FC3CCF500F3EAF6 /* Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transactions.swift; sourceTree = "<group>"; };
 		20D3D5C01FB41D7000587569 /* LinkBankAcountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkBankAcountViewController.swift; sourceTree = "<group>"; };
 		20D3D5C21FB421BD00587569 /* BankAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccount.swift; sourceTree = "<group>"; };
 		20D3D5C41FB43C4A00587569 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				20D3D5C21FB421BD00587569 /* BankAccount.swift */,
 				200742331FBB9CC300D58935 /* BankOperation.swift */,
+				20CF67FC1FC3CCF500F3EAF6 /* Transactions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				200742341FBB9CC300D58935 /* BankOperation.swift in Sources */,
 				20D3D5CA1FB4542200587569 /* Networking.swift in Sources */,
 				207068E11FB988B300AA8F7B /* KeyChain.swift in Sources */,
+				20CF67FD1FC3CCF500F3EAF6 /* Transactions.swift in Sources */,
 				20BC43251FB41C2700CBFFA1 /* AppDelegate.swift in Sources */,
 				20D3D5C51FB43C4A00587569 /* HomeViewController.swift in Sources */,
 			);
