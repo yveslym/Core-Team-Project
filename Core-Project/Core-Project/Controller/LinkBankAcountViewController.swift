@@ -75,9 +75,7 @@ extension LinkBankAcountViewController{
                 
                 DispatchQueue.global().sync {
                     Networking.network(bank: bankAccount, route: .transactions, apiHost: .development, clientId: KeyChainData.clientId(), secret: KeyChainData.secret(), date: days, completion: { (data) in
-                        let json = try! JSONSerialization.jsonObject(with: data!)
-                        //print(json)
-                       
+                        
                         let myTransaction = try! JSONDecoder().decode(transactionOperation.self, from: data!)
                         print(myTransaction)
                     })

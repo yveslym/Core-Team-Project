@@ -54,7 +54,7 @@ struct ItemAccess: Codable {
     var access_token: String?
 }
 
-/// struct that hold an account id and name
+/// struct that hold account id and name
 /// a single instutition can have multiple accounts
 struct Account: Codable{
     var id: String?
