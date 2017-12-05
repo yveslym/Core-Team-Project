@@ -19,6 +19,8 @@
 		20D3D5C51FB43C4A00587569 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D3D5C41FB43C4A00587569 /* HomeViewController.swift */; };
 		20D3D5C81FB4421F00587569 /* Routing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D3D5C71FB4421F00587569 /* Routing.swift */; };
 		20D3D5CA1FB4542200587569 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D3D5C91FB4542200587569 /* Networking.swift */; };
+		8609BA5F1FD6224600627E21 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8609BA5E1FD6224600627E21 /* Identifiers.swift */; };
+		8609BA641FD6367B00627E21 /* DailyExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8609BA631FD6367B00627E21 /* DailyExpenseCell.swift */; };
 		97911A3C895ECD8DACF030BA /* Pods_Core_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DE28ECDB478C48F019A1911 /* Pods_Core_Project.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,8 @@
 		20D3D5C41FB43C4A00587569 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		20D3D5C71FB4421F00587569 /* Routing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routing.swift; sourceTree = "<group>"; };
 		20D3D5C91FB4542200587569 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		8609BA5E1FD6224600627E21 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
+		8609BA631FD6367B00627E21 /* DailyExpenseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyExpenseCell.swift; sourceTree = "<group>"; };
 		ED8215E598567A1835A6CF01 /* Pods-Core-Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core-Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Core-Project/Pods-Core-Project.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,25 +79,27 @@
 		20BC43231FB41C2700CBFFA1 /* Core-Project */ = {
 			isa = PBXGroup;
 			children = (
+				8609BA611FD6322200627E21 /* Helpers */,
 				20D3D5C61FB4420500587569 /* Services */,
 				20D3D5BF1FB41D0500587569 /* Model */,
-				20D3D5BE1FB41CF500587569 /* Controller */,
+				8609BA651FD6368200627E21 /* Views */,
+				20D3D5BE1FB41CF500587569 /* Controllers */,
 				20BC43241FB41C2700CBFFA1 /* AppDelegate.swift */,
 				20BC43281FB41C2700CBFFA1 /* Main.storyboard */,
 				20BC432B1FB41C2700CBFFA1 /* Assets.xcassets */,
 				20BC432D1FB41C2700CBFFA1 /* LaunchScreen.storyboard */,
-				20BC43301FB41C2700CBFFA1 /* Info.plist */,
+				8609BA621FD6354200627E21 /* Supporting Files */,
 			);
 			path = "Core-Project";
 			sourceTree = "<group>";
 		};
-		20D3D5BE1FB41CF500587569 /* Controller */ = {
+		20D3D5BE1FB41CF500587569 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				20D3D5C01FB41D7000587569 /* LinkBankAcountViewController.swift */,
 				20D3D5C41FB43C4A00587569 /* HomeViewController.swift */,
 			);
-			path = Controller;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		20D3D5BF1FB41D0500587569 /* Model */ = {
@@ -131,6 +137,30 @@
 				ED8215E598567A1835A6CF01 /* Pods-Core-Project.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8609BA611FD6322200627E21 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8609BA5E1FD6224600627E21 /* Identifiers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8609BA621FD6354200627E21 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				20BC43301FB41C2700CBFFA1 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8609BA651FD6368200627E21 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8609BA631FD6367B00627E21 /* DailyExpenseCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,8 +300,10 @@
 				200742341FBB9CC300D58935 /* BankOperation.swift in Sources */,
 				20D3D5CA1FB4542200587569 /* Networking.swift in Sources */,
 				207068E11FB988B300AA8F7B /* KeyChain.swift in Sources */,
+				8609BA641FD6367B00627E21 /* DailyExpenseCell.swift in Sources */,
 				20CF67FD1FC3CCF500F3EAF6 /* Transactions.swift in Sources */,
 				20BC43251FB41C2700CBFFA1 /* AppDelegate.swift in Sources */,
+				8609BA5F1FD6224600627E21 /* Identifiers.swift in Sources */,
 				20D3D5C51FB43C4A00587569 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,8 +443,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K7R433H2CL;
-				INFOPLIST_FILE = "Core-Project/Info.plist";
+				DEVELOPMENT_TEAM = QFR976VMLD;
+				INFOPLIST_FILE = "$(SRCROOT)/Core-Project/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "yveslym-corp.Core-Project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -427,8 +459,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K7R433H2CL;
-				INFOPLIST_FILE = "Core-Project/Info.plist";
+				DEVELOPMENT_TEAM = QFR976VMLD;
+				INFOPLIST_FILE = "$(SRCROOT)/Core-Project/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "yveslym-corp.Core-Project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
