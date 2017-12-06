@@ -15,5 +15,6 @@ class DailyExpenseCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         self.backgroundColor = .red
+        self.layer.cornerRadius = 8
     }
 }

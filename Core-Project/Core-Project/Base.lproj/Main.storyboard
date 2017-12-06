@@ -36,37 +36,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyE-Sz-CO0">
+                                <rect key="frame" x="124" y="617" width="127" height="30"/>
+                                <state key="normal" title="Add Bank Account"/>
+                                <connections>
+                                    <action selector="addBankAccountButtonPressed:" destination="Icd-SZ-up5" eventType="touchUpInside" id="grq-SP-pBp"/>
+                                </connections>
+                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Iy7-QE-a48">
-                                <rect key="frame" x="8" y="172" width="359" height="310"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="310" id="LSr-FJ-SrN"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ldl-nN-If1">
-                                    <size key="itemSize" width="50" height="50"/>
+                                <rect key="frame" x="8" y="193" width="359" height="280"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="4" id="Ldl-nN-If1">
+                                    <size key="itemSize" width="45" height="60"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dailyExpenseCell" id="7Z1-ZI-HSB" customClass="DailyExpenseCell" customModule="Core_Project" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="45" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="45" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Lhu-14-mKV">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-11-06" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RuB-0e-kz3">
-                                                            <rect key="frame" x="2.5" y="0.0" width="45.5" height="25"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-11-06" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="3" translatesAutoresizingMaskIntoConstraints="NO" id="RuB-0e-kz3">
+                                                            <rect key="frame" x="0.0" y="0.0" width="45" height="30"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssg-VL-kmC">
-                                                            <rect key="frame" x="12.5" y="25" width="25.5" height="25"/>
+                                                            <rect key="frame" x="10" y="30" width="25.5" height="30"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -88,26 +91,29 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyE-Sz-CO0">
-                                <rect key="frame" x="124" y="617" width="127" height="30"/>
-                                <state key="normal" title="Add Bank Account"/>
-                                <connections>
-                                    <action selector="addBankAccountButtonPressed:" destination="Icd-SZ-up5" eventType="touchUpInside" id="grq-SP-pBp"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="November" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eW-c7-cLf">
+                                <rect key="frame" x="8" y="118" width="215.5" height="54"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Iy7-QE-a48" firstAttribute="top" secondItem="I1w-yF-Ume" secondAttribute="top" constant="152" id="Kan-UL-7iA"/>
-                            <constraint firstItem="I1w-yF-Ume" firstAttribute="trailing" secondItem="Iy7-QE-a48" secondAttribute="trailing" constant="8" id="ZuH-YS-C8s"/>
+                            <constraint firstItem="Iy7-QE-a48" firstAttribute="top" secondItem="I1w-yF-Ume" secondAttribute="top" constant="173" id="8fC-F4-42l"/>
+                            <constraint firstItem="Iy7-QE-a48" firstAttribute="leading" secondItem="I1w-yF-Ume" secondAttribute="leading" constant="8" id="FrQ-gJ-7DA"/>
+                            <constraint firstItem="0eW-c7-cLf" firstAttribute="leading" secondItem="I1w-yF-Ume" secondAttribute="leading" constant="8" id="Uqj-R4-eDh"/>
+                            <constraint firstItem="jyE-Sz-CO0" firstAttribute="top" secondItem="Iy7-QE-a48" secondAttribute="bottom" constant="144" id="X9p-9T-Bkw"/>
+                            <constraint firstItem="I1w-yF-Ume" firstAttribute="trailing" secondItem="Iy7-QE-a48" secondAttribute="trailing" constant="8" id="aMx-tS-Ryd"/>
                             <constraint firstItem="jyE-Sz-CO0" firstAttribute="centerX" secondItem="fVV-0M-Tpn" secondAttribute="centerX" id="e8v-dn-8IJ"/>
-                            <constraint firstItem="Iy7-QE-a48" firstAttribute="leading" secondItem="I1w-yF-Ume" secondAttribute="leading" constant="8" id="jya-Bl-7dh"/>
+                            <constraint firstItem="Iy7-QE-a48" firstAttribute="top" secondItem="0eW-c7-cLf" secondAttribute="bottom" constant="21" id="iuO-91-4b5"/>
                             <constraint firstItem="I1w-yF-Ume" firstAttribute="bottom" secondItem="jyE-Sz-CO0" secondAttribute="bottom" constant="20" id="tt8-Aw-O0z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="I1w-yF-Ume"/>
                     </view>
                     <connections>
                         <outlet property="currentMonthCollectionView" destination="Iy7-QE-a48" id="oEF-Uh-nkh"/>
+                        <outlet property="monthLabel" destination="0eW-c7-cLf" id="XEk-i5-g1h"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="homeViewToAddBankAccount" id="Jx0-ka-pBU"/>
                     </connections>
                 </viewController>

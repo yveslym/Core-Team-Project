@@ -17,6 +17,7 @@ class LinkBankAcountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        presentPlaidLink()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -25,8 +26,10 @@ class LinkBankAcountViewController: UIViewController {
     
     /// function to set-up and present Plaid UI
     func presentPlaidLink(){
-        let linkConfiguration = PLKConfiguration(key: KeyChainData.publicKey(),
-                                                 env: .development, product:.connect,
+        // KeyChainData.publicKey()
+        let linkConfiguration = PLKConfiguration(key: "8bb4e37cb6ad720c4b2ab3c6107ce7",
+                                                 env: .development,
+                                                 product:.connect,
                                                  selectAccount: true,
                                                  longtailAuth: false,
                                                  apiVersion: .PLKAPILatest)
@@ -49,10 +52,13 @@ extension LinkBankAcountViewController: PLKPlaidLinkViewDelegate{
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: metadata!, options: .sortedKeys)
             var bankAccount = try JSONDecoder().decode(BankAccount.self, from: jsonData)
+            // KeyChainData.clientId()
+            // KeyChainData.secret()
             Networking.network(route: .exchangeToken,
                                apiHost: .development,
-                               clientId: KeyChainData.clientId(),
-                               secret: KeyChainData.secret(), public_token:publicToken,
+                               clientId: "5a0e10dfbdc6a46838fe6283",
+                               secret: "a2c5ff8e5fa75701955d548d79bbe9",
+                               public_token: publicToken,
                                completion: { (data) in
                 
                 let itemAccess = try! JSONDecoder().decode(ItemAccess.self, from: data!)
@@ -66,20 +72,22 @@ extension LinkBankAcountViewController: PLKPlaidLinkViewDelegate{
                 let days : [Date]? = [yesterday!,date]
                 
                 DispatchQueue.global().sync {
+                    // KeyChainData.clientId()
+                    // KeyChainData.secret()
                     Networking.network(bank: bankAccount,
                                        route: .transactions,
                                        apiHost: .development,
-                                       clientId: KeyChainData.clientId(),
-                                       secret: KeyChainData.secret(),
+                                       clientId: "5a0e10dfbdc6a46838fe6283",
+                                       secret: "a2c5ff8e5fa75701955d548d79bbe9",
                                        date: days,
                                        completion: { (data) in
                                         let myTransaction = try! JSONDecoder().decode(transactionOperation.self, from: data!)
-                                        print(myTransaction)
-                                        print(myTransaction.transactions.count, "COUNT-------")
+//                                        print(myTransaction)
+//                                        print(myTransaction.transactions.count, "COUNT-------")
                                         myTransaction.transactions.forEach({ (transaction) in
-                                            print("\n")
-                                            print("----Transaction: -----")
-                                            print(transaction)
+//                                            print("\n")
+//                                            print("----Transaction: -----")
+//                                            print(transaction)
                                             self.transactions = myTransaction.transactions
                                             self.dismiss(animated: true) {
                                                 self.performSegue(withIdentifier: Identifiers.linkBankUnwindToHome, sender: self)

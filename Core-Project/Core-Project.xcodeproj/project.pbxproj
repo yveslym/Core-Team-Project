@@ -21,6 +21,8 @@
 		20D3D5CA1FB4542200587569 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D3D5C91FB4542200587569 /* Networking.swift */; };
 		8609BA5F1FD6224600627E21 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8609BA5E1FD6224600627E21 /* Identifiers.swift */; };
 		8609BA641FD6367B00627E21 /* DailyExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8609BA631FD6367B00627E21 /* DailyExpenseCell.swift */; };
+		86E504A61FD721B900B359EA /* TotalDayExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E504A51FD721B900B359EA /* TotalDayExpenseViewModel.swift */; };
+		86E504A91FD7279200B359EA /* DayExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E504A81FD7279200B359EA /* DayExpense.swift */; };
 		97911A3C895ECD8DACF030BA /* Pods_Core_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DE28ECDB478C48F019A1911 /* Pods_Core_Project.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +45,8 @@
 		20D3D5C91FB4542200587569 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		8609BA5E1FD6224600627E21 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		8609BA631FD6367B00627E21 /* DailyExpenseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyExpenseCell.swift; sourceTree = "<group>"; };
+		86E504A51FD721B900B359EA /* TotalDayExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalDayExpenseViewModel.swift; sourceTree = "<group>"; };
+		86E504A81FD7279200B359EA /* DayExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayExpense.swift; sourceTree = "<group>"; };
 		ED8215E598567A1835A6CF01 /* Pods-Core-Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core-Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Core-Project/Pods-Core-Project.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +85,7 @@
 			children = (
 				8609BA611FD6322200627E21 /* Helpers */,
 				20D3D5C61FB4420500587569 /* Services */,
+				86E504A71FD721BC00B359EA /* View Models */,
 				20D3D5BF1FB41D0500587569 /* Model */,
 				8609BA651FD6368200627E21 /* Views */,
 				20D3D5BE1FB41CF500587569 /* Controllers */,
@@ -96,8 +101,8 @@
 		20D3D5BE1FB41CF500587569 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				20D3D5C01FB41D7000587569 /* LinkBankAcountViewController.swift */,
 				20D3D5C41FB43C4A00587569 /* HomeViewController.swift */,
+				20D3D5C01FB41D7000587569 /* LinkBankAcountViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -108,6 +113,7 @@
 				20D3D5C21FB421BD00587569 /* BankAccount.swift */,
 				200742331FBB9CC300D58935 /* BankOperation.swift */,
 				20CF67FC1FC3CCF500F3EAF6 /* Transactions.swift */,
+				86E504A81FD7279200B359EA /* DayExpense.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -161,6 +167,14 @@
 				8609BA631FD6367B00627E21 /* DailyExpenseCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		86E504A71FD721BC00B359EA /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				86E504A51FD721B900B359EA /* TotalDayExpenseViewModel.swift */,
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20D3D5C81FB4421F00587569 /* Routing.swift in Sources */,
+				86E504A91FD7279200B359EA /* DayExpense.swift in Sources */,
 				20D3D5C11FB41D7000587569 /* LinkBankAcountViewController.swift in Sources */,
 				20D3D5C31FB421BD00587569 /* BankAccount.swift in Sources */,
 				200742341FBB9CC300D58935 /* BankOperation.swift in Sources */,
@@ -305,6 +320,7 @@
 				20BC43251FB41C2700CBFFA1 /* AppDelegate.swift in Sources */,
 				8609BA5F1FD6224600627E21 /* Identifiers.swift in Sources */,
 				20D3D5C51FB43C4A00587569 /* HomeViewController.swift in Sources */,
+				86E504A61FD721B900B359EA /* TotalDayExpenseViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
