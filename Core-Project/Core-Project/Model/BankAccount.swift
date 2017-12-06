@@ -10,6 +10,7 @@ import Foundation
 import KeychainSwift
 struct BankAccount: Codable{
     
+    let uid: String
     var link_session_id: String?
     var status: String?
     var request_id: String?
@@ -18,6 +19,7 @@ struct BankAccount: Codable{
     var access_token: String?
     var accounts: [Account]?
     var itemAccess: ItemAccess? = nil
+    var transactions: [Transaction]?
     
     enum BankAccountKey: String, CodingKey{
         case institution, accounts, status, request_id, link_session_id
@@ -45,6 +47,7 @@ extension BankAccount{
         self.institution_id = try instutitionContenair.decodeIfPresent(String.self, forKey: .institution_id)
         self.institution_name = try instutitionContenair.decodeIfPresent(String.self, forKey: .name)
         self.accounts = try BankContenair.decodeIfPresent([Account].self, forKey: .accounts) ?? nil
+        self.uid = UUID().uuidString
     }
 }
 /// ItemAccess is a struct that contain the item_id, and access tokken

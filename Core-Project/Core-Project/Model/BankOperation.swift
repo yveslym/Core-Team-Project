@@ -11,20 +11,22 @@ import KeychainSwift
 
 struct BankOperation{
     
-    static var listOfAccount: [BankAccount]?{
+    // return all the stored user bank account
+    static var listOfAccount: [BankAccount]? = {
         
         let count = Int(KeychainSwift().get("numberOfAccount")!)
         var _account : [BankAccount]? = nil
-        var index = 1
+        var index = 0
         
         while (index < count!){
-            let data = KeychainSwift().getData("Account"+String(index))
-            let decodeAccount = try! JSONDecoder().decode(BankAccount.self, from: data!)
-            _account?.append(decodeAccount)
+            if let data = KeychainSwift().getData("Account"+String(index)){
+                let decodedAccount = try! JSONDecoder().decode(BankAccount.self, from: data)
+                _account?.append(decodedAccount)
+            }
             index = index + 1
         }
         return _account
-    }
+    }()
 
     /// number of account saved by user
     static var numberOfAccount:Int?{
@@ -36,14 +38,22 @@ struct BankOperation{
     }
     /// function to increment number of account when user add new account
     static func incrementNumberOfAccount(){
-        let count = Int(KeychainSwift().get("numberOfAccount")!)! + 1
-        KeychainSwift().set(String(count), forKey: "numberOfAccount")
+        
+        if (KeychainSwift().get("numberOfAccount") != nil){
+            
+            let count = Int(KeychainSwift().get("numberOfAccount")!)
+            KeychainSwift().set(String(count!+1), forKey: "numberOfAccount")
+        }
+        else{
+            KeychainSwift().set(String(1), forKey: "numberOfAccount")
+        }
     }
     
     /// function to save new bank account linked by user
     static func save(bankAccount: BankAccount){
+        
         let bankName = "Account"+String((BankOperation.numberOfAccount!+1))
-        let data = try! JSONSerialization.data(withJSONObject: bankAccount, options: .prettyPrinted)
+        let data = try! JSONEncoder().encode(bankAccount)
         KeychainSwift().set(data, forKey: bankName)
         BankOperation.incrementNumberOfAccount()
     }

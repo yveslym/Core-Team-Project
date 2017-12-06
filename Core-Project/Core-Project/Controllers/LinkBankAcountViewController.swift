@@ -49,46 +49,59 @@ extension LinkBankAcountViewController: PLKPlaidLinkViewDelegate{
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: metadata!, options: .sortedKeys)
             var bankAccount = try JSONDecoder().decode(BankAccount.self, from: jsonData)
+            
+            
+            // get item access
             Networking.network(route: .exchangeToken,
                                apiHost: .development,
                                clientId: KeyChainData.clientId(),
                                secret: KeyChainData.secret(), public_token:publicToken,
                                completion: { (data) in
-                
-                let itemAccess = try! JSONDecoder().decode(ItemAccess.self, from: data!)
-                bankAccount.itemAccess = itemAccess
-                print(bankAccount)
-                
-                let formatter = DateFormatter()
-                formatter.dateFormat = "dd-MM-yyyy" // "yyyy-MM-dd"
-                let date = Date()
-                let yesterday = Calendar.current.date(byAdding: .day, value: -30, to: date)
-                let days : [Date]? = [yesterday!,date]
-                
-                DispatchQueue.global().sync {
-                    Networking.network(bank: bankAccount,
-                                       route: .transactions,
-                                       apiHost: .development,
-                                       clientId: KeyChainData.clientId(),
-                                       secret: KeyChainData.secret(),
-                                       date: days,
-                                       completion: { (data) in
-                                        let myTransaction = try! JSONDecoder().decode(transactionOperation.self, from: data!)
-                                        print(myTransaction)
-                                        print(myTransaction.transactions.count, "COUNT-------")
-                                        myTransaction.transactions.forEach({ (transaction) in
-                                            print("\n")
-                                            print("----Transaction: -----")
-                                            print(transaction)
-                                            self.transactions = myTransaction.transactions
-                                            self.dismiss(animated: true) {
-                                                self.performSegue(withIdentifier: Identifiers.linkBankUnwindToHome, sender: self)
-                                            }
-                                        
-                                        })
-                                        
-                    })
-                }
+                                
+                                let itemAccess = try! JSONDecoder().decode(ItemAccess.self, from: data!)
+                                bankAccount.itemAccess = itemAccess
+                                print(bankAccount)
+                                
+                                let formatter = DateFormatter()
+                                formatter.dateFormat = "dd-MM-yyyy" // "yyyy-MM-dd"
+                                let date = Date()
+                                let yesterday = Calendar.current.date(byAdding: .day, value: -30, to: date)
+                                let days : [Date]? = [yesterday!,date]
+                                
+                                // get transaction
+                                DispatchQueue.global().sync {
+                                    Networking.network(bank: bankAccount,
+                                                       route: .transactions,
+                                                       apiHost: .development,
+                                                       clientId: KeyChainData.clientId(),
+                                                       secret: KeyChainData.secret(),
+                                                       date: days,
+                                                       completion: { (data) in
+                                                        let myTransaction = try! JSONDecoder().decode(transactionOperation.self, from: data!)
+                                                        print(myTransaction)
+                                                        
+                                                        // link transaction to his bank
+                                                        bankAccount.transactions = myTransaction.transactions
+                                                        
+                                                        // save the bank account
+                                                        BankOperation.save(bankAccount: bankAccount)
+                                                        
+                                                        print(BankOperation.numberOfAccount)
+                                                        
+                                                        print(myTransaction.transactions.count, "COUNT-------")
+                                                        myTransaction.transactions.forEach({ (transaction) in
+                                                            print("\n")
+                                                            print("----Transaction: -----")
+                                                            print(transaction)
+                                                            self.transactions = myTransaction.transactions
+                                                            self.dismiss(animated: true) {
+                                                                self.performSegue(withIdentifier: Identifiers.linkBankUnwindToHome, sender: self)
+                                                            }
+                                                            
+                                                })
+                                                        
+                                    })
+                        }
             })
         }
         catch{
