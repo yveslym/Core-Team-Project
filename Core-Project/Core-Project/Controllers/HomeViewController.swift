@@ -9,16 +9,41 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    // MARK: Properties
+    var dayExpenses = [DayExpense]() {
+        didSet{
+            dayExpenses.sort { $0.date < $1.date }
+            currentMonthCollectionView.reloadData()
+        }
+    }
     var transactions = [Transaction]() {
         didSet {
             if transactions.count > 0 {
                 shouldUpdateUI(true)
                 currentMonthCollectionView.reloadData()
+                
+                let histo = sortTransactions(transactions: transactions)
+                print("**************************************")
+                for (date,trans) in histo {
+//                    print("\n")
+//                    print("Key", key, "Value: ", value)
+                    dayExpenses.append(DayExpense(date: date, transactions: trans))
+                }
+                print("**************************************")
+                dayExpenses.forEach({ (expense) in
+                    print("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
+                    print(expense)
+                })
             }
         }
     }
     
+    // MARK: IBOutlets
+    
+    @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var currentMonthCollectionView: UICollectionView!
+    
+    // MARK: IBActions
     
     @IBAction func addBankAccountButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: Identifiers.homeToAddBank, sender: nil)
@@ -36,6 +61,8 @@ class HomeViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         currentMonthCollectionView.delegate = self
@@ -44,35 +71,55 @@ class HomeViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        print("HOMEVIEW TANSCOUNT------------------------========================------------------------")
-        print(transactions.count)
+//        print("HOMEVIEW TANSCOUNT------------------------========================------------------------")
+//        print(transactions.count)
     }
     
     func shouldUpdateUI(_ bool: Bool) {
         if bool {
-            self.currentMonthCollectionView.isHidden = false
-            self.currentMonthCollectionView.reloadData()
+            currentMonthCollectionView.isHidden = false
+            currentMonthCollectionView.backgroundColor = self.view.backgroundColor
+            currentMonthCollectionView.reloadData()
+            monthLabel.isHidden = false
         } else {
-            self.currentMonthCollectionView.isHidden = true
+            currentMonthCollectionView.isHidden = true
+            monthLabel.isHidden = true
         }
+    }
+    
+    func sortTransactions(transactions: [Transaction]) -> [String: [Transaction]] {
+        var dict = [String: [Transaction]]()
+        
+        transactions.forEach { (trans) in
+            if let _ = dict[trans.date!] {
+                dict[trans.date!]!.append(trans)
+            }else {
+                dict[trans.date!] = [trans]
+            }
+        }
+        
+        return dict
     }
     
 }
 
+// MARK: - Collection View DataSource
+
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let index = indexPath.row
-        let date = transactions[index].date
-        let expense = transactions[index].amount ?? 999
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifiers.currentMonthCell, for: indexPath) as! DailyExpenseCell
-        cell.dateLabel.text = date ?? "No date"
+        let date = dayExpenses[index].date
+        let expense = dayExpenses[index].totalAmount
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifiers.currentMonthCell,
+                                                      for: indexPath) as! DailyExpenseCell
+        cell.dateLabel.text = date
         cell.expenseLabel.text = String(describing: expense)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return transactions.count
+        return dayExpenses.count
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -80,8 +127,14 @@ extension HomeViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - Collection View Delegate
 extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("* Selected item at Row * ", indexPath.row)
+        print("items at cell ")
+        
+        dayExpenses[indexPath.row].listedTransactions.forEach { (trans) in
+            print("\n%%%", trans)
+        }
     }
 }

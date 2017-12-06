@@ -17,6 +17,7 @@ class LinkBankAcountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        presentPlaidLink()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -25,8 +26,10 @@ class LinkBankAcountViewController: UIViewController {
     
     /// function to set-up and present Plaid UI
     func presentPlaidLink(){
+        // KeyChainData.publicKey()
         let linkConfiguration = PLKConfiguration(key: KeyChainData.publicKey(),
-                                                 env: .development, product:.connect,
+                                                 env: .development,
+                                                 product:.connect,
                                                  selectAccount: true,
                                                  longtailAuth: false,
                                                  apiVersion: .PLKAPILatest)
@@ -49,14 +52,21 @@ extension LinkBankAcountViewController: PLKPlaidLinkViewDelegate{
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: metadata!, options: .sortedKeys)
             var bankAccount = try JSONDecoder().decode(BankAccount.self, from: jsonData)
+
             
             
             // get item access
+
+            // KeyChainData.clientId()
+            // KeyChainData.secret()
+
             Networking.network(route: .exchangeToken,
                                apiHost: .development,
                                clientId: KeyChainData.clientId(),
-                               secret: KeyChainData.secret(), public_token:publicToken,
+                               secret: KeyChainData.secret(),
+                               public_token: publicToken,
                                completion: { (data) in
+
                                 
                                 let itemAccess = try! JSONDecoder().decode(ItemAccess.self, from: data!)
                                 bankAccount.itemAccess = itemAccess
@@ -102,6 +112,8 @@ extension LinkBankAcountViewController: PLKPlaidLinkViewDelegate{
                                                         
                                     })
                         }
+
+             
             })
         }
         catch{
