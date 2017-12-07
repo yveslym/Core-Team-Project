@@ -14,18 +14,20 @@ struct BankOperation{
     // return all the stored user bank account
     static var listOfAccount: [BankAccount]? = {
         
-        let count = Int(KeychainSwift().get("numberOfAccount")!)
+        guard let count = KeychainSwift().get("numberOfAccount") else {return nil}
         var _account : [BankAccount]? = nil
         var index = 0
-        
-        while (index < count!){
-            if let data = KeychainSwift().getData("Account"+String(index)){
-                let decodedAccount = try! JSONDecoder().decode(BankAccount.self, from: data)
-                _account?.append(decodedAccount)
-            }
-            index = index + 1
-        }
-        return _account
+        if Int(count) != nil{
+            while (index < Int(count)!){
+                if let data = KeychainSwift().getData("Account"+String(index)){
+                    let decodedAccount = try! JSONDecoder().decode(BankAccount.self, from: data)
+                    _account?.append(decodedAccount)
+                  }
+                index = index + 1
+              }
+            return _account
+          }
+        return nil
     }()
 
     /// number of account saved by user

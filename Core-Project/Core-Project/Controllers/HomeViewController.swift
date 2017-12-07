@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import KeychainSwift
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, plaidDelegate {
     // MARK: Properties
+    weak var delegate : plaidDelegate?
     var dayExpenses = [DayExpense]() {
         didSet{
             dayExpenses.sort { $0.date < $1.date }
@@ -25,8 +27,8 @@ class HomeViewController: UIViewController {
                 let histo = sortTransactions(transactions: transactions)
                 print("**************************************")
                 for (date,trans) in histo {
-//                    print("\n")
-//                    print("Key", key, "Value: ", value)
+                    print("\n")
+                    print("Key", date, "Value: ", trans)
                     dayExpenses.append(DayExpense(date: date, transactions: trans))
                 }
                 print("**************************************")
@@ -46,7 +48,8 @@ class HomeViewController: UIViewController {
     // MARK: IBActions
     
     @IBAction func addBankAccountButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: Identifiers.homeToAddBank, sender: nil)
+        //performSegue(withIdentifier: Identifiers.homeToAddBank, sender: nil)
+        delegate?.presentPlaidLink()
     }
     
     @IBAction func unwindFromLinkBankAccount(_ sender: UIStoryboardSegue) {
@@ -63,16 +66,31 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: Methods
+    
+    override func reloadInputViews() {
+        if BankOperation.listOfAccount?.first?.transactions != nil{
+            print(self.transactions.count, "Before")
+            self.transactions = (BankOperation.listOfAccount?.first?.transactions)!
+            print(self.transactions.count, "After")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         currentMonthCollectionView.delegate = self
         currentMonthCollectionView.dataSource = self
         shouldUpdateUI(false)
+        delegate = self
     }
 
     override func viewDidAppear(_ animated: Bool) {
-//        print("HOMEVIEW TANSCOUNT------------------------========================------------------------")
+        print("HOMEVIEW TANSCOUNT------------------------========================------------------------")
 //        print(transactions.count)
+//        if BankOperation.listOfAccount?.first?.transactions != nil{
+//            print(self.transactions.count, "Before")
+//            self.transactions = (BankOperation.listOfAccount?.first?.transactions)!
+//            print(self.transactions.count, "After")
+//        }
     }
     
     func shouldUpdateUI(_ bool: Bool) {

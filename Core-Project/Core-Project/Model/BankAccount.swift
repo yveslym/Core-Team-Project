@@ -22,10 +22,11 @@ struct BankAccount: Codable{
     var transactions: [Transaction]?
     
     enum BankAccountKey: String, CodingKey{
-        case institution, accounts, status, request_id, link_session_id
+        case institution, accounts, status, request_id, link_session_id, itemAccess,transactions
         enum instutionKey: String, CodingKey{
             case institution_id
             case name
+            
         }
         enum AccountKey: String, CodingKey{
             case id
@@ -48,6 +49,21 @@ extension BankAccount{
         self.institution_name = try instutitionContenair.decodeIfPresent(String.self, forKey: .name)
         self.accounts = try BankContenair.decodeIfPresent([Account].self, forKey: .accounts) ?? nil
         self.uid = UUID().uuidString
+    }
+    func encode(to encoder: Encoder) throws{
+        var contenaire = encoder.container(keyedBy: BankAccountKey.self)
+        try contenaire.encode(status, forKey: .status)
+        try contenaire.encode(self.request_id, forKey: .request_id)
+        try contenaire.encode(link_session_id, forKey: .link_session_id)
+        
+        try contenaire.encode(accounts, forKey: .accounts)
+        try contenaire.encode(itemAccess, forKey: .itemAccess)
+        try contenaire.encode(transactions, forKey: .transactions)
+        
+        
+        var institutionContenaire = contenaire.nestedContainer(keyedBy: BankAccountKey.instutionKey.self, forKey: .institution)
+        try institutionContenaire.encode(self.institution_id, forKey: .institution_id)
+        try institutionContenaire.encode(institution_name, forKey: .name)
     }
 }
 /// ItemAccess is a struct that contain the item_id, and access tokken

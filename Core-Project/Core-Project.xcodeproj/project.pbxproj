@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		200742341FBB9CC300D58935 /* BankOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200742331FBB9CC300D58935 /* BankOperation.swift */; };
 		207068E11FB988B300AA8F7B /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207068E01FB988B300AA8F7B /* KeyChain.swift */; };
+		207250411FD8C52C007AD838 /* BankingModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2072503F1FD8C52B007AD838 /* BankingModel.xcdatamodeld */; };
+		2084677B1FD77E59008B6C5E /* Plaid+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2084677A1FD77E59008B6C5E /* Plaid+Extension.swift */; };
 		20BC43251FB41C2700CBFFA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BC43241FB41C2700CBFFA1 /* AppDelegate.swift */; };
 		20BC432A1FB41C2700CBFFA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20BC43281FB41C2700CBFFA1 /* Main.storyboard */; };
 		20BC432C1FB41C2700CBFFA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20BC432B1FB41C2700CBFFA1 /* Assets.xcassets */; };
@@ -31,6 +33,8 @@
 		16BFFE240D2EE6853332A205 /* Pods-Core-Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core-Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Core-Project/Pods-Core-Project.debug.xcconfig"; sourceTree = "<group>"; };
 		200742331FBB9CC300D58935 /* BankOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankOperation.swift; sourceTree = "<group>"; };
 		207068E01FB988B300AA8F7B /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
+		207250401FD8C52B007AD838 /* BankingModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BankingModel.xcdatamodel; sourceTree = "<group>"; };
+		2084677A1FD77E59008B6C5E /* Plaid+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plaid+Extension.swift"; sourceTree = "<group>"; };
 		20BC43211FB41C2700CBFFA1 /* Core-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Core-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20BC43241FB41C2700CBFFA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20BC43291FB41C2700CBFFA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,6 +66,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2072503E1FD8C4E1007AD838 /* Core Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				2072503F1FD8C52B007AD838 /* BankingModel.xcdatamodeld */,
+			);
+			path = "Core Data Model";
+			sourceTree = "<group>";
+		};
+		208467781FD77E16008B6C5E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				208467791FD77E30008B6C5E /* Plaid Extensions */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		208467791FD77E30008B6C5E /* Plaid Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2084677A1FD77E59008B6C5E /* Plaid+Extension.swift */,
+			);
+			path = "Plaid Extensions";
+			sourceTree = "<group>";
+		};
 		20BC43181FB41C2700CBFFA1 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +111,7 @@
 		20BC43231FB41C2700CBFFA1 /* Core-Project */ = {
 			isa = PBXGroup;
 			children = (
+				208467781FD77E16008B6C5E /* Extensions */,
 				8609BA611FD6322200627E21 /* Helpers */,
 				20D3D5C61FB4420500587569 /* Services */,
 				86E504A71FD721BC00B359EA /* View Models */,
@@ -110,6 +139,7 @@
 		20D3D5BF1FB41D0500587569 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2072503E1FD8C4E1007AD838 /* Core Data Model */,
 				20D3D5C21FB421BD00587569 /* BankAccount.swift */,
 				200742331FBB9CC300D58935 /* BankOperation.swift */,
 				20CF67FC1FC3CCF500F3EAF6 /* Transactions.swift */,
@@ -308,6 +338,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				207250411FD8C52C007AD838 /* BankingModel.xcdatamodeld in Sources */,
 				20D3D5C81FB4421F00587569 /* Routing.swift in Sources */,
 				86E504A91FD7279200B359EA /* DayExpense.swift in Sources */,
 				20D3D5C11FB41D7000587569 /* LinkBankAcountViewController.swift in Sources */,
@@ -320,6 +351,7 @@
 				20BC43251FB41C2700CBFFA1 /* AppDelegate.swift in Sources */,
 				8609BA5F1FD6224600627E21 /* Identifiers.swift in Sources */,
 				20D3D5C51FB43C4A00587569 /* HomeViewController.swift in Sources */,
+				2084677B1FD77E59008B6C5E /* Plaid+Extension.swift in Sources */,
 				86E504A61FD721B900B359EA /* TotalDayExpenseViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -507,6 +539,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2072503F1FD8C52B007AD838 /* BankingModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				207250401FD8C52B007AD838 /* BankingModel.xcdatamodel */,
+			);
+			currentVersion = 207250401FD8C52B007AD838 /* BankingModel.xcdatamodel */;
+			path = BankingModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 20BC43191FB41C2700CBFFA1 /* Project object */;
 }

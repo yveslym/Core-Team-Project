@@ -44,8 +44,7 @@ extension Transaction{
     init(from decoder: Decoder)throws{
         
         let contenair = try decoder.container(keyedBy: TransactionKey.self)
-        
-        
+    
         self.name = try contenair.decodeIfPresent(String.self, forKey: .name) ?? nil
         self.account_id = try contenair.decodeIfPresent(String.self, forKey: .account_id) ?? nil
         self.date = try contenair.decodeIfPresent(String.self, forKey: .date) ?? nil
