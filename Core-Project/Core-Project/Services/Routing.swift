@@ -43,7 +43,7 @@ enum Route{
      
      The method return a json serialise data
  */
-    func jsonBody(bank: BankAccount? = nil ,client_id: String?, secret: String? = nil,access_token: String? = nil, startDate: Date? = nil, endDate: Date? = nil, public_token: String? = nil)-> Data?{
+    func jsonBody(bank: Bank? = nil ,client_id: String?, secret: String? = nil,access_token: String? = nil, startDate: Date? = nil, endDate: Date? = nil, public_token: String? = nil)-> Data?{
         
         switch (self) {
         
@@ -85,7 +85,9 @@ enum Route{
             
         case .balance:
             var accountNumber: [String]? = nil
-            for account in (bank?.accounts)!{
+    
+            let accounts = bank?.accounts?.allObjects as? [Account]
+            for account in accounts!{
                 accountNumber?.append(account.id!)
             }
             let accountId:[String:[String]?] = ["account_ids":accountNumber]

@@ -4,7 +4,7 @@
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="bank" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Bank" inverseName="accounts" inverseEntity="Bank" syncable="YES"/>
-        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Transaction" syncable="YES"/>
+        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Transaction" inverseName="account" inverseEntity="Transaction" syncable="YES"/>
     </entity>
     <entity name="Bank" representedClassName="Bank" syncable="YES">
         <attribute name="access_token" optional="YES" attributeType="String" syncable="YES"/>
@@ -13,7 +13,7 @@
         <attribute name="linkSessionId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="requestId" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="accounts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Account" inverseName="bank" inverseEntity="Account" syncable="YES"/>
-        <relationship name="itemAccess" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ItemAccess" inverseName="bank" inverseEntity="ItemAccess" syncable="YES"/>
+        <relationship name="itemAccess" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ItemAccess" inverseName="bank" inverseEntity="ItemAccess" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="User" inverseName="bank" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="ItemAccess" representedClassName="ItemAccess" syncable="YES">
@@ -32,6 +32,7 @@
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="types" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="zipCode" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Account" inverseName="transactions" inverseEntity="Account" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
@@ -39,13 +40,13 @@
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="bank" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Bank" inverseName="user" inverseEntity="Bank" syncable="YES"/>
+        <relationship name="bank" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Bank" inverseName="user" inverseEntity="Bank" syncable="YES"/>
     </entity>
     <elements>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Account" positionX="-18" positionY="72" width="128" height="105"/>
         <element name="Bank" positionX="-54" positionY="27" width="128" height="165"/>
         <element name="ItemAccess" positionX="-36" positionY="63" width="128" height="90"/>
-        <element name="Account" positionX="-18" positionY="72" width="128" height="105"/>
-        <element name="Transaction" positionX="0" positionY="81" width="128" height="195"/>
+        <element name="Transaction" positionX="0" positionY="81" width="128" height="210"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="135"/>
     </elements>
 </model>

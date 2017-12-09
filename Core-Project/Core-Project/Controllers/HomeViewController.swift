@@ -52,18 +52,18 @@ class HomeViewController: UIViewController, plaidDelegate {
         delegate?.presentPlaidLink()
     }
     
-    @IBAction func unwindFromLinkBankAccount(_ sender: UIStoryboardSegue) {
-        if sender.source is LinkBankAcountViewController {
-            if let linkBankAcountViewController = sender.source as? LinkBankAcountViewController,
-                let newTransactions = linkBankAcountViewController.transactions {
-                
-                transactions.append(contentsOf: newTransactions)
-                print("shouldUpdateUI(Bool) about to be called")
-                shouldUpdateUI(true)
-                print("Did call shouldUpdateUI(bool)")
-            }
-        }
-    }
+//    @IBAction func unwindFromLinkBankAccount(_ sender: UIStoryboardSegue) {
+//        if sender.source is LinkBankAcountViewController {
+//            if let linkBankAcountViewController = sender.source as? LinkBankAcountViewController,
+//                let newTransactions = linkBankAcountViewController.transactions {
+//
+//                transactions.append(contentsOf: newTransactions)
+//                print("shouldUpdateUI(Bool) about to be called")
+//                shouldUpdateUI(true)
+//                print("Did call shouldUpdateUI(bool)")
+//            }
+//        }
+//    }
     
     // MARK: Methods
     

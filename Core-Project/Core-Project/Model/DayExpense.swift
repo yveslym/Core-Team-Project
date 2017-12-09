@@ -17,7 +17,7 @@ struct DayExpense {
         self.listedTransactions = transactions
         self.date = date
         transactions.forEach { (transaction) in
-            self.totalAmount += transaction.amount!
+            //self.totalAmount += transaction.amount!
         }
     }
 }

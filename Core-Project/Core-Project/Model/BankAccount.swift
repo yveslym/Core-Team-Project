@@ -8,6 +8,7 @@
 
 import Foundation
 import KeychainSwift
+import CoreData
 struct BankAccount: Codable{
     
     let uid: String
@@ -19,14 +20,13 @@ struct BankAccount: Codable{
     var access_token: String?
     var accounts: [Account]?
     var itemAccess: ItemAccess? = nil
-    var transactions: [Transaction]?
+    var transactions: [Transaction]? = nil
     
     enum BankAccountKey: String, CodingKey{
         case institution, accounts, status, request_id, link_session_id, itemAccess,transactions
         enum instutionKey: String, CodingKey{
             case institution_id
             case name
-            
         }
         enum AccountKey: String, CodingKey{
             case id
@@ -68,17 +68,17 @@ extension BankAccount{
 }
 /// ItemAccess is a struct that contain the item_id, and access tokken
 /// which is neccessaire to retrieve data from Api
-struct ItemAccess: Codable {
-    var item_id: String?
-    var access_token: String?
-}
-
-/// struct that hold account id and name
-/// a single instutition can have multiple accounts
-struct Account: Codable{
-    var id: String?
-    var name: String?
-}
+//struct ItemAccess: Codable {
+//    var item_id: String?
+//    var access_token: String?
+//}
+//
+///// struct that hold account id and name
+///// a single instutition can have multiple accounts
+//struct Account: Codable{
+//    var id: String?
+//    var name: String?
+//}
 
 
 

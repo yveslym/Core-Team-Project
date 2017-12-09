@@ -17,14 +17,14 @@ struct KeyChainData{
         keychain.set("a2c5ff8e5fa75701955d548d79bbe9", forKey: "secret")
     }
     
-    static func publicKey()->String{
+    static func publicKey()->String?{
         return KeychainSwift().get("publicKey")!
     }
     
-    static func clientId()-> String{
+    static func clientId()-> String?{
         return KeychainSwift().get("clientId")!
     }
-    static func secret()-> String{
+    static func secret()-> String?{
         return KeychainSwift().get("secret")!
     }
 }
