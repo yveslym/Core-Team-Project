@@ -12,12 +12,26 @@ class plaidOperation{
     
     // - MARK: Methods
     
+    
     // function to get the transaction of a given account
     static func transaction(with bank: Bank, startDate: Date, endDate: Date, completion: @escaping ([Transaction]?) -> Void) {
-       
+       let stack = CoreDataStack.instance
         let days = [startDate,endDate]
         Networking.network(bank: bank, route: .transactions, apiHost: .development, date: days,completion: { (data) in
-            let myTransaction = try! JSONDecoder().decode(transactionOperation.self, from: data!)
+            var myTransaction = try! JSONDecoder().decode(transactionOperation.self, from: data!)
+            
+            let record = stack.fetchRecordsForEntity(.Transaction, inManagedObjectContext: stack.viewContext) as? [Transaction]
+            
+            var index = 0
+            myTransaction.transactions.forEach({ (newTans) in
+                record?.forEach({ (existingTrans) in
+                    if newTans.id == existingTrans.id{
+                        myTransaction.transactions.remove(at: index)
+                    }
+                    index += 1
+                })
+            })
+            
             return completion(myTransaction.transactions)
         })
     }

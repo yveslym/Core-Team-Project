@@ -49,6 +49,7 @@
 		20723E791FDA0A8500417C26 /* PlaidOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaidOperation.swift; sourceTree = "<group>"; };
 		207250401FD8C52B007AD838 /* BankingModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BankingModel.xcdatamodel; sourceTree = "<group>"; };
 		2084677A1FD77E59008B6C5E /* Plaid+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plaid+Extension.swift"; sourceTree = "<group>"; };
+		20BBC72B1FDC78290019AE0C /* Core-Project.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Core-Project.entitlements"; sourceTree = "<group>"; };
 		20BC43211FB41C2700CBFFA1 /* Core-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Core-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20BC43241FB41C2700CBFFA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20BC43291FB41C2700CBFFA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -146,6 +147,7 @@
 		20BC43231FB41C2700CBFFA1 /* Core-Project */ = {
 			isa = PBXGroup;
 			children = (
+				20BBC72B1FDC78290019AE0C /* Core-Project.entitlements */,
 				208467781FD77E16008B6C5E /* Extensions */,
 				8609BA611FD6322200627E21 /* Helpers */,
 				20D3D5C61FB4420500587569 /* Services */,
@@ -279,6 +281,11 @@
 					20BC43201FB41C2700CBFFA1 = {
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -538,6 +545,7 @@
 			baseConfigurationReference = 16BFFE240D2EE6853332A205 /* Pods-Core-Project.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Core-Project/Core-Project.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K7R433H2CL;
 				INFOPLIST_FILE = "$(SRCROOT)/Core-Project/Supporting Files/Info.plist";
@@ -554,6 +562,7 @@
 			baseConfigurationReference = ED8215E598567A1835A6CF01 /* Pods-Core-Project.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Core-Project/Core-Project.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K7R433H2CL;
 				INFOPLIST_FILE = "$(SRCROOT)/Core-Project/Supporting Files/Info.plist";

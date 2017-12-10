@@ -27,5 +27,6 @@ extension Transaction {
     @NSManaged public var types: String?
     @NSManaged public var zipCode: String?
     @NSManaged public var account: Account?
+    @NSManaged public var id: String?
 
 }

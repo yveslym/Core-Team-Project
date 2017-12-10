@@ -62,6 +62,7 @@ extension UIViewController: PLKPlaidLinkViewDelegate{
                 //DispatchQueue.global().sync {
                     plaidOperation.transaction(with: bank, startDate: yesterday!, endDate: date, completion: { (allTransaction) in
                         
+                        if allTransaction != nil{
                         let accounts = bank.accounts?.allObjects as? [Account]
                         
                         for account in accounts!{
@@ -69,6 +70,10 @@ extension UIViewController: PLKPlaidLinkViewDelegate{
                                 account.addToTransactions(NSSet(array: allTransaction!))
                             }
                         }
+                            self.dismiss(animated: true, completion: nil)
+                            self.reloadInputViews()
+                        }
+                        self.dismiss(animated: true, completion: nil)
                     })
                 //}
                 

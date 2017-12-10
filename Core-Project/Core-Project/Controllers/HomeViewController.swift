@@ -11,6 +11,8 @@ import KeychainSwift
 
 class HomeViewController: UIViewController, plaidDelegate {
     // MARK: Properties
+    let stack = CoreDataStack.instance
+    
     weak var delegate : plaidDelegate?
     var dayExpenses = [DayExpense]() {
         didSet{
@@ -68,10 +70,12 @@ class HomeViewController: UIViewController, plaidDelegate {
     // MARK: Methods
     
     override func reloadInputViews() {
-        if BankOperation.listOfAccount?.first?.transactions != nil{
-            print(self.transactions.count, "Before")
-            self.transactions = (BankOperation.listOfAccount?.first?.transactions)!
-            print(self.transactions.count, "After")
+        if stack.privateContext.hasChanges{
+            stack.saveTo(context: stack.privateContext)
+            self.transactions = {
+                let record = stack.fetchRecordsForEntity(.Transaction, inManagedObjectContext: stack.viewContext) as? [Transaction]
+                return record!
+            }()
         }
     }
     
@@ -85,12 +89,12 @@ class HomeViewController: UIViewController, plaidDelegate {
 
     override func viewDidAppear(_ animated: Bool) {
         print("HOMEVIEW TANSCOUNT------------------------========================------------------------")
-//        print(transactions.count)
-//        if BankOperation.listOfAccount?.first?.transactions != nil{
-//            print(self.transactions.count, "Before")
-//            self.transactions = (BankOperation.listOfAccount?.first?.transactions)!
-//            print(self.transactions.count, "After")
-//        }
+
+        self.transactions = {
+            let record = stack.fetchRecordsForEntity(.Transaction, inManagedObjectContext: stack.viewContext)
+            let trans = record as? [Transaction]
+            return trans!
+        }()
     }
     
     func shouldUpdateUI(_ bool: Bool) {

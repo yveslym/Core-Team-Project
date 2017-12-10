@@ -88,7 +88,10 @@ class CoreDataStack{
     
 }
 enum Entity: String{
-    case Product
-    case ShoppingCard
+    case Transaction
+    case Bank
     case User
+    case Account
+    case ItemAccess
+    
 }

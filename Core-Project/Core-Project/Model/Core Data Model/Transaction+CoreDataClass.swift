@@ -22,7 +22,7 @@ public class Transaction: NSManagedObject, Decodable {
             case date
             case account_id
             case name
-            
+            case transaction_id
             enum AddressKey: String,CodingKey{
                 case city
                 case state
@@ -44,6 +44,7 @@ public class Transaction: NSManagedObject, Decodable {
         name = try contenair.decodeIfPresent(String.self, forKey: .name) ?? nil
         self.accountID = try contenair.decodeIfPresent(String.self, forKey: .account_id) ?? nil
         self.date = try contenair.decodeIfPresent(String.self, forKey: .date) ?? nil
+        self.id = try contenair.decodeIfPresent(String.self, forKey: .transaction_id) ?? nil
         self.amount = (try contenair.decodeIfPresent(Double.self, forKey: .amount) ?? nil)!
         let category = try contenair.decodeIfPresent([String].self, forKey: .category) ?? nil
         if category != nil{
