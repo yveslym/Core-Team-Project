@@ -15,10 +15,13 @@ public class Account: NSManagedObject,Codable {
     required convenience public init(from decoder: Decoder)throws {
        
         enum AccountKey: String, CodingKey{
-            case name,id
+            case name,id, balances
+            
+            enum BalanceKey: String, CodingKey {
+                case current, available
+            }
         }
         
-        //guard let context = decoder.userInfo[CodingUserInfoKey.context!] as? NSManagedObjectContext else { fatalError() }
          let context = CoreDataStack.instance.privateContext
         guard let entity = NSEntityDescription.entity(forEntityName: "Account", in: context) else { fatalError() }
         
@@ -27,13 +30,14 @@ public class Account: NSManagedObject,Codable {
         let contenaire = try! decoder.container(keyedBy: AccountKey.self)
         self.name = try contenaire.decode(String.self, forKey: .name)
         self.id = try contenaire.decode(String.self, forKey: .id)
+        
+        let balanceContenaire = try! contenaire.nestedContainer(keyedBy: AccountKey.BalanceKey.self, forKey: .balances)
+        self.currentBalance = try balanceContenaire.decodeIfPresent(Double.self, forKey: .current)!
+        self.availableBalance = try balanceContenaire.decodeIfPresent(Double.self, forKey: .available)!
+
     }
 }
 
-extension CodingUserInfoKey {
-    static let context = CodingUserInfoKey(rawValue: "context")
-}
-    
     
 
 

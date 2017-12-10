@@ -17,6 +17,8 @@ extension Account {
     }
 
     @NSManaged public var id: String?
+    @NSManaged public var currentBalance: Double
+    @NSManaged public var availableBalance: Double
     @NSManaged public var name: String?
     @NSManaged public var bank: Bank?
     @NSManaged public var transactions: [Transaction]?

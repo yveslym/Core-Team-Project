@@ -13,6 +13,15 @@
 		20723E7A1FDA0A8500417C26 /* PlaidOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20723E791FDA0A8500417C26 /* PlaidOperation.swift */; };
 		207250411FD8C52C007AD838 /* BankingModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2072503F1FD8C52B007AD838 /* BankingModel.xcdatamodeld */; };
 		2084677B1FD77E59008B6C5E /* Plaid+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2084677A1FD77E59008B6C5E /* Plaid+Extension.swift */; };
+		20BBC7441FDCDA560019AE0C /* Identity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BBC73C1FDCDA560019AE0C /* Identity+CoreDataClass.swift */; };
+		20BBC7451FDCDA560019AE0C /* Identity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BBC73D1FDCDA560019AE0C /* Identity+CoreDataProperties.swift */; };
+		20BBC7461FDCDA560019AE0C /* PhoneNumber+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BBC73E1FDCDA560019AE0C /* PhoneNumber+CoreDataClass.swift */; };
+		20BBC7471FDCDA560019AE0C /* PhoneNumber+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BBC73F1FDCDA560019AE0C /* PhoneNumber+CoreDataProperties.swift */; };
+		20BBC7481FDCDA560019AE0C /* Email+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BBC7401FDCDA560019AE0C /* Email+CoreDataClass.swift */; };
+		20BBC7491FDCDA560019AE0C /* Email+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BBC7411FDCDA560019AE0C /* Email+CoreDataProperties.swift */; };
+		20BBC74A1FDCDA560019AE0C /* Addresses+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BBC7421FDCDA560019AE0C /* Addresses+CoreDataClass.swift */; };
+		20BBC74B1FDCDA560019AE0C /* Addresses+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BBC7431FDCDA560019AE0C /* Addresses+CoreDataProperties.swift */; };
+		20BBC74E1FDCDD5D0019AE0C /* String Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BBC74D1FDCDD5D0019AE0C /* String Extension.swift */; };
 		20BC43251FB41C2700CBFFA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BC43241FB41C2700CBFFA1 /* AppDelegate.swift */; };
 		20BC432A1FB41C2700CBFFA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20BC43281FB41C2700CBFFA1 /* Main.storyboard */; };
 		20BC432C1FB41C2700CBFFA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20BC432B1FB41C2700CBFFA1 /* Assets.xcassets */; };
@@ -50,6 +59,15 @@
 		207250401FD8C52B007AD838 /* BankingModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BankingModel.xcdatamodel; sourceTree = "<group>"; };
 		2084677A1FD77E59008B6C5E /* Plaid+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plaid+Extension.swift"; sourceTree = "<group>"; };
 		20BBC72B1FDC78290019AE0C /* Core-Project.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Core-Project.entitlements"; sourceTree = "<group>"; };
+		20BBC73C1FDCDA560019AE0C /* Identity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Identity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		20BBC73D1FDCDA560019AE0C /* Identity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Identity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		20BBC73E1FDCDA560019AE0C /* PhoneNumber+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhoneNumber+CoreDataClass.swift"; sourceTree = "<group>"; };
+		20BBC73F1FDCDA560019AE0C /* PhoneNumber+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhoneNumber+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		20BBC7401FDCDA560019AE0C /* Email+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Email+CoreDataClass.swift"; sourceTree = "<group>"; };
+		20BBC7411FDCDA560019AE0C /* Email+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Email+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		20BBC7421FDCDA560019AE0C /* Addresses+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Addresses+CoreDataClass.swift"; sourceTree = "<group>"; };
+		20BBC7431FDCDA560019AE0C /* Addresses+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Addresses+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		20BBC74D1FDCDD5D0019AE0C /* String Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String Extension.swift"; sourceTree = "<group>"; };
 		20BC43211FB41C2700CBFFA1 /* Core-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Core-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20BC43241FB41C2700CBFFA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20BC43291FB41C2700CBFFA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -94,6 +112,14 @@
 		2072503E1FD8C4E1007AD838 /* Core Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				20BBC73C1FDCDA560019AE0C /* Identity+CoreDataClass.swift */,
+				20BBC73D1FDCDA560019AE0C /* Identity+CoreDataProperties.swift */,
+				20BBC73E1FDCDA560019AE0C /* PhoneNumber+CoreDataClass.swift */,
+				20BBC73F1FDCDA560019AE0C /* PhoneNumber+CoreDataProperties.swift */,
+				20BBC7401FDCDA560019AE0C /* Email+CoreDataClass.swift */,
+				20BBC7411FDCDA560019AE0C /* Email+CoreDataProperties.swift */,
+				20BBC7421FDCDA560019AE0C /* Addresses+CoreDataClass.swift */,
+				20BBC7431FDCDA560019AE0C /* Addresses+CoreDataProperties.swift */,
 				20C3EE801FDA54DC008B9B17 /* Bank+CoreDataClass.swift */,
 				20C3EE831FDA54DC008B9B17 /* Bank+CoreDataProperties.swift */,
 				20C3EE811FDA54DC008B9B17 /* Account+CoreDataClass.swift */,
@@ -112,6 +138,7 @@
 		208467781FD77E16008B6C5E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				20BBC74C1FDCDD3A0019AE0C /* String+Extension */,
 				208467791FD77E30008B6C5E /* Plaid Extensions */,
 			);
 			path = Extensions;
@@ -124,6 +151,14 @@
 				20723E791FDA0A8500417C26 /* PlaidOperation.swift */,
 			);
 			path = "Plaid Extensions";
+			sourceTree = "<group>";
+		};
+		20BBC74C1FDCDD3A0019AE0C /* String+Extension */ = {
+			isa = PBXGroup;
+			children = (
+				20BBC74D1FDCDD5D0019AE0C /* String Extension.swift */,
+			);
+			path = "String+Extension";
 			sourceTree = "<group>";
 		};
 		20BC43181FB41C2700CBFFA1 = {
@@ -381,7 +416,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20BBC7481FDCDA560019AE0C /* Email+CoreDataClass.swift in Sources */,
 				207250411FD8C52C007AD838 /* BankingModel.xcdatamodeld in Sources */,
+				20BBC7451FDCDA560019AE0C /* Identity+CoreDataProperties.swift in Sources */,
+				20BBC7441FDCDA560019AE0C /* Identity+CoreDataClass.swift in Sources */,
 				20D3D5C81FB4421F00587569 /* Routing.swift in Sources */,
 				20C3EE8C1FDA54DD008B9B17 /* Transaction+CoreDataClass.swift in Sources */,
 				86E504A91FD7279200B359EA /* DayExpense.swift in Sources */,
@@ -393,18 +431,24 @@
 				20C3EE8E1FDA54DD008B9B17 /* Transaction+CoreDataProperties.swift in Sources */,
 				20C3EE8A1FDA54DD008B9B17 /* Bank+CoreDataClass.swift in Sources */,
 				207068E11FB988B300AA8F7B /* KeyChain.swift in Sources */,
+				20BBC7491FDCDA560019AE0C /* Email+CoreDataProperties.swift in Sources */,
 				20723E7A1FDA0A8500417C26 /* PlaidOperation.swift in Sources */,
+				20BBC74E1FDCDD5D0019AE0C /* String Extension.swift in Sources */,
 				8609BA641FD6367B00627E21 /* DailyExpenseCell.swift in Sources */,
 				20723E781FDA0A3400417C26 /* Core Data Stack.swift in Sources */,
 				20C3EE891FDA54DD008B9B17 /* ItemAccess+CoreDataClass.swift in Sources */,
 				20C3EE901FDA54DD008B9B17 /* Account+CoreDataProperties.swift in Sources */,
 				20CF67FD1FC3CCF500F3EAF6 /* Transactions.swift in Sources */,
+				20BBC74A1FDCDA560019AE0C /* Addresses+CoreDataClass.swift in Sources */,
 				20BC43251FB41C2700CBFFA1 /* AppDelegate.swift in Sources */,
 				8609BA5F1FD6224600627E21 /* Identifiers.swift in Sources */,
+				20BBC7471FDCDA560019AE0C /* PhoneNumber+CoreDataProperties.swift in Sources */,
 				20C3EE8B1FDA54DD008B9B17 /* Account+CoreDataClass.swift in Sources */,
+				20BBC7461FDCDA560019AE0C /* PhoneNumber+CoreDataClass.swift in Sources */,
 				20C3EE881FDA54DD008B9B17 /* User+CoreDataClass.swift in Sources */,
 				20D3D5C51FB43C4A00587569 /* HomeViewController.swift in Sources */,
 				2084677B1FD77E59008B6C5E /* Plaid+Extension.swift in Sources */,
+				20BBC74B1FDCDA560019AE0C /* Addresses+CoreDataProperties.swift in Sources */,
 				20C3EE8D1FDA54DD008B9B17 /* Bank+CoreDataProperties.swift in Sources */,
 				20C3EE911FDA54DD008B9B17 /* ItemAccess+CoreDataProperties.swift in Sources */,
 				86E504A61FD721B900B359EA /* TotalDayExpenseViewModel.swift in Sources */,
