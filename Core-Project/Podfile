@@ -8,5 +8,6 @@ target 'Core-Project' do
   # Pods for Core-Project
 pod 'Plaid'
 pod 'KeychainSwift'
+ pod 'JTAppleCalendar'
 
 end

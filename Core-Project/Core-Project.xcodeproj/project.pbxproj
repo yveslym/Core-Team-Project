@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		200591B81FDE2C0600AC0E74 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200591B71FDE2C0600AC0E74 /* DetailTableViewCell.swift */; };
 		200742341FBB9CC300D58935 /* BankOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200742331FBB9CC300D58935 /* BankOperation.swift */; };
 		207068E11FB988B300AA8F7B /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207068E01FB988B300AA8F7B /* KeyChain.swift */; };
 		20723E781FDA0A3400417C26 /* Core Data Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20723E771FDA0A3400417C26 /* Core Data Stack.swift */; };
@@ -26,6 +27,8 @@
 		20BC432A1FB41C2700CBFFA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20BC43281FB41C2700CBFFA1 /* Main.storyboard */; };
 		20BC432C1FB41C2700CBFFA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20BC432B1FB41C2700CBFFA1 /* Assets.xcassets */; };
 		20BC432F1FB41C2700CBFFA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20BC432D1FB41C2700CBFFA1 /* LaunchScreen.storyboard */; };
+		20BEC8861FDD1A4400A8EC87 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEC8851FDD1A4400A8EC87 /* CalendarViewController.swift */; };
+		20BEC88A1FDDC15700A8EC87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEC8891FDDC15700A8EC87 /* ViewController.swift */; };
 		20C3EE881FDA54DD008B9B17 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C3EE7E1FDA54DB008B9B17 /* User+CoreDataClass.swift */; };
 		20C3EE891FDA54DD008B9B17 /* ItemAccess+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C3EE7F1FDA54DC008B9B17 /* ItemAccess+CoreDataClass.swift */; };
 		20C3EE8A1FDA54DD008B9B17 /* Bank+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C3EE801FDA54DC008B9B17 /* Bank+CoreDataClass.swift */; };
@@ -42,6 +45,8 @@
 		20D3D5C51FB43C4A00587569 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D3D5C41FB43C4A00587569 /* HomeViewController.swift */; };
 		20D3D5C81FB4421F00587569 /* Routing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D3D5C71FB4421F00587569 /* Routing.swift */; };
 		20D3D5CA1FB4542200587569 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D3D5C91FB4542200587569 /* Networking.swift */; };
+		20E97AEB1FDD156800EA2D13 /* calendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E97AEA1FDD156800EA2D13 /* calendarViewCell.swift */; };
+		20E97AEE1FDD17E000EA2D13 /* CollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E97AED1FDD17E000EA2D13 /* CollectionDataSource.swift */; };
 		8609BA5F1FD6224600627E21 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8609BA5E1FD6224600627E21 /* Identifiers.swift */; };
 		8609BA641FD6367B00627E21 /* DailyExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8609BA631FD6367B00627E21 /* DailyExpenseCell.swift */; };
 		86E504A61FD721B900B359EA /* TotalDayExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E504A51FD721B900B359EA /* TotalDayExpenseViewModel.swift */; };
@@ -52,6 +57,7 @@
 /* Begin PBXFileReference section */
 		0DE28ECDB478C48F019A1911 /* Pods_Core_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Core_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16BFFE240D2EE6853332A205 /* Pods-Core-Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core-Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Core-Project/Pods-Core-Project.debug.xcconfig"; sourceTree = "<group>"; };
+		200591B71FDE2C0600AC0E74 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		200742331FBB9CC300D58935 /* BankOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankOperation.swift; sourceTree = "<group>"; };
 		207068E01FB988B300AA8F7B /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		20723E771FDA0A3400417C26 /* Core Data Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core Data Stack.swift"; sourceTree = "<group>"; };
@@ -74,6 +80,8 @@
 		20BC432B1FB41C2700CBFFA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20BC432E1FB41C2700CBFFA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		20BC43301FB41C2700CBFFA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20BEC8851FDD1A4400A8EC87 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		20BEC8891FDDC15700A8EC87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		20C3EE7E1FDA54DB008B9B17 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		20C3EE7F1FDA54DC008B9B17 /* ItemAccess+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ItemAccess+CoreDataClass.swift"; sourceTree = "<group>"; };
 		20C3EE801FDA54DC008B9B17 /* Bank+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bank+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -90,6 +98,8 @@
 		20D3D5C41FB43C4A00587569 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		20D3D5C71FB4421F00587569 /* Routing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routing.swift; sourceTree = "<group>"; };
 		20D3D5C91FB4542200587569 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		20E97AEA1FDD156800EA2D13 /* calendarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendarViewCell.swift; sourceTree = "<group>"; };
+		20E97AED1FDD17E000EA2D13 /* CollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDataSource.swift; sourceTree = "<group>"; };
 		8609BA5E1FD6224600627E21 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		8609BA631FD6367B00627E21 /* DailyExpenseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyExpenseCell.swift; sourceTree = "<group>"; };
 		86E504A51FD721B900B359EA /* TotalDayExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalDayExpenseViewModel.swift; sourceTree = "<group>"; };
@@ -182,6 +192,7 @@
 		20BC43231FB41C2700CBFFA1 /* Core-Project */ = {
 			isa = PBXGroup;
 			children = (
+				20E97AEC1FDD17BD00EA2D13 /* UI */,
 				20BBC72B1FDC78290019AE0C /* Core-Project.entitlements */,
 				208467781FD77E16008B6C5E /* Extensions */,
 				8609BA611FD6322200627E21 /* Helpers */,
@@ -204,6 +215,8 @@
 			children = (
 				20D3D5C41FB43C4A00587569 /* HomeViewController.swift */,
 				20D3D5C01FB41D7000587569 /* LinkBankAcountViewController.swift */,
+				20BEC8851FDD1A4400A8EC87 /* CalendarViewController.swift */,
+				20BEC8891FDDC15700A8EC87 /* ViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -229,6 +242,14 @@
 				207068E01FB988B300AA8F7B /* KeyChain.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		20E97AEC1FDD17BD00EA2D13 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				20E97AED1FDD17E000EA2D13 /* CollectionDataSource.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		25954E39221EE668D7B574B5 /* Frameworks */ = {
@@ -276,6 +297,8 @@
 			isa = PBXGroup;
 			children = (
 				86E504A51FD721B900B359EA /* TotalDayExpenseViewModel.swift */,
+				20E97AEA1FDD156800EA2D13 /* calendarViewCell.swift */,
+				200591B71FDE2C0600AC0E74 /* DetailTableViewCell.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -396,11 +419,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Core-Project/Pods-Core-Project-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${PODS_ROOT}/Plaid/ios/LinkKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LinkKit.framework",
 			);
@@ -421,6 +446,7 @@
 				20BBC7451FDCDA560019AE0C /* Identity+CoreDataProperties.swift in Sources */,
 				20BBC7441FDCDA560019AE0C /* Identity+CoreDataClass.swift in Sources */,
 				20D3D5C81FB4421F00587569 /* Routing.swift in Sources */,
+				20E97AEE1FDD17E000EA2D13 /* CollectionDataSource.swift in Sources */,
 				20C3EE8C1FDA54DD008B9B17 /* Transaction+CoreDataClass.swift in Sources */,
 				86E504A91FD7279200B359EA /* DayExpense.swift in Sources */,
 				20D3D5C11FB41D7000587569 /* LinkBankAcountViewController.swift in Sources */,
@@ -433,9 +459,12 @@
 				207068E11FB988B300AA8F7B /* KeyChain.swift in Sources */,
 				20BBC7491FDCDA560019AE0C /* Email+CoreDataProperties.swift in Sources */,
 				20723E7A1FDA0A8500417C26 /* PlaidOperation.swift in Sources */,
+				20E97AEB1FDD156800EA2D13 /* calendarViewCell.swift in Sources */,
 				20BBC74E1FDCDD5D0019AE0C /* String Extension.swift in Sources */,
 				8609BA641FD6367B00627E21 /* DailyExpenseCell.swift in Sources */,
+				20BEC8861FDD1A4400A8EC87 /* CalendarViewController.swift in Sources */,
 				20723E781FDA0A3400417C26 /* Core Data Stack.swift in Sources */,
+				200591B81FDE2C0600AC0E74 /* DetailTableViewCell.swift in Sources */,
 				20C3EE891FDA54DD008B9B17 /* ItemAccess+CoreDataClass.swift in Sources */,
 				20C3EE901FDA54DD008B9B17 /* Account+CoreDataProperties.swift in Sources */,
 				20CF67FD1FC3CCF500F3EAF6 /* Transactions.swift in Sources */,
@@ -443,6 +472,7 @@
 				20BC43251FB41C2700CBFFA1 /* AppDelegate.swift in Sources */,
 				8609BA5F1FD6224600627E21 /* Identifiers.swift in Sources */,
 				20BBC7471FDCDA560019AE0C /* PhoneNumber+CoreDataProperties.swift in Sources */,
+				20BEC88A1FDDC15700A8EC87 /* ViewController.swift in Sources */,
 				20C3EE8B1FDA54DD008B9B17 /* Account+CoreDataClass.swift in Sources */,
 				20BBC7461FDCDA560019AE0C /* PhoneNumber+CoreDataClass.swift in Sources */,
 				20C3EE881FDA54DD008B9B17 /* User+CoreDataClass.swift in Sources */,

@@ -10,6 +10,7 @@ import UIKit
 import KeychainSwift
 
 class HomeViewController: UIViewController, plaidDelegate {
+   
     // MARK: Properties
     let stack = CoreDataStack.instance
     
@@ -20,6 +21,7 @@ class HomeViewController: UIViewController, plaidDelegate {
             currentMonthCollectionView.reloadData()
         }
     }
+    
     var transactions = [Transaction]() {
         didSet {
             if transactions.count > 0 {

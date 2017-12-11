@@ -31,9 +31,9 @@ public class Account: NSManagedObject,Codable {
         self.name = try contenaire.decode(String.self, forKey: .name)
         self.id = try contenaire.decode(String.self, forKey: .id)
         
-        let balanceContenaire = try! contenaire.nestedContainer(keyedBy: AccountKey.BalanceKey.self, forKey: .balances)
-        self.currentBalance = try balanceContenaire.decodeIfPresent(Double.self, forKey: .current)!
-        self.availableBalance = try balanceContenaire.decodeIfPresent(Double.self, forKey: .available)!
+//        let balanceContenaire = try! contenaire.nestedContainer(keyedBy: AccountKey.BalanceKey.self, forKey: .balances)
+//        self.currentBalance = try balanceContenaire.decodeIfPresent(Double.self, forKey: .current)!
+//        self.availableBalance = try balanceContenaire.decodeIfPresent(Double.self, forKey: .available)!
 
     }
 }

@@ -37,6 +37,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="account" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Account" inverseName="identity" inverseEntity="Account" syncable="YES"/>
         <relationship name="addresses" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Addresses" inverseName="identity" inverseEntity="Addresses" syncable="YES"/>
+        <relationship name="bank" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Bank" syncable="YES"/>
         <relationship name="email" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Email" inverseName="identity" inverseEntity="Email" syncable="YES"/>
         <relationship name="phoneNumber" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PhoneNumber" inverseName="identity" inverseEntity="PhoneNumber" syncable="YES"/>
     </entity>
@@ -75,13 +76,13 @@
     </entity>
     <elements>
         <element name="Account" positionX="-18" positionY="72" width="128" height="150"/>
+        <element name="Addresses" positionX="-27" positionY="135" width="128" height="120"/>
         <element name="Bank" positionX="-54" positionY="27" width="128" height="180"/>
+        <element name="Email" positionX="-18" positionY="144" width="128" height="105"/>
+        <element name="Identity" positionX="9" positionY="171" width="128" height="135"/>
         <element name="ItemAccess" positionX="-36" positionY="63" width="128" height="90"/>
+        <element name="PhoneNumber" positionX="0" positionY="162" width="128" height="105"/>
         <element name="Transaction" positionX="0" positionY="81" width="128" height="225"/>
         <element name="User" positionX="-63" positionY="-18" width="128" height="135"/>
-        <element name="Addresses" positionX="-27" positionY="135" width="128" height="120"/>
-        <element name="Email" positionX="-18" positionY="144" width="128" height="105"/>
-        <element name="PhoneNumber" positionX="0" positionY="162" width="128" height="105"/>
-        <element name="Identity" positionX="9" positionY="171" width="128" height="120"/>
     </elements>
 </model>

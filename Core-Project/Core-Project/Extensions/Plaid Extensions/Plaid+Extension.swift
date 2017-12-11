@@ -55,12 +55,10 @@ extension UIViewController: PLKPlaidLinkViewDelegate{
                 
                 let formatter = DateFormatter()
                 formatter.dateFormat = "dd-MM-yyyy"
-                let date = Date()
-                let yesterday = Calendar.current.date(byAdding: .day, value: -30, to: date)
+                let endDate = Date()
+                let startDate = Calendar.current.date(byAdding: .day, value: -360, to: endDate)
             
-                
-                //DispatchQueue.global().sync {
-                    plaidOperation.transaction(with: bank, startDate: yesterday!, endDate: date, completion: { (allTransaction) in
+                plaidOperation.transaction(with: bank, startDate: startDate!, endDate: endDate, completion: { (allTransaction) in
                         
                         if allTransaction != nil{
                         let accounts = bank.accounts?.allObjects as? [Account]
@@ -73,7 +71,9 @@ extension UIViewController: PLKPlaidLinkViewDelegate{
                             self.dismiss(animated: true, completion: nil)
                             self.reloadInputViews()
                         }
+                        else{
                         self.dismiss(animated: true, completion: nil)
+                    }
                     })
                 //}
                 
