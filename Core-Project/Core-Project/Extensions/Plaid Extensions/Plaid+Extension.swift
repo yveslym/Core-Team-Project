@@ -16,7 +16,7 @@ protocol plaidDelegate: class {
 
 extension plaidDelegate where Self: UIViewController {
     
-    
+   
     /// function to set-up and present Plaid UI
     func presentPlaidLink(){
         // KeyChainData.publicKey()
@@ -34,7 +34,10 @@ extension plaidDelegate where Self: UIViewController {
         if (UI_USER_INTERFACE_IDIOM() == .pad) {
             linkViewController.modalPresentationStyle = .formSheet;
         }
-        self.present(linkViewController, animated: true, completion: nil)
+        self.present(linkViewController, animated: true) {
+            self.dismiss(animated: true, completion: nil)
+            self.viewDidAppear(true)
+        }
         
     }
 }
@@ -46,13 +49,18 @@ extension UIViewController: PLKPlaidLinkViewDelegate{
         
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: metadata!, options: .sortedKeys)
-            let bank = try JSONDecoder().decode(Bank.self, from: jsonData)
+            var bank = try JSONDecoder().decode(Bank.self, from: jsonData)
            
             plaidOperation.itemAccess(publicToken: publicToken, completion: { (itemAccess) in
-             
-                //bank.itemAccess = ItemAccess
-                bank.itemAccess = itemAccess
                 
+                bank.itemAccess = itemAccess
+                plaidOperation.accounts(bank: bank, completion: { (accounts) in
+                  
+                    accounts?.forEach({ (account) in
+                        account.bank = bank
+                        bank.addToAccounts(account)
+                        })
+                    
                 let formatter = DateFormatter()
                 formatter.dateFormat = "dd-MM-yyyy"
                 let endDate = Date()
@@ -61,24 +69,30 @@ extension UIViewController: PLKPlaidLinkViewDelegate{
                 plaidOperation.transaction(with: bank, startDate: startDate!, endDate: endDate, completion: { (allTransaction) in
                         
                         if allTransaction != nil{
+                            
                         let accounts = bank.accounts?.allObjects as? [Account]
-                        
-                        for account in accounts!{
-                            if account.id == allTransaction?.first?.accountID{
-                                account.addToTransactions(NSSet(array: allTransaction!))
-                            }
+                            
+                            // insert each transaction in the respective account
+                            allTransaction?.forEach({ (transaction) in
+                                accounts?.forEach({ (account) in
+                                    if transaction.accountID == account.id{
+                                        transaction.account = account
+                                        account.addToTransactions(transaction)
+                                    }
+                                })
+                            })
+                            
+                            // save in the core data
+                             let stack = CoreDataStack.instance
+                            let objectID = bank.objectID
+                            let privateBank = stack.privateContext.object(with: objectID) as! Bank
+                            bank = privateBank
+                            stack.saveTo(context: stack.privateContext)
+                            
                         }
-                            self.dismiss(animated: true, completion: nil)
-                            self.reloadInputViews()
-                        }
-                        else{
-                        self.dismiss(animated: true, completion: nil)
-                    }
-                    })
-                //}
-                
+                })
+              })
             })
-            
         }
         catch{
             print("Failure in Extension LinkBankAccountController", error)

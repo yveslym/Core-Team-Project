@@ -23,6 +23,8 @@ class plaidOperation{
             let record = stack.fetchRecordsForEntity(.Transaction, inManagedObjectContext: stack.viewContext) as? [Transaction]
             
             var index = 0
+            
+           
             myTransaction.transactions.forEach({ (newTans) in
                 record?.forEach({ (existingTrans) in
                     if newTans.id == existingTrans.id{
@@ -44,6 +46,39 @@ class plaidOperation{
     }
     
     static func identity(with accessToken: String, completion: ()){
-        
+    }
+
+    static func account(with bank: Bank, account: Account, completion: @escaping (Balance?)-> Void){
+    
+        Networking.network(bank: bank, route: .balance, apiHost: .development) { (data) in
+            let balance = try! JSONDecoder().decode(Balance.self, from: data!)
+            return completion(balance)
+        }
+    
+    }
+    
+    static func accounts(bank: Bank, completion: @escaping ([Account]?)-> Void){
+        Networking.network(bank: bank, route:.accounts , apiHost: .development) { (data) in
+            let accounts = try! JSONDecoder().decode(ListOfAccount.self, from: data!)
+            return completion(accounts.accounts)
+        }
     }
 }
+
+struct ListOfAccount: Decodable{
+    let accounts:[Account]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

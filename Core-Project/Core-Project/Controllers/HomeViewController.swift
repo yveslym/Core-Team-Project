@@ -87,6 +87,7 @@ class HomeViewController: UIViewController, plaidDelegate {
         currentMonthCollectionView.dataSource = self
         shouldUpdateUI(false)
         delegate = self
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {

@@ -24,7 +24,7 @@ class ViewController: UIViewController, plaidDelegate {
     
      var prePostVisibility: ((CellState, calendarViewCell?)->())?
     
-    lazy var transactionDetail = [Transaction]()
+    var transactionDetail : [Transaction]?
     
     var transactions = [Transaction]() {
         didSet {
@@ -43,14 +43,10 @@ class ViewController: UIViewController, plaidDelegate {
                     expDic[dayExp.date] = dayExp.totalAmount
                 }
                 
-//                DispatchQueue.main.async( execute: {
-//                    print("++++++++++ before reload data")
-//                    self.calendarView.reloadData()
-//                    print("------------------after reload data")
-//                })
+
                 DispatchQueue.main.async {
                     print("++++++++++ before reload data")
- self.calendarView.reloadData()
+                    self.calendarView.reloadData()
                      print("------------------after reload data")
                 }
                 
@@ -68,12 +64,16 @@ class ViewController: UIViewController, plaidDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableTack: UIStackView!
 
-
+    // - MARK: View Controller Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
+       
         tableView.delegate = self
         tableView.dataSource = self
+        //tableTack.addArrangedSubview(tableView)
+        tableView.isHidden = true
         delegate = self
         calendarView.scrollToDate(Date())
         calendarView.selectDates([Date()])
@@ -102,9 +102,9 @@ class ViewController: UIViewController, plaidDelegate {
         self.transactions = {
             let record = stack.fetchRecordsForEntity(.Transaction, inManagedObjectContext: stack.viewContext)
             let trans = record as? [Transaction]
+        
             return trans!
         }()
-        firstRun = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -168,33 +168,33 @@ class ViewController: UIViewController, plaidDelegate {
     
     // Function to handle the calendar selection
     func handleCellSelection(view: JTAppleCell?, cellState: CellState) {
-        guard let myCustomCell = view as? calendarViewCell else {return }
-                switch cellState.selectedPosition() {
-                case .full:
-                    myCustomCell.backgroundColor = .green
-                case .left:
-                    myCustomCell.backgroundColor = .yellow
-                case .right:
-                    myCustomCell.backgroundColor = .red
-                case .middle:
-                    myCustomCell.backgroundColor = .blue
-                case .none:
-                    myCustomCell.backgroundColor = nil
-                }
-        
-        if cellState.isSelected {
-//            myCustomCell.selectedView.layer.cornerRadius =  13
-//            myCustomCell.selectedView.isHidden = false
-//        } else {
-//            myCustomCell.selectedView.isHidden = true
-       }
+//        guard let myCustomCell = view as? calendarViewCell else {return }
+//                switch cellState.selectedPosition() {
+//                case .full:
+//                    myCustomCell.backgroundColor = .green
+//                case .left:
+//                    myCustomCell.backgroundColor = .yellow
+//                case .right:
+//                    myCustomCell.backgroundColor = .red
+//                case .middle:
+//                    myCustomCell.backgroundColor = .blue
+//                case .none:
+//                    myCustomCell.backgroundColor = nil
+//                }
+//
+//        if cellState.isSelected {
+////            myCustomCell.selectedView.layer.cornerRadius =  13
+////            myCustomCell.selectedView.isHidden = false
+////        } else {
+////            myCustomCell.selectedView.isHidden = true
+//       }
         
     }
     
     
     func handleCellTextColor(view: calendarViewCell, cellState: CellState) {
         if cellState.dateBelongsTo == .thisMonth {
-            view.day.textColor = UIColor.black
+            view.day.textColor = UIColor.white
             
         } else {
             view.day.textColor = UIColor.gray
@@ -236,19 +236,7 @@ extension ViewController: JTAppleCalendarViewDelegate{
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
        // handleCellConfiguration(cell: cell, cellState: cellState)
        
-//         print("Deselected date ")
-//        if self.tableView.isHidden == false{
-//        self.tableView.isHidden = true
-//        }
-//        if !self.transactionDetail.isEmpty{
-//
-//            self.transactionDetail.removeAll()
-//
-//            DispatchQueue.main.async {
-//                self.tableView.reloadData()
-//            }
-//
-//        }
+
     }
     
     // function to setup the table view when a date has been seleted
@@ -258,42 +246,71 @@ extension ViewController: JTAppleCalendarViewDelegate{
         
         print("selected date ", cellState.date)
         
-//        if !self.transactionDetail.isEmpty{
-//
-//            self.transactionDetail.removeAll()
-//
-//        }
-        
         formatter.dateFormat = "yyyy-MM-dd"
         let date = formatter.string(from: cellState.date)
         
-        // hide the table view when select the same view again
         
-        if self.transactionDetail.first?.date == date{
+        
+        if self.transactionDetail?.first?.date == date{
+                self.transactionDetail = nil
             
-            self.transactionDetail.removeAll()
-            
-            DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.50, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options:UIViewAnimationOptions.transitionFlipFromBottom, animations: {
+                 self.tableView.isHidden = true
                 
-                self.tableView.reloadData()
-            }
-            if self.tableView.isHidden == false{
-                self.tableView.isHidden = true
-            }
+            },completion:nil)
+            
+            
+//            UIView.animate(withDuration: (1.0), animations: {
+//                self.tableView.isHidden = true
+//            })
         }
             
-        else{
-        self.transactions.forEach { (transaction) in
-            if transaction.date == date{
-                self.transactionDetail.append(transaction)
+            else {
+            
+                self.transactionDetail = [Transaction]()
+                self.transactions.forEach { (transaction) in
+                    if transaction.date == date{
+                        self.transactionDetail?.append(transaction)
+                        }
+                    }
+            if self.transactionDetail?.count  != 0{
+                
+                UIView.animate(withDuration: (1.0), animations: {
+                    self.tableView.isHidden = false
+                })
             }
-        }
-        DispatchQueue.main.async {
+            else{
+                UIView.animate(withDuration: (1.0), animations: {
+                    self.tableView.isHidden = true
+                })
+            }
+                }
         
+        
+        DispatchQueue.main.async {
             self.tableView.reloadData()
-            self.tableView.isHidden = false
         }
-    }
+        // present the table view
+//        if self.transactionDetail != nil{
+//            if self.tableView.isHidden == false{
+//
+//                UIView.animate(withDuration: (0.3), animations: {
+//                    self.tableView.isHidden = true
+//                })
+//            }
+//
+//        else{
+//            UIView.animate(withDuration: (1.0), animations: {
+//                self.tableView.isHidden = false
+//            })
+//        }
+//
+//    }
+//        else{
+//            UIView.animate(withDuration: (0.3), animations: {
+//                self.tableView.isHidden = true
+//            })
+//        }
 }
     
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
@@ -307,7 +324,7 @@ extension ViewController: JTAppleCalendarViewDelegate{
         let header: JTAppleCollectionReusableView
         if month % 2 > 0 {
             header = calendar.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "WhiteSectionHeaderView", for: indexPath)
-           // (header as! WhiteSectionHeaderView).title.text = formatter.string(from: date)
+//            (header as! WhiteSectionHeaderView).title.text = formatter.string(from: date)
         } else {
             header = calendar.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "PinkSectionHeaderView", for: indexPath)
            // (header as! PinkSectionHeaderView).title.text = formatter.string(from: date)
@@ -372,11 +389,11 @@ extension ViewController: JTAppleCalendarViewDelegate{
                 
                 todayExp?.negate()
                  cell.amount.text = "\(todayExp ?? 0.0)"
-                cell.amount.textColor = UIColor.green
+                cell.amount.textColor = UIColor(red: 28/255, green: 207/255, blue: 168/255, alpha: 1)
             }
             else{
                 todayExp?.negate()
-                cell.amount.textColor = UIColor.red
+                cell.amount.textColor = UIColor(red: 255/255, green: 44/255, blue: 85/255, alpha: 1)
                  cell.amount.text = "\(todayExp ?? 0.0)"
             }
             
@@ -395,14 +412,21 @@ return cell
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return self.transactionDetail.count
+       
+        if transactionDetail != nil{
+        return self.transactionDetail!.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! DetailTableViewCell
         
-        let transaction = self.transactionDetail[indexPath.row]
+        if self.transactionDetail != nil  {
+        
+        
+        
+            let transaction = self.transactionDetail![indexPath.row]
         
         
         cell.BankName.text = transaction.account?.name ?? ""
@@ -414,22 +438,19 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         if transaction.amount.isLess(than: 0.0){
             transaction.amount.negate()
             cell.amount.text = String(transaction.amount)
-            cell.amount.textColor = UIColor.green
-            
+            cell.amount.textColor = UIColor(red: 32/255, green: 161/255, blue: 109/255, alpha: 1)
+            transaction.amount.negate()
         }
         else{
             transaction.amount.negate()
              cell.amount.text = String(transaction.amount)
-             cell.amount.textColor = UIColor.red
-           
+             cell.amount.textColor = UIColor(red: 240/255, green: 105/255, blue: 105/255, alpha: 1)
+             transaction.amount.negate()
+            }
         }
-        
         return cell
-    }
-
-    
+        }
 }
-
 
 
 

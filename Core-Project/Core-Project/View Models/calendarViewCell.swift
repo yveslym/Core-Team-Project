@@ -20,11 +20,11 @@ class calendarViewCell: JTAppleCell {
         super.awakeFromNib()
         // Initialization code
         
-        self.contentView.layer.cornerRadius = 2.0
-        self.contentView.layer.borderWidth = 1.0
-        self.backgroundColor = UIColor(displayP3Red: 118/255, green: 157/255, blue: 172/255, alpha: 1)
+        self.contentView.layer.cornerRadius = 8.0
+       // self.contentView.layer.borderWidth = 5.0
+       // self.backgroundColor = UIColor.white//(displayP3Red: 118/255, green: 157/255, blue: 172/255, alpha: 1)
 //        self.contentView.layer.borderColor = UIColor.clear.cgColor
-//        self.contentView.layer.masksToBounds = true
+        self.contentView.layer.masksToBounds = true
 //        
 //        self.layer.shadowColor = UIColor.lightGray.cgColor
 //        self.layer.shadowOffset = CGSize(width: 0, height: 2.0)

@@ -43,6 +43,8 @@ class Networking{
             request.httpBody = route.jsonBody(bank: bank, client_id: clientId, secret: secret, access_token: bank?.access_token)
         case .exchangeToken:
             request.httpBody = route.jsonBody(client_id: clientId, secret: secret, public_token: public_token)
+        case .accounts:
+            request.httpBody = route.jsonBody(bank: bank, client_id: clientId, secret: secret, access_token: bank?.itemAccess?.accessToken)
         }
     
     request.httpMethod = "POST"

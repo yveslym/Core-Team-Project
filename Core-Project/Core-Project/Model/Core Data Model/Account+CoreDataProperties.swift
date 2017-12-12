@@ -20,9 +20,13 @@ extension Account {
     @NSManaged public var currentBalance: Double
     @NSManaged public var availableBalance: Double
     @NSManaged public var name: String?
+    @NSManaged public var accNumber: String
     @NSManaged public var bank: Bank?
-    @NSManaged public var transactions: [Transaction]?
-
+    @NSManaged public var transactions: NSSet?
+    @NSManaged public var balance: Balance?
+    @NSManaged public var subtype: String?
+    @NSManaged public var officialName: String?
+    @NSManaged public var limit: String?
 }
 
 // MARK: Generated accessors for transactions

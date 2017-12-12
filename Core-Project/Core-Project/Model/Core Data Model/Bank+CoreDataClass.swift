@@ -42,11 +42,11 @@ public class Bank: NSManagedObject, Codable {
         
         self.institutionId = try instutitionContenair.decodeIfPresent(String.self, forKey: .institution_id)
         self.institutionName = try instutitionContenair.decodeIfPresent(String.self, forKey: .name)
-        let Allaccount = try BankContenair.decodeIfPresent([Account].self, forKey: .accounts) ?? nil
         
-        for account in Allaccount!{
-            self.addToAccounts(account)
-        }
+        //let Allaccount = try BankContenair.decodeIfPresent([Account].self, forKey: .accounts) ?? nil
+//        for account in Allaccount!{
+//            self.addToAccounts(account)
+//        }
     }
 }
 
