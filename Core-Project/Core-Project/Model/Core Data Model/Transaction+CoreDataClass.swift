@@ -87,7 +87,12 @@ extension Transaction{
     
     // function to return array of transaction by day
     static func expenseByDayOfWeek( dayKey: String, monthKey: String, transaction: [Transaction]) -> [Transaction]{
-        let trans = transaction.filter{$0.dayName == dayKey && $0.monthName == monthKey && $0.amount > 0.0}
+        let trans = transaction.filter{return ($0.dayName == dayKey && $0.monthName == monthKey && $0.amount > 0.0)}
+        
+        let t = transaction.filter { (obj) -> Bool in
+            print(obj.dayName, "  ", dayKey)
+            return  (obj.dayName == dayKey && obj.monthName == monthKey && obj.amount > 0.0)
+        }
         return trans
     }
     
@@ -166,6 +171,22 @@ extension Transaction{
         let expense = trans.flatMap{$0.amount}
         let totalAmount = expense.reduce (0.0, +)
         return totalAmount
+    }
+    
+    static func isThisMonthEmpty(month: String, transaction: [Transaction]) -> Bool{
+        let trans = transaction.filter{$0.monthName == month}
+        if trans.first == nil{
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    static func numberOfMonth(transaction: [Transaction]) -> [String]{
+        let month = transaction.flatMap{$0.monthName}
+        let unique = Set(month)
+        
+        return Array(unique)
     }
 }
 

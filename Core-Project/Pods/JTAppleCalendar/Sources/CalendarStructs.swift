@@ -301,7 +301,7 @@ struct JTAppleDateConfigGenerator {
                     }
                     var sectionsForTheMonth: [Int] = []
                     var sectionIndexMaps: [Int: Int] = [:]
-                    for index in 0..<6 {
+                    for index in 0..<5 {
                         // Max number of sections in the month
                         if numberOfDaysInMonthVariable < 1 {
                             break

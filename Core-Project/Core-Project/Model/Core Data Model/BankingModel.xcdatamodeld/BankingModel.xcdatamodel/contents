@@ -69,7 +69,9 @@
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dayName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="monthName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="types" optional="YES" attributeType="String" syncable="YES"/>
@@ -93,7 +95,7 @@
         <element name="Identity" positionX="9" positionY="171" width="128" height="135"/>
         <element name="ItemAccess" positionX="-36" positionY="63" width="128" height="90"/>
         <element name="PhoneNumber" positionX="0" positionY="162" width="128" height="105"/>
-        <element name="Transaction" positionX="0" positionY="81" width="128" height="225"/>
+        <element name="Transaction" positionX="0" positionY="81" width="128" height="255"/>
         <element name="User" positionX="-63" positionY="-18" width="128" height="135"/>
     </elements>
 </model>

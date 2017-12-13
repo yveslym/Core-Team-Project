@@ -162,7 +162,6 @@ class ViewController: UIViewController, plaidDelegate {
     
   
     override func viewDidAppear(_ animated: Bool) {
-        print("HOMEVIEW TANSCOUNT------------------------========================------------------------")
         
         self.transactions = {
             let record = stack.fetchRecordsForEntity(.Transaction, inManagedObjectContext: stack.viewContext)
