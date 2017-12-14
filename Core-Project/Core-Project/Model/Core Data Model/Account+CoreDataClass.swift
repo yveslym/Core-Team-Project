@@ -38,9 +38,9 @@ public class Account: NSManagedObject,Codable {
         self.officialName = try contenaire.decodeIfPresent(String.self, forKey: .official_name)
 
         //self.balance = try contenaire.decodeIfPresent(Balance.self, forKey: .balances)
-        self.limit = try balanceContenaire.decodeIfPresent(String.self, forKey: .limit)
+        //self.limit = try balanceContenaire.decodeIfPresent(String.self, forKey: .limit)
         self.currentBalance = try balanceContenaire.decodeIfPresent(Double.self, forKey: .current)!
-        self.availableBalance = try balanceContenaire.decodeIfPresent(Double.self, forKey: .available)!
+        self.availableBalance = try! balanceContenaire.decodeIfPresent(Double.self, forKey: .available) ?? 0.0
 
     }
 }

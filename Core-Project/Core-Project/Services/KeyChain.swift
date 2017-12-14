@@ -12,9 +12,9 @@ import KeychainSwift
 struct KeyChainData{
     static func setUpKeyChain(){
        let keychain = KeychainSwift()
-        keychain.set("8bb4e37cb6ad720c4b2ab3c6107ce7", forKey: "publicKey")
-        keychain.set("5a0e10dfbdc6a46838fe6283", forKey: "clientId")
-        keychain.set("a2c5ff8e5fa75701955d548d79bbe9", forKey: "secret")
+        keychain.set("7a252d1d8479d0e9021455c134d8f8", forKey: "publicKey")
+        keychain.set("5a317eb9bdc6a45a22c6afc3", forKey: "clientId")
+        keychain.set("bc7625e412eb3fd57739fa6d181146", forKey: "secret")
     }
     
     static func publicKey()->String?{

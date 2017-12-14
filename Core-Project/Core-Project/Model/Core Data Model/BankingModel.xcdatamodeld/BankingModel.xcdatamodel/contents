@@ -10,9 +10,9 @@
         <attribute name="officialName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="subtype" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="balance" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Balance" inverseName="account" inverseEntity="Balance" syncable="YES"/>
-        <relationship name="bank" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Bank" inverseName="accounts" inverseEntity="Bank" syncable="YES"/>
+        <relationship name="bank" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bank" inverseName="accounts" inverseEntity="Bank" syncable="YES"/>
         <relationship name="identity" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Identity" inverseName="account" inverseEntity="Identity" syncable="YES"/>
-        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Transaction" inverseName="account" inverseEntity="Transaction" syncable="YES"/>
+        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Transaction" inverseName="account" inverseEntity="Transaction" syncable="YES"/>
     </entity>
     <entity name="Addresses" representedClassName="Addresses" syncable="YES">
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>

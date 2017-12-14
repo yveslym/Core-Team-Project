@@ -34,10 +34,7 @@ extension plaidDelegate where Self: UIViewController {
         if (UI_USER_INTERFACE_IDIOM() == .pad) {
             linkViewController.modalPresentationStyle = .formSheet;
         }
-        self.present(linkViewController, animated: true) {
-            self.dismiss(animated: true, completion: nil)
-            self.viewDidAppear(true)
-        }
+        self.present(linkViewController, animated: true, completion: nil)
         
     }
 }
@@ -93,6 +90,8 @@ extension UIViewController: PLKPlaidLinkViewDelegate{
                 })
               })
             })
+            self.dismiss(animated: true, completion: nil)
+            self.reloadInputViews()
         }
         catch{
             print("Failure in Extension LinkBankAccountController", error)
@@ -109,6 +108,38 @@ extension UIViewController: PLKPlaidLinkViewDelegate{
         
         self.present(alert, animated: true, completion: nil)
     }
+    
+    public func linkViewController(_ linkViewController: PLKPlaidLinkViewController, didHandleEvent event: String, metadata: [String : Any]?) {
+        if event == "EXIT"{
+            self.dismiss(animated: true, completion: nil)
+           
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

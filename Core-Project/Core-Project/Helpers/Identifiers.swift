@@ -21,3 +21,19 @@ struct Identifiers {
     // Cells
     static let currentMonthCell = "dailyExpenseCell"
 }
+//struct YearDescription{
+//    static func monthName() -> [String]{
+//        
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "yyyy-MM-dd"
+//        let dateString = "2017-01-01"
+//        let date = dateString.toDate()
+//        
+//        let month =  Calendar.current.dateComponents([.month], from: date!).month
+//        
+//        let monthName = DateFormatter().monthSymbols[(month! - 1) % 12]
+//        
+//        
+//        
+   // }
+//}

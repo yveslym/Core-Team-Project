@@ -63,6 +63,9 @@ public class Transaction: NSManagedObject, Decodable {
         self.address = try locationContenair.decodeIfPresent(String.self, forKey: .address) ?? nil
         self.zipCode = try locationContenair.decodeIfPresent(String.self, forKey: .zip) ?? nil
 
+        let todate = self.date?.toDate()
+        self.dayName = todate?.dayOfWeak()
+        self.monthName = todate?.monthName()
     
     }
 }
@@ -76,7 +79,95 @@ extension Transaction{
     }
 }
 
+struct transactionOperation: Decodable{
+    var transactions:[Transaction]
+}
 
+extension Transaction{
+    
+    // function to return array of transaction by day
+    static func expenseByDayOfWeek( dayKey: String, monthKey: String, transaction: [Transaction]) -> [Transaction]{
+        let trans = transaction.filter{$0.dayName == dayKey && $0.monthName == monthKey && $0.amount > 0.0}
+        return trans
+    }
+    
+    static func incomeByDayOfWeek( dayKey: String, monthKey: String, transaction: [Transaction]) -> [Transaction]{
+        let trans = transaction.filter{$0.dayName == dayKey && $0.monthName == monthKey && $0.amount < 0.0}
+        return trans
+    }
+
+    /// function to return array of expenses transaction by month
+    static func expensesByMonth(monthKey: String,transaction: [Transaction]) -> [Transaction]{
+        let trans = transaction.filter {$0.monthName == monthKey && $0.amount > 0.0}
+        return trans
+    }
+    /// function to return array of income transaction by month
+    static func incomeByMonth(monthKey: String,transaction: [Transaction]) -> [Transaction]{
+        let trans = transaction.filter {$0.monthName == monthKey && $0.amount < 0.0}
+        return trans
+    }
+    
+    /// function to return all of expences transaction by year
+    static func expensesByYear(year: Int, transaction: [Transaction]) -> [Transaction]{
+        let keyYear = String(year)
+        let trans = transaction.filter {($0.date?.hasSuffix(keyYear))! && $0.amount > 0.0}
+        return trans
+    }
+    /// function to return all of income transaction by year
+    static func incomeByYear(year: Int, transaction: [Transaction]) -> [Transaction]{
+        let keyYear = String(year)
+        let trans = transaction.filter {($0.date?.hasSuffix(keyYear))! && $0.amount > 0.0}
+        return trans
+    }
+    
+    /// function to return monthly expenses
+    static func totalExpensesByMonth(month: String, transaction: [Transaction]) -> Double{
+        let expensesByMonth = Transaction.expensesByMonth(monthKey: month, transaction: transaction)
+        let trans = expensesByMonth.flatMap {$0.amount}
+        let totalAmount = trans.reduce(0.0, +)
+        return totalAmount
+    }
+    
+    /// function to return monthly income
+    static func totalIncomeByMonth(month: String, transaction: [Transaction]) -> Double{
+        let expensesByMonth = Transaction.incomeByMonth(monthKey: month, transaction: transaction)
+        let trans = expensesByMonth.flatMap {$0.amount}
+        let totalAmount = trans.reduce(0.0, +)
+        return totalAmount
+    }
+    
+    /// function to return total expenses by day of week
+    static func totalExpensesBydayOfWeek(dayKey: String, monthKey: String, transaction: [Transaction]) -> Double{
+        let dayExpenses = Transaction.expenseByDayOfWeek(dayKey: dayKey, monthKey: monthKey, transaction: transaction)
+        let trans = dayExpenses.flatMap{$0.amount}
+        let totalAmount = trans.reduce(0.0,+)
+        return totalAmount
+    }
+    
+    /// function to return total income by day of week
+    static func totalIncomeBydayOfWeek(dayKey: String, monthKey: String, transaction: [Transaction]) -> Double{
+        let dayExpenses = Transaction.incomeByDayOfWeek(dayKey: dayKey, monthKey: monthKey, transaction: transaction)
+        let trans = dayExpenses.flatMap{$0.amount}
+        let totalAmount = trans.reduce(0.0,+)
+        return totalAmount
+    }
+    
+    /// function to return total expense by year
+    static func totalExpensesByYear(year: Int, transaction: [Transaction])-> Double{
+        let trans = Transaction.expensesByYear(year: year, transaction: transaction)
+        let expense = trans.flatMap{$0.amount}
+        let totalAmount = expense.reduce (0.0, +)
+        return totalAmount
+    }
+    
+    /// function to return total income by year
+    static func totalIncomeByYear(year: Int, transaction: [Transaction])-> Double{
+        let trans = Transaction.incomeByYear(year: year, transaction: transaction)
+        let expense = trans.flatMap{$0.amount}
+        let totalAmount = expense.reduce (0.0, +)
+        return totalAmount
+    }
+}
 
 
 

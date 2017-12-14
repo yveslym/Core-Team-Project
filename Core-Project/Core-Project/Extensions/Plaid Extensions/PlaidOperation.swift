@@ -59,7 +59,11 @@ class plaidOperation{
     
     static func accounts(bank: Bank, completion: @escaping ([Account]?)-> Void){
         Networking.network(bank: bank, route:.accounts , apiHost: .development) { (data) in
-            let accounts = try! JSONDecoder().decode(ListOfAccount.self, from: data!)
+            
+            guard let data = data else {return}
+            
+            
+            let accounts = try! JSONDecoder().decode(ListOfAccount.self, from: data)
             return completion(accounts.accounts)
         }
     }

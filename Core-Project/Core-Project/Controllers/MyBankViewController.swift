@@ -51,7 +51,10 @@ class MyBankViewController: UIViewController, plaidDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         self.fetchAllAccount()
-        
+    }
+    
+    override func reloadInputViews() {
+        self.fetchAllAccount()
     }
     
     func fetchAllAccount(){
@@ -81,7 +84,7 @@ extension MyBankViewController: UITableViewDelegate, UITableViewDataSource{
         cell.balance.text = String(describing: account.availableBalance)
         cell.officialName.text = account.name
         cell.cardName.text = account.officialName
-        cell.cardNumber.text = "xxxxx\(account.accNumber)"
+        cell.cardNumber.text = "XXXXX\(account.accNumber)"
         cell.subtype.text = "available"
         return cell
     }
@@ -92,12 +95,10 @@ extension MyBankViewController: UITableViewDelegate, UITableViewDataSource{
             let alert = UIAlertController(title: "Delete Account", message: "Do you want to delete this acount?, you will have to had it back to see the transaction again", preferredStyle: .alert)
             let okButton = UIAlertAction(title: "OK", style: .default, handler: { (okAction) in
                 
-                
                 let accountID = self.allAccount[indexPath.row].objectID
-                let account = self.stack.privateContext.object(with: accountID)
-                self.allAccount[indexPath.row] = account as! Account
+                let account = self.stack.privateContext.object(with: accountID) as! Account
                 
-                self.stack.delete(context: self.stack.privateContext, item: self.allAccount[indexPath.row])
+                self.stack.delete(context: self.stack.viewContext, item: account)
                 
                 self.fetchAllAccount()
             })

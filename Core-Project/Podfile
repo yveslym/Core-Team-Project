@@ -9,5 +9,6 @@ target 'Core-Project' do
 pod 'Plaid'
 pod 'KeychainSwift'
  pod 'JTAppleCalendar'
+pod 'SwiftCharts'
 
 end

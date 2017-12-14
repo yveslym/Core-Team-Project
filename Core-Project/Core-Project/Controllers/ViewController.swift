@@ -13,14 +13,72 @@ class ViewController: UIViewController, plaidDelegate {
     
     // - MARK: Properties
     
+    @IBOutlet weak var mainStackView: UIStackView!
     let stack = CoreDataStack.instance
     let formatter = DateFormatter()
     var dayExpenses = [DayExpense]()
     var expDic = [String: Double]()
     var testCalendar = Calendar.current
+    
+    @IBOutlet weak var view4: UIView!
+    
     var monthSize: MonthSize? = nil
      let numberOfRows = 5
     
+    var generateInDates: InDateCellGeneration = .forAllMonths
+    var generateOutDates: OutDateCellGeneration = .tillEndOfGrid
+    
+    var inDate = [String]()
+    var outDate = [String]()
+    let firstDayOfWeek: DaysOfWeek = .monday
+    let monthlysummery = [String:Double]()
+    
+    // - MARK: IBOutlets
+    weak var delegate: plaidDelegate!
+    @IBOutlet weak var calendarView: JTAppleCalendarView!
+    @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableTack: UIStackView!
+    @IBOutlet weak var income: UILabel!
+    @IBOutlet weak var outcome: UILabel!
+    
+    @IBOutlet weak var view1: UIView!
+    
+    @IBOutlet weak var view2: UIView!
+    
+    @IBOutlet weak var view3: UIView!
+    
+    @IBOutlet weak var dayStackView: UIStackView!
+    
+    @IBOutlet weak var monthStack: UIStackView!
+   
+    
+    @IBOutlet weak var expenseStack: UIStackView!
+    @IBOutlet weak var stackView: UIStackView!
+    
+   
+   
+    
+  
+    func setUpView(){
+        
+        self.stackView.distribution = .fill
+        
+        NSLayoutConstraint.activate([
+            
+            view1.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25),
+            view2.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.40),
+            view3.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.35),
+            expenseStack.heightAnchor.constraint(equalTo: view1.heightAnchor, multiplier: 0.30),
+            monthStack.heightAnchor.constraint(equalTo: view1.heightAnchor, multiplier: 0.50),
+            dayStackView.heightAnchor.constraint(equalTo: view1.heightAnchor, multiplier: 0.20),
+            tableView.leadingAnchor.constraint(equalTo: tableTack.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: tableTack.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: tableTack.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: tableTack.bottomAnchor)
+            
+            ])
+    }
     
      var prePostVisibility: ((CellState, calendarViewCell?)->())?
     
@@ -53,30 +111,38 @@ class ViewController: UIViewController, plaidDelegate {
             }
         }
     }
-    
-    
-    
-    
-    // - MARK: IBOutlets
-    weak var delegate: plaidDelegate!
-    @IBOutlet weak var calendarView: JTAppleCalendarView!
-    @IBOutlet weak var monthLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var tableTack: UIStackView!
+//
+//    let animations = {
+//        self.mainStackView.axis = .horizontal
+//        self.mainStackView.transform =  CGAffineTransform.identity
+//        self.mainStackView.alpha = 1
+//
+//        self.labels.forEach { label in
+//            label.alpha = 1
+//        }
+//        self.view.layoutIfNeeded()
+//    }
 
     // - MARK: View Controller Life Cycle
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        //super.viewDidLoad()
        
-       
+       //setUpView()
         tableView.delegate = self
         tableView.dataSource = self
         //tableTack.addArrangedSubview(tableView)
         tableView.isHidden = true
+        //self.tableView.alpha = 0
         delegate = self
         calendarView.scrollToDate(Date())
         calendarView.selectDates([Date()])
+        
+        //self.view4.isHidden = true
+        
+        calendarView.calendarDataSource = self
+        calendarView.calendarDelegate = self
+        
         self.calendarView.visibleDates {[unowned self] (visibleDates: DateSegmentInfo) in
             self.setupViewsOfCalendar(from: visibleDates)
     }
@@ -94,8 +160,7 @@ class ViewController: UIViewController, plaidDelegate {
         }
     }
     
-    var firstRun = true
-    
+  
     override func viewDidAppear(_ animated: Bool) {
         print("HOMEVIEW TANSCOUNT------------------------========================------------------------")
         
@@ -113,6 +178,27 @@ class ViewController: UIViewController, plaidDelegate {
     }
     
     // - MARK: Methods
+    func updateVisibleDay(){
+
+        let visibleDates =  self.calendarView.visibleDates()
+
+        self.inDate.removeAll()
+        self.outDate.removeAll()
+
+        visibleDates.indates.forEach { (date,indexPath) in
+            self.inDate.append(self.dateFormatter(date: date))
+        }
+
+        visibleDates.outdates.forEach { (date,indexPath) in
+            self.outDate.append(self.dateFormatter(date: date))
+        }
+    }
+    
+    func dateFormatter(date: Date) -> String{
+        formatter.dateFormat = "yyyy-MM-dd"
+        let day = formatter.string(from: date)
+        return day
+    }
     
     func shouldUpdateUI(_ bool: Bool) {
         if bool {
@@ -148,22 +234,20 @@ class ViewController: UIViewController, plaidDelegate {
         let monthName = DateFormatter().monthSymbols[(month-1) % 12]
         // 0 indexed array
         let year = Calendar.current.component(.year, from: startDate)
-        monthLabel.text = monthName + " " + String(year)
-        
-       
+        self.monthLabel.text = monthName + " " + String(year)
     }
     
     // funtion to configure cell
     func configureCell(view: JTAppleCell?, cellState: CellState) {
         guard let myCustomCell = view as? calendarViewCell  else { return }
         handleCellTextColor(view: myCustomCell, cellState: cellState)
-        handleCellSelection(view: myCustomCell, cellState: cellState)
+        //handleCellSelection(view: myCustomCell, cellState: cellState)
     }
     
     func handleCellConfiguration(cell: JTAppleCell?, cellState: CellState) {
-        handleCellSelection(view: cell, cellState: cellState)
+        //handleCellSelection(view: cell, cellState: cellState)
         //handleCellTextColor(view: cell as? calendarViewCell, cellState: cellState)
-        prePostVisibility?(cellState, cell as? calendarViewCell)
+        //prePostVisibility?(cellState, cell as? calendarViewCell)
     }
     
     // Function to handle the calendar selection
@@ -212,31 +296,30 @@ extension ViewController: JTAppleCalendarViewDataSource{
         let startDate = Calendar.current.date(byAdding: .day, value: -360, to: endDate)
         
         let parm =  ConfigurationParameters(startDate: startDate!, endDate: endDate, numberOfRows: self.numberOfRows)
-       // let parameters = ConfigurationParameters(startDate: startDate!, endDate: endDate)
         
+        let parameters = ConfigurationParameters(startDate: startDate!,
+                                                 endDate: endDate,
+                                                 numberOfRows: 5,
+                                                 calendar: testCalendar,
+                                                 generateInDates: generateInDates,
+                                                 generateOutDates: generateOutDates,
+                                                 firstDayOfWeek: firstDayOfWeek)
         return parm
     }
     
     
 }
+// - MARK: Calendar View Cycle
 
 extension ViewController: JTAppleCalendarViewDelegate{
-//    func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
-//
-//    }
+
     
     func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
-        // This function should have the same code as the cellForItemAt function
-        let myCustomCell = cell as! calendarViewCell
-        configureVisibleCell(myCustomCell: myCustomCell, cellState: cellState, date: date)
+       
     }
     
-
-    
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-       // handleCellConfiguration(cell: cell, cellState: cellState)
-       
-
+       print("deselected date ", cellState.date)
     }
     
     // function to setup the table view when a date has been seleted
@@ -246,22 +329,27 @@ extension ViewController: JTAppleCalendarViewDelegate{
         
         print("selected date ", cellState.date)
         
-        formatter.dateFormat = "yyyy-MM-dd"
-        let date = formatter.string(from: cellState.date)
-        
+//        formatter.dateFormat = "yyyy-MM-dd"
+//        let date = formatter.string(from: cellState.date)
+        let date = self.dateFormatter(date: cellState.date)
         
         
         if self.transactionDetail?.first?.date == date{
                 self.transactionDetail = nil
             
-            UIView.animate(withDuration: 0.50, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options:UIViewAnimationOptions.transitionFlipFromBottom, animations: {
-                 self.tableView.isHidden = true
-                
-            },completion:nil)
-            
-            
-//            UIView.animate(withDuration: (1.0), animations: {
-//                self.tableView.isHidden = true
+//            UIView.animate(withDuration: 2.0, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options:UIViewAnimationOptions.transitionFlipFromBottom, animations: {
+//                 //self.tableView.isHidden = true
+//                self.view4.isHidden = true
+//
+//            },completion:nil)
+    
+            UIView.animate(withDuration: 0.9){
+                self.tableView.isHidden = true
+            }
+//            UIView.animate(withDuration: 1.2, delay: 0, options: [], animations: {
+//                self.tableView.alpha = 0 // Here you will get the animation you want
+//            }, completion: { _ in
+//                self.tableView.isHidden = true // Here you hide it when animation done
 //            })
         }
             
@@ -274,48 +362,74 @@ extension ViewController: JTAppleCalendarViewDelegate{
                         }
                     }
             if self.transactionDetail?.count  != 0{
-                
-                UIView.animate(withDuration: (1.0), animations: {
-                    self.tableView.isHidden = false
-                })
+                            UIView.animate(withDuration: 0.9){
+                                self.tableView.layoutIfNeeded()
+
+                                self.tableView.isHidden = false
+                            }
+//                UIView.animate(withDuration: 1.2, delay: 0, options: [], animations: {
+//                    self.tableView.alpha = 1 // Here you will get the animation you want
+//                }, completion: { _ in
+//                    self.tableView.isHidden = false // Here you hide it when animation done
+//                })
             }
+//            UIView.animate(withDuration: 1.3){
+//                self.view.layoutIfNeeded()
+//            }
             else{
-                UIView.animate(withDuration: (1.0), animations: {
+                    UIView.animate(withDuration: 0.9){
+                       self.tableView.layoutIfNeeded()
                     self.tableView.isHidden = true
-                })
-            }
                 }
+                
+//                UIView.animate(withDuration: 1.2, delay: 0, options: [], animations: {
+//                    self.tableView.alpha = 0 // Here you will get the animation you want
+//                }, completion: { _ in
+//                    self.tableView.isHidden = true // Here you hide it when animation done
+//                })
+            }
+    }
         
         
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
-        // present the table view
-//        if self.transactionDetail != nil{
-//            if self.tableView.isHidden == false{
-//
-//                UIView.animate(withDuration: (0.3), animations: {
-//                    self.tableView.isHidden = true
-//                })
-//            }
-//
-//        else{
-//            UIView.animate(withDuration: (1.0), animations: {
-//                self.tableView.isHidden = false
-//            })
-//        }
-//
-//    }
-//        else{
-//            UIView.animate(withDuration: (0.3), animations: {
-//                self.tableView.isHidden = true
-//            })
-//        }
 }
     
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         self.setupViewsOfCalendar(from: visibleDates)
+        
+        
+        formatter.dateFormat = "yyyy-MM"
+        guard let date = visibleDates.monthDates.first?.date else {return}
+        let day = formatter.string(from: date)
+        let mytrans = self.transactions.filter({($0.date?.hasPrefix(day))!})
+       print (mytrans)
+        let income = mytrans.filter({$0.amount < 0})
+        let outcome = mytrans.filter({$0.amount > 0})
+        
+        var myout : Double = 0.0
+        var myin : Double = 0.0
+        for trans in outcome{
+            
+            myout += trans.amount
+        }
+        for trans in income{
+            trans.amount.negate()
+            myin += trans.amount
+            trans.amount.negate()
+        }
+        
+        self.income.text = String(myin)
+        self.outcome.text = String(myout)
+        
     }
+    
+    
+    func scrollDidEndDecelerating(for calendar: JTAppleCalendarView) {
+        
+    }
+    
     
     func calendar(_ calendar: JTAppleCalendarView, headerViewForDateRange range: (start: Date, end: Date), at indexPath: IndexPath) -> JTAppleCollectionReusableView {
         let date = range.start
@@ -341,26 +455,6 @@ extension ViewController: JTAppleCalendarViewDelegate{
         return monthSize
     }
     
-    func configureVisibleCell(myCustomCell: calendarViewCell, cellState: CellState, date: Date) {
-        myCustomCell.day.text = cellState.text
-        if testCalendar.isDateInToday(date) {
-            myCustomCell.backgroundColor = UIColor.blue
-        } else {
-            myCustomCell.backgroundColor = .white
-        }
-        
-        handleCellConfiguration(cell: myCustomCell, cellState: cellState)
-        
-        
-        if cellState.text == "1" {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "MMM"
-            let month = formatter.string(from: date)
-            self.monthLabel.text = "\(month) \(cellState.text)"
-        } else {
-            self.monthLabel.text = ""
-        }
-    }
     
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
         
@@ -368,18 +462,36 @@ extension ViewController: JTAppleCalendarViewDelegate{
         
          //configureVisibleCell(myCustomCell: cell, cellState: cellState, date: date)
                 configureCell(view: cell, cellState: cellState)
+        
                 if cellState.text == "1" {
                     formatter.dateFormat = "MMM"
                     let month = formatter.string(from: date)
                     cell.day.text = "\(month) \(cellState.text)"
                 } else {
                     cell.day.text = cellState.text
-                }
+        }
         formatter.dateFormat = "yyyy-MM-dd"
+        
         let day = formatter.string(from: cellState.date)
         
+        // check inDate and outDate
+       self.updateVisibleDay()
+       
         var todayExp = expDic[day]
+        self.inDate.forEach { (inday) in
+            if day == inday{
+                todayExp = nil
+            }
+        }
+        self.outDate.forEach { (outday) in
+            if day == outday{
+                todayExp = nil
+            }
+        }
+        
+        
         if todayExp != nil{
+            
             todayExp?.round(.towardZero)
             
            
@@ -399,12 +511,10 @@ extension ViewController: JTAppleCalendarViewDelegate{
             
            
         }
+            
         else{
             cell.amount.text = ""
         }
-        
-        //cell.layer.cornerRadius = 8
-    
 return cell
         
     }
@@ -426,7 +536,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         
         
         
-            let transaction = self.transactionDetail![indexPath.row]
+        let transaction = self.transactionDetail![indexPath.row]
         
         
         cell.BankName.text = transaction.account?.name ?? ""
