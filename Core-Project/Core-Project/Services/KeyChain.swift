@@ -12,19 +12,19 @@ import KeychainSwift
 struct KeyChainData{
     static func setUpKeyChain(){
        let keychain = KeychainSwift()
-        keychain.set("a26bacd40a288d215735a0cfcb1508", forKey: "publicKey")
-        keychain.set("59f67b2ebdc6a40e54b2fffc", forKey: "clientId")
-        keychain.set("adaaa3eaf89ada326158673d2595b2", forKey: "secret")
+        keychain.set("7a252d1d8479d0e9021455c134d8f8", forKey: "publicKey")
+        keychain.set("5a317eb9bdc6a45a22c6afc3", forKey: "clientId")
+        keychain.set("bc7625e412eb3fd57739fa6d181146", forKey: "secret")
     }
     
-    static func publicKey()->String{
+    static func publicKey()->String?{
         return KeychainSwift().get("publicKey")!
     }
     
-    static func clientId()-> String{
+    static func clientId()-> String?{
         return KeychainSwift().get("clientId")!
     }
-    static func secret()-> String{
+    static func secret()-> String?{
         return KeychainSwift().get("secret")!
     }
 }

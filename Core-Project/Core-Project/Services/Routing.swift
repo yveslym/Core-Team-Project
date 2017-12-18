@@ -14,6 +14,7 @@ enum Route{
     case income
     case balance
     case exchangeToken
+    case accounts
 
     /// function to return the path of data we want to fetch
     func accessPoint() -> String{
@@ -30,6 +31,8 @@ enum Route{
             return ("/balance/get")
         case .exchangeToken:
             return ("/item/public_token/exchange")
+        case .accounts:
+            return("/accounts/get")
         }
     }
     
@@ -43,7 +46,7 @@ enum Route{
      
      The method return a json serialise data
  */
-    func jsonBody(bank: BankAccount? = nil ,client_id: String?, secret: String? = nil,access_token: String? = nil, startDate: Date? = nil, endDate: Date? = nil, public_token: String? = nil)-> Data?{
+    func jsonBody(bank: Bank? = nil ,client_id: String?, secret: String? = nil,access_token: String? = nil, startDate: Date? = nil, endDate: Date? = nil, public_token: String? = nil)-> Data?{
         
         switch (self) {
         
@@ -85,7 +88,9 @@ enum Route{
             
         case .balance:
             var accountNumber: [String]? = nil
-            for account in (bank?.accounts)!{
+    
+            let accounts = bank?.accounts?.allObjects as? [Account]
+            for account in accounts!{
                 accountNumber?.append(account.id!)
             }
             let accountId:[String:[String]?] = ["account_ids":accountNumber]
@@ -99,6 +104,11 @@ enum Route{
             let body : [String: String] = ["client_id":client_id!,
                                            "secret":secret!,
                                            "public_token":public_token!]
+            return try! JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
+        case .accounts:
+            let body : [String: String] = ["client_id":client_id!,
+                                           "secret":secret!,
+                                           "access_token":access_token!]
             return try! JSONSerialization.data(withJSONObject: body, options: .prettyPrinted)
         }
     }

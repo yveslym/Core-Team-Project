@@ -21,3 +21,18 @@ struct Identifiers {
     // Cells
     static let currentMonthCell = "dailyExpenseCell"
 }
+struct YearDescription{
+    
+   
+}
+
+
+
+
+
+
+
+
+
+
+

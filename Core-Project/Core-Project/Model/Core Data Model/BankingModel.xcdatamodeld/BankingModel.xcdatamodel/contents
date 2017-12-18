@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Account" representedClassName="Account" syncable="YES">
+        <attribute name="accNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="availableBalance" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="currentBalance" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="limit" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="officialName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subtype" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="balance" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Balance" inverseName="account" inverseEntity="Balance" syncable="YES"/>
+        <relationship name="bank" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bank" inverseName="accounts" inverseEntity="Bank" syncable="YES"/>
+        <relationship name="identity" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Identity" inverseName="account" inverseEntity="Identity" syncable="YES"/>
+        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Transaction" inverseName="account" inverseEntity="Transaction" syncable="YES"/>
+    </entity>
+    <entity name="Addresses" representedClassName="Addresses" syncable="YES">
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="zipCode" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="identity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Identity" inverseName="addresses" inverseEntity="Identity" syncable="YES"/>
+    </entity>
+    <entity name="Balance" representedClassName="Balance" syncable="YES">
+        <attribute name="available" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="current" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="balance" inverseEntity="Account" syncable="YES"/>
+    </entity>
+    <entity name="Bank" representedClassName="Bank" syncable="YES">
+        <attribute name="access_token" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="institutionId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="institutionName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="linkSessionId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="requestId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="accounts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Account" inverseName="bank" inverseEntity="Account" syncable="YES"/>
+        <relationship name="identity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Addresses" syncable="YES"/>
+        <relationship name="itemAccess" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ItemAccess" inverseName="bank" inverseEntity="ItemAccess" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="User" inverseName="bank" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Email" representedClassName="Email" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="primary" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="identity" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Identity" inverseName="email" inverseEntity="Identity" syncable="YES"/>
+    </entity>
+    <entity name="Identity" representedClassName="Identity" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Account" inverseName="identity" inverseEntity="Account" syncable="YES"/>
+        <relationship name="addresses" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Addresses" inverseName="identity" inverseEntity="Addresses" syncable="YES"/>
+        <relationship name="bank" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Bank" syncable="YES"/>
+        <relationship name="email" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Email" inverseName="identity" inverseEntity="Email" syncable="YES"/>
+        <relationship name="phoneNumber" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PhoneNumber" inverseName="identity" inverseEntity="PhoneNumber" syncable="YES"/>
+    </entity>
+    <entity name="ItemAccess" representedClassName="ItemAccess" syncable="YES">
+        <attribute name="accessToken" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="bank" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Bank" inverseName="itemAccess" inverseEntity="Bank" syncable="YES"/>
+    </entity>
+    <entity name="PhoneNumber" representedClassName="PhoneNumber" syncable="YES">
+        <attribute name="number" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="primary" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="identity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Identity" inverseName="phoneNumber" inverseEntity="Identity" syncable="YES"/>
+    </entity>
+    <entity name="Transaction" representedClassName="Transaction" syncable="YES">
+        <attribute name="accountID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dayName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="monthName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="types" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="zipCode" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Account" inverseName="transactions" inverseEntity="Account" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="bank" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Bank" inverseName="user" inverseEntity="Bank" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Account" positionX="-18" positionY="72" width="128" height="225"/>
+        <element name="Addresses" positionX="-27" positionY="135" width="128" height="120"/>
+        <element name="Balance" positionX="-36" positionY="126" width="128" height="90"/>
+        <element name="Bank" positionX="-54" positionY="27" width="128" height="180"/>
+        <element name="Email" positionX="-18" positionY="144" width="128" height="105"/>
+        <element name="Identity" positionX="9" positionY="171" width="128" height="135"/>
+        <element name="ItemAccess" positionX="-36" positionY="63" width="128" height="90"/>
+        <element name="PhoneNumber" positionX="0" positionY="162" width="128" height="105"/>
+        <element name="Transaction" positionX="0" positionY="81" width="128" height="255"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="135"/>
+    </elements>
+</model>

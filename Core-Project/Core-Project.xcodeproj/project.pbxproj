@@ -7,18 +7,56 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		200742341FBB9CC300D58935 /* BankOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200742331FBB9CC300D58935 /* BankOperation.swift */; };
+		200591B81FDE2C0600AC0E74 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200591B71FDE2C0600AC0E74 /* DetailTableViewCell.swift */; };
+		200591BA1FDF3DDA00AC0E74 /* MyBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200591B91FDF3DDA00AC0E74 /* MyBankViewController.swift */; };
+		200591BC1FDF4B4500AC0E74 /* BankCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200591BB1FDF4B4500AC0E74 /* BankCellTableViewCell.swift */; };
+		200591C31FDF579100AC0E74 /* Balance+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200591C11FDF579100AC0E74 /* Balance+CoreDataClass.swift */; };
+		200591C41FDF579100AC0E74 /* Balance+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200591C21FDF579100AC0E74 /* Balance+CoreDataProperties.swift */; };
+		20263E301FE3D379007A335E /* ExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20263E2F1FE3D379007A335E /* ExpensesViewController.swift */; };
+		20263E331FE3D84C007A335E /* Color Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20263E321FE3D84C007A335E /* Color Extension.swift */; };
+		20263E351FE446F6007A335E /* ChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20263E341FE446F6007A335E /* ChartTableViewCell.swift */; };
+		20263E381FE467E7007A335E /* Chart Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20263E371FE467E7007A335E /* Chart Delegate.swift */; };
+		20263E3A1FE5D148007A335E /* ExpensesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20263E391FE5D148007A335E /* ExpensesCollectionViewCell.swift */; };
 		207068E11FB988B300AA8F7B /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207068E01FB988B300AA8F7B /* KeyChain.swift */; };
+		20723E781FDA0A3400417C26 /* Core Data Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20723E771FDA0A3400417C26 /* Core Data Stack.swift */; };
+		20723E7A1FDA0A8500417C26 /* PlaidOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20723E791FDA0A8500417C26 /* PlaidOperation.swift */; };
+		207250411FD8C52C007AD838 /* BankingModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2072503F1FD8C52B007AD838 /* BankingModel.xcdatamodeld */; };
+		2084677B1FD77E59008B6C5E /* Plaid+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2084677A1FD77E59008B6C5E /* Plaid+Extension.swift */; };
+		208FEB871FE109F600624B6A /* CalendarStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208FEB861FE109F600624B6A /* CalendarStruct.swift */; };
+		209745991FE38D19008EA6D8 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209745981FE38D19008EA6D8 /* Date+Extension.swift */; };
+		2097459B1FE3914E008EA6D8 /* Expense Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2097459A1FE3914E008EA6D8 /* Expense Model.swift */; };
+		20BBC7441FDCDA560019AE0C /* Identity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BBC73C1FDCDA560019AE0C /* Identity+CoreDataClass.swift */; };
+		20BBC7451FDCDA560019AE0C /* Identity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BBC73D1FDCDA560019AE0C /* Identity+CoreDataProperties.swift */; };
+		20BBC7461FDCDA560019AE0C /* PhoneNumber+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BBC73E1FDCDA560019AE0C /* PhoneNumber+CoreDataClass.swift */; };
+		20BBC7471FDCDA560019AE0C /* PhoneNumber+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BBC73F1FDCDA560019AE0C /* PhoneNumber+CoreDataProperties.swift */; };
+		20BBC7481FDCDA560019AE0C /* Email+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BBC7401FDCDA560019AE0C /* Email+CoreDataClass.swift */; };
+		20BBC7491FDCDA560019AE0C /* Email+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BBC7411FDCDA560019AE0C /* Email+CoreDataProperties.swift */; };
+		20BBC74A1FDCDA560019AE0C /* Addresses+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BBC7421FDCDA560019AE0C /* Addresses+CoreDataClass.swift */; };
+		20BBC74B1FDCDA560019AE0C /* Addresses+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BBC7431FDCDA560019AE0C /* Addresses+CoreDataProperties.swift */; };
+		20BBC74E1FDCDD5D0019AE0C /* String Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BBC74D1FDCDD5D0019AE0C /* String Extension.swift */; };
 		20BC43251FB41C2700CBFFA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BC43241FB41C2700CBFFA1 /* AppDelegate.swift */; };
 		20BC432A1FB41C2700CBFFA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20BC43281FB41C2700CBFFA1 /* Main.storyboard */; };
 		20BC432C1FB41C2700CBFFA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20BC432B1FB41C2700CBFFA1 /* Assets.xcassets */; };
 		20BC432F1FB41C2700CBFFA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20BC432D1FB41C2700CBFFA1 /* LaunchScreen.storyboard */; };
-		20CF67FD1FC3CCF500F3EAF6 /* Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CF67FC1FC3CCF500F3EAF6 /* Transactions.swift */; };
+		20BEC8861FDD1A4400A8EC87 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEC8851FDD1A4400A8EC87 /* CalendarViewController.swift */; };
+		20BEC88A1FDDC15700A8EC87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEC8891FDDC15700A8EC87 /* ViewController.swift */; };
+		20C3EE881FDA54DD008B9B17 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C3EE7E1FDA54DB008B9B17 /* User+CoreDataClass.swift */; };
+		20C3EE891FDA54DD008B9B17 /* ItemAccess+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C3EE7F1FDA54DC008B9B17 /* ItemAccess+CoreDataClass.swift */; };
+		20C3EE8A1FDA54DD008B9B17 /* Bank+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C3EE801FDA54DC008B9B17 /* Bank+CoreDataClass.swift */; };
+		20C3EE8B1FDA54DD008B9B17 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C3EE811FDA54DC008B9B17 /* Account+CoreDataClass.swift */; };
+		20C3EE8C1FDA54DD008B9B17 /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C3EE821FDA54DC008B9B17 /* Transaction+CoreDataClass.swift */; };
+		20C3EE8D1FDA54DD008B9B17 /* Bank+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C3EE831FDA54DC008B9B17 /* Bank+CoreDataProperties.swift */; };
+		20C3EE8E1FDA54DD008B9B17 /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C3EE841FDA54DC008B9B17 /* Transaction+CoreDataProperties.swift */; };
+		20C3EE8F1FDA54DD008B9B17 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C3EE851FDA54DC008B9B17 /* User+CoreDataProperties.swift */; };
+		20C3EE901FDA54DD008B9B17 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C3EE861FDA54DC008B9B17 /* Account+CoreDataProperties.swift */; };
+		20C3EE911FDA54DD008B9B17 /* ItemAccess+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C3EE871FDA54DD008B9B17 /* ItemAccess+CoreDataProperties.swift */; };
 		20D3D5C11FB41D7000587569 /* LinkBankAcountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D3D5C01FB41D7000587569 /* LinkBankAcountViewController.swift */; };
-		20D3D5C31FB421BD00587569 /* BankAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D3D5C21FB421BD00587569 /* BankAccount.swift */; };
 		20D3D5C51FB43C4A00587569 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D3D5C41FB43C4A00587569 /* HomeViewController.swift */; };
 		20D3D5C81FB4421F00587569 /* Routing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D3D5C71FB4421F00587569 /* Routing.swift */; };
 		20D3D5CA1FB4542200587569 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D3D5C91FB4542200587569 /* Networking.swift */; };
+		20E10FAD1FE75F9300513097 /* ExpensesByCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E10FAC1FE75F9300513097 /* ExpensesByCategoryViewController.swift */; };
+		20E97AEB1FDD156800EA2D13 /* calendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E97AEA1FDD156800EA2D13 /* calendarViewCell.swift */; };
+		20E97AEE1FDD17E000EA2D13 /* CollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E97AED1FDD17E000EA2D13 /* CollectionDataSource.swift */; };
 		8609BA5F1FD6224600627E21 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8609BA5E1FD6224600627E21 /* Identifiers.swift */; };
 		8609BA641FD6367B00627E21 /* DailyExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8609BA631FD6367B00627E21 /* DailyExpenseCell.swift */; };
 		86E504A61FD721B900B359EA /* TotalDayExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E504A51FD721B900B359EA /* TotalDayExpenseViewModel.swift */; };
@@ -29,20 +67,59 @@
 /* Begin PBXFileReference section */
 		0DE28ECDB478C48F019A1911 /* Pods_Core_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Core_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16BFFE240D2EE6853332A205 /* Pods-Core-Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core-Project.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Core-Project/Pods-Core-Project.debug.xcconfig"; sourceTree = "<group>"; };
-		200742331FBB9CC300D58935 /* BankOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankOperation.swift; sourceTree = "<group>"; };
+		200591B71FDE2C0600AC0E74 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		200591B91FDF3DDA00AC0E74 /* MyBankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBankViewController.swift; sourceTree = "<group>"; };
+		200591BB1FDF4B4500AC0E74 /* BankCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankCellTableViewCell.swift; sourceTree = "<group>"; };
+		200591C11FDF579100AC0E74 /* Balance+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Balance+CoreDataClass.swift"; sourceTree = "<group>"; };
+		200591C21FDF579100AC0E74 /* Balance+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Balance+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		20263E2F1FE3D379007A335E /* ExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewController.swift; sourceTree = "<group>"; };
+		20263E321FE3D84C007A335E /* Color Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color Extension.swift"; sourceTree = "<group>"; };
+		20263E341FE446F6007A335E /* ChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableViewCell.swift; sourceTree = "<group>"; };
+		20263E371FE467E7007A335E /* Chart Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chart Delegate.swift"; sourceTree = "<group>"; };
+		20263E391FE5D148007A335E /* ExpensesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesCollectionViewCell.swift; sourceTree = "<group>"; };
 		207068E01FB988B300AA8F7B /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
+		20723E771FDA0A3400417C26 /* Core Data Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core Data Stack.swift"; sourceTree = "<group>"; };
+		20723E791FDA0A8500417C26 /* PlaidOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaidOperation.swift; sourceTree = "<group>"; };
+		207250401FD8C52B007AD838 /* BankingModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BankingModel.xcdatamodel; sourceTree = "<group>"; };
+		2084677A1FD77E59008B6C5E /* Plaid+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plaid+Extension.swift"; sourceTree = "<group>"; };
+		208FEB861FE109F600624B6A /* CalendarStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStruct.swift; sourceTree = "<group>"; };
+		209745981FE38D19008EA6D8 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		2097459A1FE3914E008EA6D8 /* Expense Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense Model.swift"; sourceTree = "<group>"; };
+		20BBC72B1FDC78290019AE0C /* Core-Project.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Core-Project.entitlements"; sourceTree = "<group>"; };
+		20BBC73C1FDCDA560019AE0C /* Identity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Identity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		20BBC73D1FDCDA560019AE0C /* Identity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Identity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		20BBC73E1FDCDA560019AE0C /* PhoneNumber+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhoneNumber+CoreDataClass.swift"; sourceTree = "<group>"; };
+		20BBC73F1FDCDA560019AE0C /* PhoneNumber+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhoneNumber+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		20BBC7401FDCDA560019AE0C /* Email+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Email+CoreDataClass.swift"; sourceTree = "<group>"; };
+		20BBC7411FDCDA560019AE0C /* Email+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Email+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		20BBC7421FDCDA560019AE0C /* Addresses+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Addresses+CoreDataClass.swift"; sourceTree = "<group>"; };
+		20BBC7431FDCDA560019AE0C /* Addresses+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Addresses+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		20BBC74D1FDCDD5D0019AE0C /* String Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String Extension.swift"; sourceTree = "<group>"; };
 		20BC43211FB41C2700CBFFA1 /* Core-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Core-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20BC43241FB41C2700CBFFA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20BC43291FB41C2700CBFFA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		20BC432B1FB41C2700CBFFA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20BC432E1FB41C2700CBFFA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		20BC43301FB41C2700CBFFA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		20CF67FC1FC3CCF500F3EAF6 /* Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transactions.swift; sourceTree = "<group>"; };
+		20BEC8851FDD1A4400A8EC87 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		20BEC8891FDDC15700A8EC87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		20C3EE7E1FDA54DB008B9B17 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		20C3EE7F1FDA54DC008B9B17 /* ItemAccess+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ItemAccess+CoreDataClass.swift"; sourceTree = "<group>"; };
+		20C3EE801FDA54DC008B9B17 /* Bank+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bank+CoreDataClass.swift"; sourceTree = "<group>"; };
+		20C3EE811FDA54DC008B9B17 /* Account+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataClass.swift"; sourceTree = "<group>"; };
+		20C3EE821FDA54DC008B9B17 /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
+		20C3EE831FDA54DC008B9B17 /* Bank+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bank+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		20C3EE841FDA54DC008B9B17 /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		20C3EE851FDA54DC008B9B17 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		20C3EE861FDA54DC008B9B17 /* Account+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		20C3EE871FDA54DD008B9B17 /* ItemAccess+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ItemAccess+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		20D3D5C01FB41D7000587569 /* LinkBankAcountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkBankAcountViewController.swift; sourceTree = "<group>"; };
-		20D3D5C21FB421BD00587569 /* BankAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccount.swift; sourceTree = "<group>"; };
 		20D3D5C41FB43C4A00587569 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		20D3D5C71FB4421F00587569 /* Routing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routing.swift; sourceTree = "<group>"; };
 		20D3D5C91FB4542200587569 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		20E10FAC1FE75F9300513097 /* ExpensesByCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesByCategoryViewController.swift; sourceTree = "<group>"; };
+		20E97AEA1FDD156800EA2D13 /* calendarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendarViewCell.swift; sourceTree = "<group>"; };
+		20E97AED1FDD17E000EA2D13 /* CollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDataSource.swift; sourceTree = "<group>"; };
 		8609BA5E1FD6224600627E21 /* Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		8609BA631FD6367B00627E21 /* DailyExpenseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyExpenseCell.swift; sourceTree = "<group>"; };
 		86E504A51FD721B900B359EA /* TotalDayExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalDayExpenseViewModel.swift; sourceTree = "<group>"; };
@@ -62,6 +139,79 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20263E311FE3D834007A335E /* Color+Extension */ = {
+			isa = PBXGroup;
+			children = (
+				20263E321FE3D84C007A335E /* Color Extension.swift */,
+			);
+			path = "Color+Extension";
+			sourceTree = "<group>";
+		};
+		20263E361FE467B9007A335E /* Chart Extension */ = {
+			isa = PBXGroup;
+			children = (
+				20263E371FE467E7007A335E /* Chart Delegate.swift */,
+			);
+			path = "Chart Extension";
+			sourceTree = "<group>";
+		};
+		2072503E1FD8C4E1007AD838 /* Core Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				200591C11FDF579100AC0E74 /* Balance+CoreDataClass.swift */,
+				200591C21FDF579100AC0E74 /* Balance+CoreDataProperties.swift */,
+				20BBC73C1FDCDA560019AE0C /* Identity+CoreDataClass.swift */,
+				20BBC73D1FDCDA560019AE0C /* Identity+CoreDataProperties.swift */,
+				20BBC73E1FDCDA560019AE0C /* PhoneNumber+CoreDataClass.swift */,
+				20BBC73F1FDCDA560019AE0C /* PhoneNumber+CoreDataProperties.swift */,
+				20BBC7401FDCDA560019AE0C /* Email+CoreDataClass.swift */,
+				20BBC7411FDCDA560019AE0C /* Email+CoreDataProperties.swift */,
+				20BBC7421FDCDA560019AE0C /* Addresses+CoreDataClass.swift */,
+				20BBC7431FDCDA560019AE0C /* Addresses+CoreDataProperties.swift */,
+				20C3EE801FDA54DC008B9B17 /* Bank+CoreDataClass.swift */,
+				20C3EE831FDA54DC008B9B17 /* Bank+CoreDataProperties.swift */,
+				20C3EE811FDA54DC008B9B17 /* Account+CoreDataClass.swift */,
+				20C3EE861FDA54DC008B9B17 /* Account+CoreDataProperties.swift */,
+				20C3EE7E1FDA54DB008B9B17 /* User+CoreDataClass.swift */,
+				20C3EE851FDA54DC008B9B17 /* User+CoreDataProperties.swift */,
+				20C3EE7F1FDA54DC008B9B17 /* ItemAccess+CoreDataClass.swift */,
+				20C3EE871FDA54DD008B9B17 /* ItemAccess+CoreDataProperties.swift */,
+				20C3EE821FDA54DC008B9B17 /* Transaction+CoreDataClass.swift */,
+				20C3EE841FDA54DC008B9B17 /* Transaction+CoreDataProperties.swift */,
+				2072503F1FD8C52B007AD838 /* BankingModel.xcdatamodeld */,
+			);
+			path = "Core Data Model";
+			sourceTree = "<group>";
+		};
+		208467781FD77E16008B6C5E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				20263E361FE467B9007A335E /* Chart Extension */,
+				20263E311FE3D834007A335E /* Color+Extension */,
+				20BBC74C1FDCDD3A0019AE0C /* String+Extension */,
+				208467791FD77E30008B6C5E /* Plaid Extensions */,
+				209745981FE38D19008EA6D8 /* Date+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		208467791FD77E30008B6C5E /* Plaid Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2084677A1FD77E59008B6C5E /* Plaid+Extension.swift */,
+				20723E791FDA0A8500417C26 /* PlaidOperation.swift */,
+			);
+			path = "Plaid Extensions";
+			sourceTree = "<group>";
+		};
+		20BBC74C1FDCDD3A0019AE0C /* String+Extension */ = {
+			isa = PBXGroup;
+			children = (
+				20BBC74D1FDCDD5D0019AE0C /* String Extension.swift */,
+			);
+			path = "String+Extension";
+			sourceTree = "<group>";
+		};
 		20BC43181FB41C2700CBFFA1 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +233,9 @@
 		20BC43231FB41C2700CBFFA1 /* Core-Project */ = {
 			isa = PBXGroup;
 			children = (
+				20E97AEC1FDD17BD00EA2D13 /* UI */,
+				20BBC72B1FDC78290019AE0C /* Core-Project.entitlements */,
+				208467781FD77E16008B6C5E /* Extensions */,
 				8609BA611FD6322200627E21 /* Helpers */,
 				20D3D5C61FB4420500587569 /* Services */,
 				86E504A71FD721BC00B359EA /* View Models */,
@@ -103,6 +256,11 @@
 			children = (
 				20D3D5C41FB43C4A00587569 /* HomeViewController.swift */,
 				20D3D5C01FB41D7000587569 /* LinkBankAcountViewController.swift */,
+				20BEC8851FDD1A4400A8EC87 /* CalendarViewController.swift */,
+				20BEC8891FDDC15700A8EC87 /* ViewController.swift */,
+				200591B91FDF3DDA00AC0E74 /* MyBankViewController.swift */,
+				20263E2F1FE3D379007A335E /* ExpensesViewController.swift */,
+				20E10FAC1FE75F9300513097 /* ExpensesByCategoryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -110,10 +268,10 @@
 		20D3D5BF1FB41D0500587569 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				20D3D5C21FB421BD00587569 /* BankAccount.swift */,
-				200742331FBB9CC300D58935 /* BankOperation.swift */,
-				20CF67FC1FC3CCF500F3EAF6 /* Transactions.swift */,
+				2072503E1FD8C4E1007AD838 /* Core Data Model */,
 				86E504A81FD7279200B359EA /* DayExpense.swift */,
+				20723E771FDA0A3400417C26 /* Core Data Stack.swift */,
+				2097459A1FE3914E008EA6D8 /* Expense Model.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -126,6 +284,14 @@
 				207068E01FB988B300AA8F7B /* KeyChain.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		20E97AEC1FDD17BD00EA2D13 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				20E97AED1FDD17E000EA2D13 /* CollectionDataSource.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		25954E39221EE668D7B574B5 /* Frameworks */ = {
@@ -173,6 +339,12 @@
 			isa = PBXGroup;
 			children = (
 				86E504A51FD721B900B359EA /* TotalDayExpenseViewModel.swift */,
+				20E97AEA1FDD156800EA2D13 /* calendarViewCell.swift */,
+				200591B71FDE2C0600AC0E74 /* DetailTableViewCell.swift */,
+				200591BB1FDF4B4500AC0E74 /* BankCellTableViewCell.swift */,
+				208FEB861FE109F600624B6A /* CalendarStruct.swift */,
+				20263E341FE446F6007A335E /* ChartTableViewCell.swift */,
+				20263E391FE5D148007A335E /* ExpensesCollectionViewCell.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -213,6 +385,11 @@
 					20BC43201FB41C2700CBFFA1 = {
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -288,13 +465,17 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Core-Project/Pods-Core-Project-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${PODS_ROOT}/Plaid/ios/LinkKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftCharts/SwiftCharts.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LinkKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftCharts.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -308,19 +489,57 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				200591C31FDF579100AC0E74 /* Balance+CoreDataClass.swift in Sources */,
+				20BBC7481FDCDA560019AE0C /* Email+CoreDataClass.swift in Sources */,
+				207250411FD8C52C007AD838 /* BankingModel.xcdatamodeld in Sources */,
+				20BBC7451FDCDA560019AE0C /* Identity+CoreDataProperties.swift in Sources */,
+				20BBC7441FDCDA560019AE0C /* Identity+CoreDataClass.swift in Sources */,
 				20D3D5C81FB4421F00587569 /* Routing.swift in Sources */,
+				20E97AEE1FDD17E000EA2D13 /* CollectionDataSource.swift in Sources */,
+				200591BA1FDF3DDA00AC0E74 /* MyBankViewController.swift in Sources */,
+				20C3EE8C1FDA54DD008B9B17 /* Transaction+CoreDataClass.swift in Sources */,
 				86E504A91FD7279200B359EA /* DayExpense.swift in Sources */,
 				20D3D5C11FB41D7000587569 /* LinkBankAcountViewController.swift in Sources */,
-				20D3D5C31FB421BD00587569 /* BankAccount.swift in Sources */,
-				200742341FBB9CC300D58935 /* BankOperation.swift in Sources */,
+				200591C41FDF579100AC0E74 /* Balance+CoreDataProperties.swift in Sources */,
 				20D3D5CA1FB4542200587569 /* Networking.swift in Sources */,
+				20263E331FE3D84C007A335E /* Color Extension.swift in Sources */,
+				20C3EE8F1FDA54DD008B9B17 /* User+CoreDataProperties.swift in Sources */,
+				20C3EE8E1FDA54DD008B9B17 /* Transaction+CoreDataProperties.swift in Sources */,
+				20C3EE8A1FDA54DD008B9B17 /* Bank+CoreDataClass.swift in Sources */,
 				207068E11FB988B300AA8F7B /* KeyChain.swift in Sources */,
+				20BBC7491FDCDA560019AE0C /* Email+CoreDataProperties.swift in Sources */,
+				20723E7A1FDA0A8500417C26 /* PlaidOperation.swift in Sources */,
+				20263E301FE3D379007A335E /* ExpensesViewController.swift in Sources */,
+				20E97AEB1FDD156800EA2D13 /* calendarViewCell.swift in Sources */,
+				20263E381FE467E7007A335E /* Chart Delegate.swift in Sources */,
+				20BBC74E1FDCDD5D0019AE0C /* String Extension.swift in Sources */,
 				8609BA641FD6367B00627E21 /* DailyExpenseCell.swift in Sources */,
-				20CF67FD1FC3CCF500F3EAF6 /* Transactions.swift in Sources */,
+				20263E351FE446F6007A335E /* ChartTableViewCell.swift in Sources */,
+				20BEC8861FDD1A4400A8EC87 /* CalendarViewController.swift in Sources */,
+				20723E781FDA0A3400417C26 /* Core Data Stack.swift in Sources */,
+				200591B81FDE2C0600AC0E74 /* DetailTableViewCell.swift in Sources */,
+				20C3EE891FDA54DD008B9B17 /* ItemAccess+CoreDataClass.swift in Sources */,
+				20C3EE901FDA54DD008B9B17 /* Account+CoreDataProperties.swift in Sources */,
+				20BBC74A1FDCDA560019AE0C /* Addresses+CoreDataClass.swift in Sources */,
+				20263E3A1FE5D148007A335E /* ExpensesCollectionViewCell.swift in Sources */,
 				20BC43251FB41C2700CBFFA1 /* AppDelegate.swift in Sources */,
 				8609BA5F1FD6224600627E21 /* Identifiers.swift in Sources */,
+				200591BC1FDF4B4500AC0E74 /* BankCellTableViewCell.swift in Sources */,
+				20BBC7471FDCDA560019AE0C /* PhoneNumber+CoreDataProperties.swift in Sources */,
+				20BEC88A1FDDC15700A8EC87 /* ViewController.swift in Sources */,
+				20C3EE8B1FDA54DD008B9B17 /* Account+CoreDataClass.swift in Sources */,
+				20BBC7461FDCDA560019AE0C /* PhoneNumber+CoreDataClass.swift in Sources */,
+				20C3EE881FDA54DD008B9B17 /* User+CoreDataClass.swift in Sources */,
 				20D3D5C51FB43C4A00587569 /* HomeViewController.swift in Sources */,
+				2097459B1FE3914E008EA6D8 /* Expense Model.swift in Sources */,
+				208FEB871FE109F600624B6A /* CalendarStruct.swift in Sources */,
+				2084677B1FD77E59008B6C5E /* Plaid+Extension.swift in Sources */,
+				20BBC74B1FDCDA560019AE0C /* Addresses+CoreDataProperties.swift in Sources */,
+				20C3EE8D1FDA54DD008B9B17 /* Bank+CoreDataProperties.swift in Sources */,
+				20C3EE911FDA54DD008B9B17 /* ItemAccess+CoreDataProperties.swift in Sources */,
+				209745991FE38D19008EA6D8 /* Date+Extension.swift in Sources */,
 				86E504A61FD721B900B359EA /* TotalDayExpenseViewModel.swift in Sources */,
+				20E10FAD1FE75F9300513097 /* ExpensesByCategoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,8 +677,9 @@
 			baseConfigurationReference = 16BFFE240D2EE6853332A205 /* Pods-Core-Project.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Core-Project/Core-Project.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QFR976VMLD;
+				DEVELOPMENT_TEAM = K7R433H2CL;
 				INFOPLIST_FILE = "$(SRCROOT)/Core-Project/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "yveslym-corp.Core-Project";
@@ -474,8 +694,9 @@
 			baseConfigurationReference = ED8215E598567A1835A6CF01 /* Pods-Core-Project.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Core-Project/Core-Project.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QFR976VMLD;
+				DEVELOPMENT_TEAM = K7R433H2CL;
 				INFOPLIST_FILE = "$(SRCROOT)/Core-Project/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "yveslym-corp.Core-Project";
@@ -507,6 +728,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2072503F1FD8C52B007AD838 /* BankingModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				207250401FD8C52B007AD838 /* BankingModel.xcdatamodel */,
+			);
+			currentVersion = 207250401FD8C52B007AD838 /* BankingModel.xcdatamodel */;
+			path = BankingModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 20BC43191FB41C2700CBFFA1 /* Project object */;
 }
