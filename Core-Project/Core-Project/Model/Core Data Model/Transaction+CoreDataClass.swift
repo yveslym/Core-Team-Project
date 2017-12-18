@@ -90,7 +90,7 @@ extension Transaction{
         let trans = transaction.filter{return ($0.dayName == dayKey && $0.monthName == monthKey && $0.amount > 0.0)}
         
         let t = transaction.filter { (obj) -> Bool in
-            print(obj.dayName, "  ", dayKey)
+           // print(obj.dayName, "  ", dayKey)
             return  (obj.dayName == dayKey && obj.monthName == monthKey && obj.amount > 0.0)
         }
         return trans

@@ -11,7 +11,7 @@ import SwiftCharts
 import UIKit
 
 protocol delegateChart: class {
-    func chartConfiguration(month:String, cell: ChartTableViewCell, transaction:[Transaction])
+    func chartConfiguration(month:String, cell: ExpensesCollectionViewCell, transaction:[Transaction])
 }
 
 extension delegateChart where Self: ChartTableViewCell{

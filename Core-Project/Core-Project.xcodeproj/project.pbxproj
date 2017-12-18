@@ -16,6 +16,7 @@
 		20263E331FE3D84C007A335E /* Color Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20263E321FE3D84C007A335E /* Color Extension.swift */; };
 		20263E351FE446F6007A335E /* ChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20263E341FE446F6007A335E /* ChartTableViewCell.swift */; };
 		20263E381FE467E7007A335E /* Chart Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20263E371FE467E7007A335E /* Chart Delegate.swift */; };
+		20263E3A1FE5D148007A335E /* ExpensesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20263E391FE5D148007A335E /* ExpensesCollectionViewCell.swift */; };
 		207068E11FB988B300AA8F7B /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207068E01FB988B300AA8F7B /* KeyChain.swift */; };
 		20723E781FDA0A3400417C26 /* Core Data Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20723E771FDA0A3400417C26 /* Core Data Stack.swift */; };
 		20723E7A1FDA0A8500417C26 /* PlaidOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20723E791FDA0A8500417C26 /* PlaidOperation.swift */; };
@@ -74,6 +75,7 @@
 		20263E321FE3D84C007A335E /* Color Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color Extension.swift"; sourceTree = "<group>"; };
 		20263E341FE446F6007A335E /* ChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableViewCell.swift; sourceTree = "<group>"; };
 		20263E371FE467E7007A335E /* Chart Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Chart Delegate.swift"; sourceTree = "<group>"; };
+		20263E391FE5D148007A335E /* ExpensesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesCollectionViewCell.swift; sourceTree = "<group>"; };
 		207068E01FB988B300AA8F7B /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		20723E771FDA0A3400417C26 /* Core Data Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Core Data Stack.swift"; sourceTree = "<group>"; };
 		20723E791FDA0A8500417C26 /* PlaidOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaidOperation.swift; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 				200591BB1FDF4B4500AC0E74 /* BankCellTableViewCell.swift */,
 				208FEB861FE109F600624B6A /* CalendarStruct.swift */,
 				20263E341FE446F6007A335E /* ChartTableViewCell.swift */,
+				20263E391FE5D148007A335E /* ExpensesCollectionViewCell.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				20C3EE891FDA54DD008B9B17 /* ItemAccess+CoreDataClass.swift in Sources */,
 				20C3EE901FDA54DD008B9B17 /* Account+CoreDataProperties.swift in Sources */,
 				20BBC74A1FDCDA560019AE0C /* Addresses+CoreDataClass.swift in Sources */,
+				20263E3A1FE5D148007A335E /* ExpensesCollectionViewCell.swift in Sources */,
 				20BC43251FB41C2700CBFFA1 /* AppDelegate.swift in Sources */,
 				8609BA5F1FD6224600627E21 /* Identifiers.swift in Sources */,
 				200591BC1FDF4B4500AC0E74 /* BankCellTableViewCell.swift in Sources */,
