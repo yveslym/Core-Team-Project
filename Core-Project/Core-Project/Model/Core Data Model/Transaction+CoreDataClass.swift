@@ -199,8 +199,13 @@ extension Transaction{
         return Array(type)
     }
     
+    static func TransactionOfSameCategoty(category: String, transaction: [Transaction]) -> [Transaction]?{
+        let filter = transaction.filter{ $0.category == category}
+        return filter
+    }
+    
     // function to return a dictionary of key transaction and value amount of money sorted from the highest to the lowest
-    static func sortedExpensesByCategoryByMonth(month: String, transaction: [Transaction]) -> [(key: String, value: Double)]{
+    static func sortedExpensesByCategoryByMonth(month: String, transaction: [Transaction]) -> [String: Double]{
         
         var sortedExpense = [String: Double]()
         
@@ -215,9 +220,15 @@ extension Transaction{
             }
         }
         let result = sortedExpense.sorted(by:{ $0.1 > $1.1})
-    
-        return result
+        
+        var sorted = [String: Double]()
+        result.forEach{
+            sorted[$0.key] = $0.value
+        }
+        return sorted
     }
+    
+   
   
 }
 
