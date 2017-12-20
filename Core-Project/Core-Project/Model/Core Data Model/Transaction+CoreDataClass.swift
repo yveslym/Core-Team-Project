@@ -167,7 +167,8 @@ extension Transaction{
         let totalAmount = expense.reduce (0.0, +)
         return totalAmount
     }
-
+    
+    // function to check if the given month as transaction
     static func isThisMonthEmpty(month: String, transaction: [Transaction]) -> Bool{
         let trans = transaction.filter{$0.monthName == month}
         if trans.first == nil{
@@ -227,9 +228,6 @@ extension Transaction{
         }
         return sorted
     }
-    
-   
-  
 }
 
 
