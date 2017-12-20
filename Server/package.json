@@ -1,0 +1,15 @@
+{
+  "name": "KALMONEY",
+  "version": "1.0.0",
+  "description": "An expenses management app that allow user to spend money smartly",
+  "main": "app.py",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "python app.py"
+  },
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "mongodb": "^2.1.6"
+  }
+}
