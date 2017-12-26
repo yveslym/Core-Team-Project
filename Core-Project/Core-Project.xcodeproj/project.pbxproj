@@ -62,6 +62,7 @@
 		86E504A61FD721B900B359EA /* TotalDayExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E504A51FD721B900B359EA /* TotalDayExpenseViewModel.swift */; };
 		86E504A91FD7279200B359EA /* DayExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E504A81FD7279200B359EA /* DayExpense.swift */; };
 		97911A3C895ECD8DACF030BA /* Pods_Core_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DE28ECDB478C48F019A1911 /* Pods_Core_Project.framework */; };
+		CFF30BB6D9AB4511D11DB553 /* Food Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF30E3EA8580588774C4613 /* Food Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +125,7 @@
 		8609BA631FD6367B00627E21 /* DailyExpenseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyExpenseCell.swift; sourceTree = "<group>"; };
 		86E504A51FD721B900B359EA /* TotalDayExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalDayExpenseViewModel.swift; sourceTree = "<group>"; };
 		86E504A81FD7279200B359EA /* DayExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayExpense.swift; sourceTree = "<group>"; };
+		CFF30E3EA8580588774C4613 /* Food Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Food Model.swift"; sourceTree = "<group>"; };
 		ED8215E598567A1835A6CF01 /* Pods-Core-Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core-Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Core-Project/Pods-Core-Project.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -272,6 +274,7 @@
 				86E504A81FD7279200B359EA /* DayExpense.swift */,
 				20723E771FDA0A3400417C26 /* Core Data Stack.swift */,
 				2097459A1FE3914E008EA6D8 /* Expense Model.swift */,
+				CFF30C1608FF974DF19991D8 /* Data Analysis Model */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -347,6 +350,14 @@
 				20263E391FE5D148007A335E /* ExpensesCollectionViewCell.swift */,
 			);
 			path = "View Models";
+			sourceTree = "<group>";
+		};
+		CFF30C1608FF974DF19991D8 /* Data Analysis Model */ = {
+			isa = PBXGroup;
+			children = (
+				CFF30E3EA8580588774C4613 /* Food Model.swift */,
+			);
+			path = "Data Analysis Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -540,6 +551,7 @@
 				209745991FE38D19008EA6D8 /* Date+Extension.swift in Sources */,
 				86E504A61FD721B900B359EA /* TotalDayExpenseViewModel.swift in Sources */,
 				20E10FAD1FE75F9300513097 /* ExpensesByCategoryViewController.swift in Sources */,
+				CFF30BB6D9AB4511D11DB553 /* Food Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

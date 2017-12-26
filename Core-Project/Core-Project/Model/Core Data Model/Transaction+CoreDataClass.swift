@@ -39,14 +39,14 @@ public class Transaction: NSManagedObject, Decodable {
         self.init(entity: entity, insertInto: context)
 
 
-        let contenair = try decoder.container(keyedBy: TransactionKey.self)
+        let contenaire = try decoder.container(keyedBy: TransactionKey.self)
 
-        name = try contenair.decodeIfPresent(String.self, forKey: .name) ?? nil
-        self.accountID = try contenair.decodeIfPresent(String.self, forKey: .account_id) ?? nil
-        self.date = try contenair.decodeIfPresent(String.self, forKey: .date) ?? nil
-        self.id = try contenair.decodeIfPresent(String.self, forKey: .transaction_id) ?? nil
-        self.amount = (try contenair.decodeIfPresent(Double.self, forKey: .amount) ?? nil)!
-        let category = try contenair.decodeIfPresent([String].self, forKey: .category) ?? nil
+        name = try contenaire.decodeIfPresent(String.self, forKey: .name) ?? nil
+        self.accountID = try contenaire.decodeIfPresent(String.self, forKey: .account_id) ?? nil
+        self.date = try contenaire.decodeIfPresent(String.self, forKey: .date) ?? nil
+        self.id = try contenaire.decodeIfPresent(String.self, forKey: .transaction_id) ?? nil
+        self.amount = (try contenaire.decodeIfPresent(Double.self, forKey: .amount) ?? nil)!
+        let category = try contenaire.decodeIfPresent([String].self, forKey: .category) ?? nil
         if category != nil{
             if category!.count > 1{
                 self.category = category?[1] ?? "Other"
@@ -56,7 +56,7 @@ public class Transaction: NSManagedObject, Decodable {
                 self.category = category?[0]
             }
         }
-        let locationContenair = try contenair.nestedContainer(keyedBy: TransactionKey.AddressKey.self, forKey: .location)
+        let locationContenair = try contenaire.nestedContainer(keyedBy: TransactionKey.AddressKey.self, forKey: .location)
 
         self.city = try locationContenair.decodeIfPresent(String.self, forKey: .city) ?? nil
         self.state = try locationContenair.decodeIfPresent(String.self, forKey: .state) ?? nil
@@ -228,6 +228,7 @@ extension Transaction{
         }
         return sorted
     }
+
 }
 
 

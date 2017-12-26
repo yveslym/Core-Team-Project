@@ -30,5 +30,7 @@ extension Transaction {
     @NSManaged public var id: String?
      @NSManaged public var dayName: String?
      @NSManaged public var monthName: String?
+    @NSManaged public var tag: String?
+
 
 }
