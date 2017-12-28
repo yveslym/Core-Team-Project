@@ -32,4 +32,43 @@ extension UIColor {
         
         self.init(red:red, green:green, blue:blue, alpha:1)
     }
+    
+    public func randomColor() -> UIColor{
+        let color = UIColor.init(hexString: generateHexString())
+        return color
+    }
+    
+    private func generateHexString() -> String{
+        let letters : NSString = "ABCDEF0123456789"
+        let len = UInt32(letters.length)
+        
+        var randomString = ""
+        
+        for _ in 0 ..< 6 {
+            let rand = arc4random_uniform(len)
+            var nextChar = letters.character(at: Int(rand))
+            randomString += NSString(characters: &nextChar, length: 1) as String
+        }
+        
+        return randomString
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

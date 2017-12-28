@@ -54,6 +54,9 @@
 		20D3D5C51FB43C4A00587569 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D3D5C41FB43C4A00587569 /* HomeViewController.swift */; };
 		20D3D5C81FB4421F00587569 /* Routing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D3D5C71FB4421F00587569 /* Routing.swift */; };
 		20D3D5CA1FB4542200587569 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D3D5C91FB4542200587569 /* Networking.swift */; };
+		20DA3F9C1FF3146800F3C07F /* MonthlyExpenseSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DA3F9B1FF3146800F3C07F /* MonthlyExpenseSummaryViewController.swift */; };
+		20DA3F9E1FF31D3E00F3C07F /* MonthlyExpensesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DA3F9D1FF31D3E00F3C07F /* MonthlyExpensesCollectionViewCell.swift */; };
+		20DA3FA01FF5B0FA00F3C07F /* BiggestExpenseByCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DA3F9F1FF5B0FA00F3C07F /* BiggestExpenseByCategoryViewController.swift */; };
 		20E10FAD1FE75F9300513097 /* ExpensesByCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E10FAC1FE75F9300513097 /* ExpensesByCategoryViewController.swift */; };
 		20E97AEB1FDD156800EA2D13 /* calendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E97AEA1FDD156800EA2D13 /* calendarViewCell.swift */; };
 		20E97AEE1FDD17E000EA2D13 /* CollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E97AED1FDD17E000EA2D13 /* CollectionDataSource.swift */; };
@@ -118,6 +121,9 @@
 		20D3D5C41FB43C4A00587569 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		20D3D5C71FB4421F00587569 /* Routing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routing.swift; sourceTree = "<group>"; };
 		20D3D5C91FB4542200587569 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		20DA3F9B1FF3146800F3C07F /* MonthlyExpenseSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyExpenseSummaryViewController.swift; sourceTree = "<group>"; };
+		20DA3F9D1FF31D3E00F3C07F /* MonthlyExpensesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyExpensesCollectionViewCell.swift; sourceTree = "<group>"; };
+		20DA3F9F1FF5B0FA00F3C07F /* BiggestExpenseByCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiggestExpenseByCategoryViewController.swift; sourceTree = "<group>"; };
 		20E10FAC1FE75F9300513097 /* ExpensesByCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesByCategoryViewController.swift; sourceTree = "<group>"; };
 		20E97AEA1FDD156800EA2D13 /* calendarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendarViewCell.swift; sourceTree = "<group>"; };
 		20E97AED1FDD17E000EA2D13 /* CollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDataSource.swift; sourceTree = "<group>"; };
@@ -263,6 +269,8 @@
 				200591B91FDF3DDA00AC0E74 /* MyBankViewController.swift */,
 				20263E2F1FE3D379007A335E /* ExpensesViewController.swift */,
 				20E10FAC1FE75F9300513097 /* ExpensesByCategoryViewController.swift */,
+				20DA3F9B1FF3146800F3C07F /* MonthlyExpenseSummaryViewController.swift */,
+				20DA3F9F1FF5B0FA00F3C07F /* BiggestExpenseByCategoryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -348,6 +356,7 @@
 				208FEB861FE109F600624B6A /* CalendarStruct.swift */,
 				20263E341FE446F6007A335E /* ChartTableViewCell.swift */,
 				20263E391FE5D148007A335E /* ExpensesCollectionViewCell.swift */,
+				20DA3F9D1FF31D3E00F3C07F /* MonthlyExpensesCollectionViewCell.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -505,6 +514,7 @@
 				207250411FD8C52C007AD838 /* BankingModel.xcdatamodeld in Sources */,
 				20BBC7451FDCDA560019AE0C /* Identity+CoreDataProperties.swift in Sources */,
 				20BBC7441FDCDA560019AE0C /* Identity+CoreDataClass.swift in Sources */,
+				20DA3F9C1FF3146800F3C07F /* MonthlyExpenseSummaryViewController.swift in Sources */,
 				20D3D5C81FB4421F00587569 /* Routing.swift in Sources */,
 				20E97AEE1FDD17E000EA2D13 /* CollectionDataSource.swift in Sources */,
 				200591BA1FDF3DDA00AC0E74 /* MyBankViewController.swift in Sources */,
@@ -524,6 +534,7 @@
 				20E97AEB1FDD156800EA2D13 /* calendarViewCell.swift in Sources */,
 				20263E381FE467E7007A335E /* Chart Delegate.swift in Sources */,
 				20BBC74E1FDCDD5D0019AE0C /* String Extension.swift in Sources */,
+				20DA3F9E1FF31D3E00F3C07F /* MonthlyExpensesCollectionViewCell.swift in Sources */,
 				8609BA641FD6367B00627E21 /* DailyExpenseCell.swift in Sources */,
 				20263E351FE446F6007A335E /* ChartTableViewCell.swift in Sources */,
 				20BEC8861FDD1A4400A8EC87 /* CalendarViewController.swift in Sources */,
@@ -541,6 +552,7 @@
 				20C3EE8B1FDA54DD008B9B17 /* Account+CoreDataClass.swift in Sources */,
 				20BBC7461FDCDA560019AE0C /* PhoneNumber+CoreDataClass.swift in Sources */,
 				20C3EE881FDA54DD008B9B17 /* User+CoreDataClass.swift in Sources */,
+				20DA3FA01FF5B0FA00F3C07F /* BiggestExpenseByCategoryViewController.swift in Sources */,
 				20D3D5C51FB43C4A00587569 /* HomeViewController.swift in Sources */,
 				2097459B1FE3914E008EA6D8 /* Expense Model.swift in Sources */,
 				208FEB871FE109F600624B6A /* CalendarStruct.swift in Sources */,

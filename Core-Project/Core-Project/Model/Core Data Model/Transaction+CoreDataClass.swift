@@ -49,8 +49,15 @@ public class Transaction: NSManagedObject, Decodable {
         let category = try contenaire.decodeIfPresent([String].self, forKey: .category) ?? nil
         if category != nil{
             if category!.count > 1{
+                if !category![0].isEmpty{
                 self.category = category?[1] ?? "Other"
                 self.types = category?[0] ?? "Other"
+                }
+                else{
+                    self.category =  "Other"
+                    self.types =  "Other"
+                }
+               
             }
             else{
                 self.category = category?[0]
@@ -179,10 +186,28 @@ extension Transaction{
         }
     }
     static func numberOfMonth(transaction: [Transaction]) -> [String]{
-        let month = transaction.flatMap{$0.monthName}
+      
+       var month = [String]()
+        transaction.forEach{
+            if $0.monthName != nil{
+            month.append($0.monthName!)
+            }
+        }
+        
+        
         let unique = Set(month)
+        let _month = Array(unique)
+        
+        let allMonth = Calendar.allMonthOfYear()
+        var orderedMonth = [String]()
+        
+        allMonth.forEach{
+            if _month.contains($0){
+                orderedMonth.append($0)
+            }
+        }
 
-        return Array(unique)
+        return orderedMonth
     }
 
     // return all category on the transaction array
@@ -206,27 +231,40 @@ extension Transaction{
     }
     
     // function to return a dictionary of key transaction and value amount of money sorted from the highest to the lowest
-    static func sortedExpensesByCategoryByMonth(month: String, transaction: [Transaction]) -> [String: Double]{
+    static func sortedExpensesByCategoryByMonth(month: String, transaction: [Transaction]) ->  [(key: String, value: Double)]{
         
         var sortedExpense = [String: Double]()
         
         let monthExpenses = Transaction.expensesByMonth(monthKey: month, transaction: transaction)
-        
+
         monthExpenses.forEach{
-            if sortedExpense[$0.category!]  == nil{
-                sortedExpense[$0.category!] = $0.amount
+            
+            if $0.category == nil{
+                if sortedExpense["other"] == nil{
+                    sortedExpense["other"] = $0.amount
+                }
+                else{
+                     sortedExpense["other"] = sortedExpense["other"]! + $0.amount
+                }
             }
+            
             else{
-                sortedExpense[$0.category!] = sortedExpense[$0.category!]! + $0.amount
+                 if sortedExpense[$0.category!]  == nil {
+                    sortedExpense[$0.category!] = $0.amount
+                }
+                 else{
+                    sortedExpense[$0.category!] = sortedExpense[$0.category!]! + $0.amount
+                    
+                }
             }
         }
         let result = sortedExpense.sorted(by:{ $0.1 > $1.1})
-        
-        var sorted = [String: Double]()
-        result.forEach{
-            sorted[$0.key] = $0.value
+    
+        result.map{
+            print($0.key, $0.value)
         }
-        return sorted
+        
+        return result
     }
 
 }
