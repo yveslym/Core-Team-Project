@@ -266,6 +266,11 @@ extension Transaction{
         
         return result
     }
+    /// return all transaction of the same date
+    static func transactionOfSameDate( date: String, transaction: [Transaction]) -> [Transaction]{
+        let trans = transaction.filter{ $0.date == date}
+        return trans
+    }
 
 }
 

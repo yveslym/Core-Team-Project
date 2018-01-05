@@ -57,6 +57,8 @@
 		20DA3F9C1FF3146800F3C07F /* MonthlyExpenseSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DA3F9B1FF3146800F3C07F /* MonthlyExpenseSummaryViewController.swift */; };
 		20DA3F9E1FF31D3E00F3C07F /* MonthlyExpensesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DA3F9D1FF31D3E00F3C07F /* MonthlyExpensesCollectionViewCell.swift */; };
 		20DA3FA01FF5B0FA00F3C07F /* BiggestExpenseByCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DA3F9F1FF5B0FA00F3C07F /* BiggestExpenseByCategoryViewController.swift */; };
+		20DA3FA21FF5B86C00F3C07F /* TBiggestExpenseByMonthableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DA3FA11FF5B86C00F3C07F /* TBiggestExpenseByMonthableViewCell.swift */; };
+		20DA3FA41FF5F8DF00F3C07F /* MybankCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DA3FA31FF5F8DF00F3C07F /* MybankCollectionViewCell.swift */; };
 		20E10FAD1FE75F9300513097 /* ExpensesByCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E10FAC1FE75F9300513097 /* ExpensesByCategoryViewController.swift */; };
 		20E97AEB1FDD156800EA2D13 /* calendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E97AEA1FDD156800EA2D13 /* calendarViewCell.swift */; };
 		20E97AEE1FDD17E000EA2D13 /* CollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E97AED1FDD17E000EA2D13 /* CollectionDataSource.swift */; };
@@ -124,6 +126,8 @@
 		20DA3F9B1FF3146800F3C07F /* MonthlyExpenseSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyExpenseSummaryViewController.swift; sourceTree = "<group>"; };
 		20DA3F9D1FF31D3E00F3C07F /* MonthlyExpensesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyExpensesCollectionViewCell.swift; sourceTree = "<group>"; };
 		20DA3F9F1FF5B0FA00F3C07F /* BiggestExpenseByCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiggestExpenseByCategoryViewController.swift; sourceTree = "<group>"; };
+		20DA3FA11FF5B86C00F3C07F /* TBiggestExpenseByMonthableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TBiggestExpenseByMonthableViewCell.swift; sourceTree = "<group>"; };
+		20DA3FA31FF5F8DF00F3C07F /* MybankCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MybankCollectionViewCell.swift; sourceTree = "<group>"; };
 		20E10FAC1FE75F9300513097 /* ExpensesByCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesByCategoryViewController.swift; sourceTree = "<group>"; };
 		20E97AEA1FDD156800EA2D13 /* calendarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendarViewCell.swift; sourceTree = "<group>"; };
 		20E97AED1FDD17E000EA2D13 /* CollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDataSource.swift; sourceTree = "<group>"; };
@@ -357,6 +361,8 @@
 				20263E341FE446F6007A335E /* ChartTableViewCell.swift */,
 				20263E391FE5D148007A335E /* ExpensesCollectionViewCell.swift */,
 				20DA3F9D1FF31D3E00F3C07F /* MonthlyExpensesCollectionViewCell.swift */,
+				20DA3FA11FF5B86C00F3C07F /* TBiggestExpenseByMonthableViewCell.swift */,
+				20DA3FA31FF5F8DF00F3C07F /* MybankCollectionViewCell.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -529,6 +535,7 @@
 				20C3EE8A1FDA54DD008B9B17 /* Bank+CoreDataClass.swift in Sources */,
 				207068E11FB988B300AA8F7B /* KeyChain.swift in Sources */,
 				20BBC7491FDCDA560019AE0C /* Email+CoreDataProperties.swift in Sources */,
+				20DA3FA21FF5B86C00F3C07F /* TBiggestExpenseByMonthableViewCell.swift in Sources */,
 				20723E7A1FDA0A8500417C26 /* PlaidOperation.swift in Sources */,
 				20263E301FE3D379007A335E /* ExpensesViewController.swift in Sources */,
 				20E97AEB1FDD156800EA2D13 /* calendarViewCell.swift in Sources */,
@@ -547,6 +554,7 @@
 				20BC43251FB41C2700CBFFA1 /* AppDelegate.swift in Sources */,
 				8609BA5F1FD6224600627E21 /* Identifiers.swift in Sources */,
 				200591BC1FDF4B4500AC0E74 /* BankCellTableViewCell.swift in Sources */,
+				20DA3FA41FF5F8DF00F3C07F /* MybankCollectionViewCell.swift in Sources */,
 				20BBC7471FDCDA560019AE0C /* PhoneNumber+CoreDataProperties.swift in Sources */,
 				20BEC88A1FDDC15700A8EC87 /* ViewController.swift in Sources */,
 				20C3EE8B1FDA54DD008B9B17 /* Account+CoreDataClass.swift in Sources */,

@@ -27,18 +27,14 @@ class MonthlyExpensesCollectionViewCell: UICollectionViewCell {
         // Initialization code
         
         self.mainView.layer.cornerRadius = 15.0
+        //self.mainView.layer.masksToBounds = true
        
-         self.contentView.layer.borderWidth = 5.0
-        // self.backgroundColor = UIColor.white//(displayP3Red: 118/255, green: 157/255, blue: 172/255, alpha: 1)
-                self.contentView.layer.borderColor = UIColor.clear.cgColor
-        self.mainView.layer.masksToBounds = true
-       
-        //
-                self.mainView.layer.shadowColor = UIColor.lightGray.cgColor
-        //        self.layer.shadowOffset = CGSize(width: 0, height: 2.0)
-        //        self.layer.shadowRadius = 2.0
-        //        self.layer.shadowOpacity = 1.0
-        //        self.layer.masksToBounds = false
-                self.mainView.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
+        self.mainView.layer.shadowColor = UIColor.lightGray.cgColor
+        self.mainView.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        self.mainView.layer.shadowRadius = 5
+        self.mainView.layer.shadowOpacity = 1.5
+        self.mainView.layer.masksToBounds = false
+        self.mainView.layer.shadowPath = UIBezierPath(roundedRect: self.mainView.bounds, cornerRadius: self.mainView.layer.cornerRadius).cgPath
+
     }
 }

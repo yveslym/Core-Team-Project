@@ -30,7 +30,7 @@ extension UIColor {
         let green = CGFloat(g) / 255.0
         let blue  = CGFloat(b) / 255.0
         
-        self.init(red:red, green:green, blue:blue, alpha:1)
+        self.init(red:red, green:green, blue:blue, alpha:0.5)
     }
     
     public func randomColor() -> UIColor{

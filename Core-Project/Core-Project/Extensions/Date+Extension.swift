@@ -20,6 +20,12 @@ extension Date{
         let monthName = DateFormatter().monthSymbols[(month - 1) % 12]
         return monthName
     }
+    public func toString() -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+    let stringDate = formatter.string(from: self)
+        return stringDate
+    }
 }
 
 extension Calendar{

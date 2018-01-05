@@ -16,13 +16,11 @@ class MonthlyExpenseSummaryViewController: UIViewController {
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var mainStack: UIStackView!
 
-//    @IBOutlet weak var view3: UIView!
-
     
     
     // - MARK: Properties
     let stack = CoreDataStack.instance
-    
+    var indexpath = Int()
     
     var transactions = [Transaction]() {
         didSet {
@@ -41,7 +39,7 @@ class MonthlyExpenseSummaryViewController: UIViewController {
             
             
 //            view1.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25),
-            view2.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.75),
+            //view2.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.75),
 //            view3.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.35),
 //            expenseStack.heightAnchor.constraint(equalTo: view1.heightAnchor, multiplier: 0.30),
 //            monthStack.heightAnchor.constraint(equalTo: view1.heightAnchor, multiplier: 0.50),
@@ -65,6 +63,7 @@ class MonthlyExpenseSummaryViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        // self.navigationController?.hidesBarsOnSwipe = true
         
         self.transactions = {
             let record = stack.fetchRecordsForEntity(.Transaction, inManagedObjectContext: stack.viewContext)
@@ -98,10 +97,8 @@ extension MonthlyExpenseSummaryViewController: UICollectionViewDelegate, UIColle
         
         
         let expenseByCategory = Transaction.sortedExpensesByCategoryByMonth(month: month, transaction: self.transactions)
-        print(expenseByCategory)
-        
+       
     
-        
         
         // update collection view
         
@@ -121,7 +118,26 @@ extension MonthlyExpenseSummaryViewController: UICollectionViewDelegate, UIColle
         
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let _month = Transaction.numberOfMonth(transaction: self.transactions)
+        let month = _month[indexPath.row]
+       self.indexpath = indexPath.row
+        
+         let expenseByCategory = Transaction.sortedExpensesByCategoryByMonth(month: month, transaction: self.transactions)
+        
+        self.performSegue(withIdentifier: "next", sender: expenseByCategory)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     
+        if segue.identifier == "next"{
+            
+            let destination = segue.destination as! BiggestExpenseByCategoryViewController
+            destination.expenseByCategory = sender as? [(key: String, value: Double)]
+            let _month = Transaction.numberOfMonth(transaction: self.transactions)
+            let month = _month[self.indexpath]
+            destination._month = month
+        }
+    }
 }
 
 
