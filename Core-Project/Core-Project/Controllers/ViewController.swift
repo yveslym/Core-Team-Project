@@ -112,7 +112,7 @@ class ViewController: UIViewController, plaidDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.center.y += self.view.bounds.height
-        self.tableView.isHidden = false
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         
